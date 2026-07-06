@@ -17,10 +17,10 @@ const approach = [
 ];
 
 const services = [
-  { title: "אתרי תדמית פרימיום", text: "אתרים לעסקים, מותגים ונותני שירות שרוצים להיראות כמו מי שהם באמת: מקצועיים, ממוקדים וראויים לבחירה.", tags: ["עסקים מקומיים", "מותגים אישיים", "קליניקות", "חברות שירות"] },
-  { title: "דפי נחיתה ממירים", text: "עמודים ממוקדים לקמפיינים, הצעות ושירותים, עם מסר חד, מבנה ברור וקריאה לפעולה שלא הולכת לאיבוד.", tags: ["קמפיינים", "לידים", "השקות", "שירות ספציפי"] },
-  { title: "eCommerce ודפי מוצר", text: "חוויות מכירה שמציגות מוצר בצורה ברורה, בונות ביטחון ומובילות את הלקוח להבין למה נכון לקנות עכשיו.", tags: ["חנויות", "מוצרי פרימיום", "דפי מוצר", "משפכי מכירה"] },
-  { title: "Story Scrolling & Motion", text: "סקשנים אינטראקטיביים שמספרים סיפור דרך תנועה, שכבות וגלילה, כשצריך להסביר רעיון, מוצר או תהליך בצורה חדה ובלתי נשכחת.", tags: ["מותגים", "מוצרים מורכבים", "השקות", "אתרי פרימיום"], featured: true },
+  { number: "01", kind: "landing", title: "דפי נחיתה", text: "דף אחד, מטרה אחת. בנוי להניע לפעולה מהירה וברורה — השארת פרטים, רכישה או קביעת פגישה.", tags: ["Leads", "Conversion", "Focus"] },
+  { number: "02", kind: "brand", title: "אתרי תדמית פרימיום", text: "אתר שמייצר אמון, מסביר את הערך שלך ומחזק את המיתוג — לעסקים שרוצים להיראות בדיוק כמו שהם.", tags: ["Brand", "Trust", "Professional"] },
+  { number: "03", kind: "story", title: "Story Scrolling", text: "חוויית גלילה שמספרת סיפור. מתאים למותגים, פרויקטים ועסקים שרוצים להשאיר רושם עמוק.", tags: ["Story", "Engagement", "Emotion"] },
+  { number: "04", kind: "commerce", title: "חוויות eCommerce", text: "חנות אונליין חכמה, ממוקדת וקלה לתפעול — שמביאה לקוחות לקנות ולחזור שוב.", tags: ["Shop", "UX", "Conversion"] },
 ];
 
 const process = [
@@ -39,6 +39,20 @@ const projects = [
 
 function SectionIntro({ label, title, text }: { label: string; title: React.ReactNode; text: string }) {
   return <Reveal className="section-intro"><p className="section-label">{label}</p><h2>{title}</h2><p className="section-copy">{text}</p></Reveal>;
+}
+
+function ServiceIllustration({ kind }: { kind: string }) {
+  return <div className={`service-illustration service-illustration-${kind}`} aria-hidden="true">
+    <span className="shape browser"><i /><i /><i /></span>
+    <span className="shape peach-block" />
+    <span className="shape olive-block" />
+    <span className="shape peach-circle" />
+    <span className="shape outline-circle" />
+    <span className="shape triangle" />
+    <span className="shape dots" />
+    <span className="shape phone"><b /><b /><b /></span>
+    <span className="shape bag" />
+  </div>;
 }
 
 export function Problem() {
@@ -68,11 +82,31 @@ export function Approach() {
 }
 
 export function Services() {
-  return <section id="services" className="page-section services-section"><div className="container">
-    <SectionIntro label="שירותים" title="אתרים שנבנים לפי המטרה שלהם." text="כל אתר צריך לשרת מטרה אחרת: לבנות ביטחון, להסביר שירות, להביא פניות, למכור מוצר או להציג רעיון בצורה שקשה להתעלם ממנה." />
-    <div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className={`service-card ${service.featured ? "featured" : ""}`}><div className="service-mark" aria-hidden="true"><span /><span /></div><h3>{service.title}</h3><p>{service.text}</p><strong>מתאים ל:</strong><ul>{service.tags.map(tag => <li key={tag}>{tag}</li>)}</ul></article></Reveal>)}</div>
-    <Reveal className="section-action"><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">איזה סוג אתר נכון לעסק שלך? <MessageCircle aria-hidden="true" /></a></Reveal>
-  </div></section>;
+  return <section id="services" className="page-section services-section">
+    <div className="services-decor" aria-hidden="true"><i /><i /><i /><span /><span /><b /></div>
+    <div className="container services-inner">
+      <div className="services-intro">
+        <Reveal className="services-side-copy"><p>כל עסק הוא עולם. לכן אני בונה אתר שאינו בנוי לפי תבנית, אלא לפי המטרה, הקהל והדרך שבה העסק שלך רוצה להתפתח.</p></Reveal>
+        <Reveal className="services-heading">
+          <p className="section-label services-label"><span aria-hidden="true" />השירותים שלי</p>
+          <h2>אתרים שמבוססים<br />על מטרה ברורה</h2>
+          <i aria-hidden="true" />
+          <p>ארבע משפחות של אתרים, כל אחת נבנית סביב מטרה עסקית אחרת.</p>
+        </Reveal>
+      </div>
+      <div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
+        <span className="service-number">{service.number}</span>
+        <ServiceIllustration kind={service.kind} />
+        <h3>{service.title}</h3>
+        <p>{service.text}</p>
+        <ul>{service.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+      </article></Reveal>)}</div>
+      <Reveal className="services-action">
+        <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer"><ArrowLeft aria-hidden="true" />איזה סוג אתר מתאים לעסק שלך?</a>
+        <a className="services-process-link" href="#process">צפה איך התהליך עובד</a>
+      </Reveal>
+    </div>
+  </section>;
 }
 
 export function StoryScrolling() {
