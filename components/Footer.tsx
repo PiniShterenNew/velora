@@ -1,0 +1,3 @@
+const whatsappUrl = "https://wa.me/972548345192";
+const links = [["שירותים", "#services"], ["תהליך", "#process"], ["עבודות", "#work"], ["שאלות", "#faq"], ["צור קשר", "#contact"]];
+export function Footer() { return <footer className="site-footer"><div className="container"><div className="footer-main"><div><strong>VELORA STUDIO</strong><p>אתרים שנבנים סביב הסיבה שבגללה הלקוח צריך לבחור בך.</p></div><nav aria-label="ניווט תחתון">{links.map(([label, href]) => <a href={href} key={label}>{label}</a>)}</nav><a className="footer-contact" href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp: 054-8345192</a></div><div className="footer-bottom">© 2026 Velora Studio. כל הזכויות שמורות.</div></div></footer> }
