@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { AmbientBackground } from "./AmbientBackground";
 
 const stages = [
   {
@@ -65,14 +66,7 @@ export function DecisionBoard() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.38 }}
     >
-      <div className="strategy-decorations" aria-hidden="true">
-        <motion.span className="strategy-decor strategy-decor-circle-peach" animate={reduceMotion ? undefined : { y: [0, 6, 0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }} />
-        <motion.span className="strategy-decor strategy-decor-circle-olive" animate={reduceMotion ? undefined : { y: [0, -7, 0] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }} />
-        <motion.span className="strategy-decor strategy-decor-square" animate={reduceMotion ? undefined : { y: [0, 5, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} />
-        <motion.span className="strategy-decor strategy-decor-triangle" animate={reduceMotion ? undefined : { y: [0, -5, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} />
-        <span className="strategy-decor strategy-decor-dots strategy-decor-dots-left" />
-        <span className="strategy-decor strategy-decor-dots strategy-decor-dots-right" />
-      </div>
+      <AmbientBackground variant="decision" />
 
       <div className="decision-bridge-inner">
         <header className="strategy-heading">

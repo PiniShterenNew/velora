@@ -1,0 +1,20 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="shopping-title">
+  <title id="shopping-title">Shopping illustration</title>
+  <rect x="40" y="33" width="78" height="78" rx="4" fill="#8FA7A0" fill-opacity=".76"/>
+  <circle cx="108" cy="101" r="27" fill="#E8B7A1" fill-opacity=".48"/>
+  <g fill="#2A211B" fill-opacity=".22">
+    <circle cx="34" cy="71" r="1.8"/><circle cx="46" cy="71" r="1.8"/><circle cx="58" cy="71" r="1.8"/>
+    <circle cx="34" cy="83" r="1.8"/><circle cx="46" cy="83" r="1.8"/><circle cx="58" cy="83" r="1.8"/>
+    <circle cx="34" cy="95" r="1.8"/><circle cx="46" cy="95" r="1.8"/><circle cx="58" cy="95" r="1.8"/>
+  </g>
+  <g stroke="#2A211B" stroke-opacity=".78" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M54 68h12l7 39h37l8-27H72"/>
+    <path d="M81 122.5h.2"/>
+    <path d="M106 122.5h.2"/>
+    <path d="M82 68a18 18 0 0 1 36 0"/>
+  </g>
+  <g stroke="#D6A441" stroke-width="1.8" stroke-linecap="round">
+    <path d="M93 89h16"/>
+    <path d="M101 81v16"/>
+  </g>
+</svg>

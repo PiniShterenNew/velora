@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, MessageCircle, X } from "lucide-react";
 
@@ -36,7 +37,7 @@ export function Header() {
     <header className="site-header">
       <div className={`header-inner ${open ? "menu-open" : ""}`}>
         <a className="brand" href="#top" aria-label="Velora Studio — חזרה לראש העמוד">
-          <span>VELORA</span> STUDIO
+          <Image className="brand-logo" src="/full-logo.svg" alt="Velora Studio" width={148} height={62} priority />
         </a>
 
         <nav className="nav-pill" aria-label="ניווט ראשי">
