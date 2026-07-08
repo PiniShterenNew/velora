@@ -1,0 +1,210 @@
+/* process */
+
+.process-section .section-label {
+  background: var(--color-mustard);
+}
+
+.process-inner {
+  position: relative;
+}
+
+.process-section .section-intro {
+  margin-bottom: clamp(48px, 6vw, 76px);
+}
+
+.process-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 30px);
+  direction: rtl;
+}
+
+.process-grid>.scroll-reveal {
+  position: relative;
+  z-index: 2;
+}
+
+.process-flow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.process-flow-line {
+  position: absolute;
+  display: block;
+  background: color-mix(in srgb, var(--color-primary) 34%, transparent);
+}
+
+.process-flow-line::after {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 44%, transparent);
+  border-radius: 50%;
+  background: var(--color-bg);
+  content: "";
+}
+
+.process-flow-line-top,
+.process-flow-line-bottom {
+  right: calc(50% - 15px);
+  width: 30px;
+  height: 1px;
+}
+
+.process-flow-line-top {
+  top: 25%;
+}
+
+.process-flow-line-bottom {
+  bottom: 25%;
+}
+
+.process-flow-line-turn {
+  top: calc(50% - 15px);
+  right: 50%;
+  width: 1px;
+  height: 30px;
+}
+
+.process-flow-line-top::after {
+  left: -3px;
+  top: -3px;
+}
+
+.process-flow-line-bottom::after {
+  right: -3px;
+  top: -3px;
+}
+
+.process-flow-line-turn::after {
+  right: -3px;
+  bottom: -3px;
+}
+
+.process-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: start;
+  gap: clamp(24px, 3vw, 34px);
+  height: 100%;
+  min-height: clamp(275px, 26vw, 330px);
+  overflow: hidden;
+  padding: clamp(26px, 3.2vw, 38px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 38%, transparent);
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--color-surface) 88%, var(--color-bg)), color-mix(in srgb, var(--color-soft) 76%, white));
+  box-shadow: 0 22px 65px color-mix(in srgb, var(--color-border) 7%, transparent);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.process-card::before {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 0%, transparent);
+  border-radius: 20px;
+  pointer-events: none;
+  content: "";
+  transition: border-color 220ms ease;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--color-primary) 56%, var(--color-border));
+  box-shadow: 7px 7px 0 color-mix(in srgb, var(--color-border) 80%, transparent), 0 28px 76px color-mix(in srgb, var(--color-border) 10%, transparent);
+}
+
+.process-card:hover::before {
+  border-color: color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.process-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.process-number {
+  display: grid;
+  place-items: center;
+  align-self: start;
+  width: clamp(74px, 8vw, 92px);
+  height: clamp(64px, 7vw, 80px);
+  border: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent);
+  border-radius: 20px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
+  font-weight: 900;
+  letter-spacing: .02em;
+  line-height: 1;
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-primary) 46%, transparent);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.process-card:hover .process-number {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-primary) 62%, transparent);
+}
+
+.process-illustration {
+  display: grid;
+  place-items: center;
+  width: clamp(74px, 8vw, 94px);
+  height: clamp(70px, 7vw, 88px);
+  opacity: .64;
+  filter: saturate(.88);
+  transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease;
+}
+
+.process-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.process-card:hover .process-illustration {
+  opacity: .92;
+  filter: saturate(1);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.process-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 590px;
+  padding-top: clamp(20px, 2.6vw, 30px);
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 18%, transparent);
+}
+
+.process-card h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.55rem, 2.3vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+.process-button-mark {
+  width: 26px;
+  height: 1.5px;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+}
+
+.process-button-mark::after {
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin-top: -3px;
+  margin-inline-start: -1px;
+  border-block-start: 1.5px solid currentColor;
+  border-inline-start: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  content: "";
+}

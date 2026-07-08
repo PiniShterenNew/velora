@@ -1,38 +1,38 @@
 import { ArrowLeft, MessageCircle } from "lucide-react";
+import { copy } from "@/lib/data";
 import ValuePropositionBackground from "./ValuePropositionBackground";
 
-const whatsappUrl = "https://wa.me/972548345192";
-const services = ["אתרי תדמית", "דפי נחיתה", "eCommerce", "Story Scrolling", "אוטומציות", "עיצוב מוצר"];
+const whatsappUrl = copy.brand.whatsappUrl;
+const services = copy.hero.services;
+
 export function Hero() {
   return (
     <section className="hero" id="top">
       <ValuePropositionBackground />
       <div className="hero-container site-container">
         <div className="hero-content">
-          <p className="eyebrow reveal reveal-1">סטודיו לאתרים שבנויים סביב הסיבה לבחור בך</p>
+          <p className="eyebrow reveal reveal-1">{copy.hero.eyebrow}</p>
 
           <h1 className="hero-title">
-            <span className="hero-title-first reveal reveal-2">לא מתחילים מתבנית.</span>
-            <span className="hero-title-second reveal reveal-3">מתחילים מהסיבה שבגללה</span>
-            <span className="hero-title-third reveal reveal-4">הלקוח צריך <em>לבחור בך</em>.</span>
+            <span className="hero-title-first reveal reveal-2">{copy.hero.title.first}</span>
+            <span className="hero-title-second reveal reveal-3">{copy.hero.title.second}</span>
+            <span className="hero-title-third reveal reveal-4">{copy.hero.title.thirdPrefix} <em>{copy.hero.title.thirdEmphasis}</em>{copy.hero.title.thirdSuffix}</span>
           </h1>
 
-          <p className="hero-text reveal reveal-5">
-            Velora Studio בונה אתרי תדמית, דפי נחיתה וחוויות דיגיטליות שמשלבות
-            אסטרטגיה, קופי, עיצוב ופיתוח תחת קורת גג אחת. כדי שהאתר שלך לא רק
-            ייראה טוב, אלא גם יביא תוצאות.
-          </p>
+          <p className="hero-text reveal reveal-5">{copy.hero.text}</p>
 
           <div className="hero-actions reveal reveal-6">
             <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
-              דבר איתי בוואטסאפ <MessageCircle aria-hidden="true" />
+              {copy.common.whatsappFull} <MessageCircle aria-hidden="true" />
             </a>
             <a className="btn btn-secondary" href="#decision-board">
-              צפה איך התהליך עובד <ArrowLeft aria-hidden="true" />
+              {copy.common.watchProcess} <ArrowLeft aria-hidden="true" />
             </a>
           </div>
 
-          <ul className="hero-tags reveal reveal-7" aria-label="שירותי הסטודיו">
+          <p className="hero-micro-trust reveal reveal-7">{copy.hero.microTrust}</p>
+
+          <ul className="hero-tags reveal reveal-8" aria-label={copy.aria.studioServices}>
             {services.slice(0, 4).map((service) => (
               <li className={`service-chip ${service === "Story Scrolling" ? "featured" : ""}`} key={service}>
                 {service}

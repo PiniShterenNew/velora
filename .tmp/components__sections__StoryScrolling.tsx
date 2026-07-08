@@ -1,33 +1,36 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { SectionIntro, whatsappUrl } from "./shared";
-
-type StoryCardData = typeof copy.storyScrolling.cards[number];
 
 type StoryCard = {
   illustration: string;
   content: ReactNode;
 };
 
-function renderStoryCardContent(card: StoryCardData) {
-  if ("path" in card && card.path) {
-    return <><p>{card.intro}</p><div className="story-path">{card.path.map((item, index) => <span key={item}>{index > 0 && <i aria-hidden="true" />}{item}</span>)}</div></>;
-  }
-
-  return <>{card.lines && <p>{card.lines.map((line) => <span key={line}>{line}<br /></span>)}{card.strong && <strong>{card.strong}</strong>}</p>}{!card.lines && card.intro && <><p>{card.intro}</p>{card.strong && <strong className="story-result">{card.strong}</strong>}</>}</>;
-}
-
-const cards: StoryCard[] = copy.storyScrolling.cards.map((card) => ({
-  illustration: card.illustration,
-  content: renderStoryCardContent(card),
-}));
+const cards: StoryCard[] = [
+  {
+    illustration: "/illustrations/browser.svg",
+    content: <><p>הלקוח נכנס לאתר.<br />הוא לא מחפש עיצוב.<br /><strong>הוא מחפש תשובה מהירה.</strong></p></>,
+  },
+  {
+    illustration: "/illustrations/message.svg",
+    content: <><p>אם המסר מטושטש,<br /><strong>שום עיצוב לא יציל את ההחלטה.</strong></p></>,
+  },
+  {
+    illustration: "/illustrations/strategy.svg",
+    content: <><p>אתר נכון מוביל את הלקוח:</p><div className="story-path"><span>מהבנה</span><i aria-hidden="true" /><span>לביטחון</span><i aria-hidden="true" /><span>לפעולה</span></div></>,
+  },
+  {
+    illustration: "/illustrations/trust.svg",
+    content: <><p>בסוף, האתר צריך לעשות דבר אחד:</p><strong className="story-result">להפוך עניין לפנייה.</strong></>,
+  },
+];
 
 export function StoryScrolling() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -125,13 +128,13 @@ export function StoryScrolling() {
   }, [activeIndex]);
 
   return <section id="story-scrolling" className="page-section story-section" ref={sectionRef}><AmbientBackground variant="story" /><div className="container story-shell">
-    <SectionIntro label={copy.storyScrolling.label} title={copy.storyScrolling.title} text={copy.storyScrolling.text} />
+    <SectionIntro label="Story Scrolling" title="כשהמסר מורכב, הגלילה הופכת אותו לסיפור." text="Story Scrolling מאפשר להוביל את הלקוח דרך רעיון, מוצר או תהליך בצורה הדרגתית. במקום להעמיס את כל המידע בבת אחת, האתר בונה הבנה שלב אחרי שלב." />
     <div className="story-demo">
-      <aside className="story-sticky" aria-label={copy.aria.storyCompass}>
+      <aside className="story-sticky" aria-label="Story Compass">
         <div className="story-compass-copy">
-          <span>{copy.storyScrolling.compassBefore}</span>
+          <span>מעוד עמוד יפה</span>
           <i aria-hidden="true" />
-          <strong>{copy.storyScrolling.compassAfter}</strong>
+          <strong>למסלול החלטה ברור.</strong>
         </div>
         <div className="story-compass-visual" aria-hidden="true">
           <span className="story-compass-line" />
@@ -154,6 +157,6 @@ export function StoryScrolling() {
         </article>
       </Reveal>)}</div>
     </div>
-    <Reveal className="story-cta"><p>{copy.storyScrolling.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">{copy.storyScrolling.ctaLabel} <span className="story-button-mark" aria-hidden="true" /></a></Reveal>
+    <Reveal className="story-cta"><p>רוצה אתר שמספר את הסיפור שלך נכון?</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">בוא נדבר על הסיפור שלך <span className="story-button-mark" aria-hidden="true" /></a></Reveal>
   </div></section>;
 }

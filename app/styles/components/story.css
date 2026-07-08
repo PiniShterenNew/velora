@@ -1,0 +1,343 @@
+/* story */
+
+.story-section {
+  overflow: visible;
+  padding-block: clamp(96px, 10vw, 150px);
+  background: var(--color-bg);
+}
+
+.story-shell {
+  position: relative;
+  overflow: visible;
+  padding: clamp(34px, 5vw, 64px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 34%, transparent);
+  border-radius: var(--radius-large);
+  background:
+    radial-gradient(circle at 8% 18%, color-mix(in srgb, var(--color-peach) 36%, transparent) 0 13%, transparent 29%),
+    linear-gradient(135deg, color-mix(in srgb, var(--color-soft) 78%, white), color-mix(in srgb, var(--color-bg) 72%, var(--color-surface)));
+  box-shadow: 0 32px 90px color-mix(in srgb, var(--color-border) 9%, transparent);
+}
+
+.story-section .section-label {
+  direction: ltr;
+  background: color-mix(in srgb, var(--color-mustard) 72%, var(--color-bg));
+}
+
+.story-demo {
+  display: grid;
+  grid-template-columns: minmax(330px, .88fr) minmax(0, 1.12fr);
+  gap: clamp(28px, 5vw, 68px);
+  align-items: start;
+  direction: rtl;
+}
+
+.story-sticky {
+  position: sticky;
+  top: var(--header-sticky-offset);
+  align-self: start;
+  grid-column: 1;
+  isolation: isolate;
+  min-height: clamp(470px, 54vw, 620px);
+  overflow: hidden;
+  padding: clamp(30px, 4vw, 46px);
+  border: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent);
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--color-text) 92%, var(--color-primary)), color-mix(in srgb, var(--color-border) 82%, black)),
+    var(--color-text);
+  color: var(--color-bg);
+  box-shadow: 14px 14px 0 color-mix(in srgb, var(--color-border) 86%, transparent);
+}
+
+.story-sticky::before,
+.story-sticky::after {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+}
+
+.story-sticky::before {
+  inset: 20px;
+  border: 1px solid color-mix(in srgb, var(--color-bg) 13%, transparent);
+  border-radius: 25px;
+}
+
+.story-sticky::after {
+  top: 26px;
+  left: 26px;
+  width: 116px;
+  height: 150px;
+  opacity: .18;
+  background-image: radial-gradient(var(--color-bg) 1.4px, transparent 1.4px);
+  background-size: 13px 13px;
+}
+
+.story-compass-copy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  max-width: 360px;
+  min-height: 48%;
+}
+
+.story-compass-copy>span {
+  color: color-mix(in srgb, var(--color-bg) 74%, transparent);
+  font-size: 1.08rem;
+  font-weight: 650;
+}
+
+.story-compass-copy>i {
+  width: 64px;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-mustard), color-mix(in srgb, var(--color-bg) 38%, transparent));
+}
+
+.story-compass-copy>strong {
+  max-width: 340px;
+  font-size: clamp(2.45rem, 4.4vw, 4.05rem);
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+
+.story-compass-visual {
+  position: absolute;
+  inset: auto clamp(28px, 4vw, 46px) clamp(28px, 4vw, 46px) auto;
+  width: min(58%, 290px);
+  height: 48%;
+  min-height: 245px;
+}
+
+.story-compass-line {
+  position: absolute;
+  top: 14%;
+  right: 34px;
+  bottom: 14%;
+  width: 1px;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--color-bg) 18%, transparent), var(--color-mustard), color-mix(in srgb, var(--color-bg) 18%, transparent));
+  content: "";
+}
+
+.story-progress-marker,
+.story-compass-node {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.story-progress-marker {
+  top: 14%;
+  right: 25px;
+  z-index: 3;
+  width: 19px;
+  height: 19px;
+  border: 2px solid var(--color-bg);
+  background: var(--color-mustard);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--color-mustard) 18%, transparent);
+}
+
+.story-compass-node {
+  right: 30px;
+  width: 9px;
+  height: 9px;
+  background: color-mix(in srgb, var(--color-bg) 54%, transparent);
+}
+
+.story-compass-node-1 { top: 15%; }
+
+.story-compass-node-2 { top: 39%; }
+
+.story-compass-node-3 { top: 63%; }
+
+.story-compass-node-4 { top: 87%; }
+
+.story-compass-shape {
+  position: absolute;
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--color-bg) 18%, transparent);
+}
+
+.story-compass-shape-1 {
+  top: 4%;
+  left: 10%;
+  width: 112px;
+  height: 112px;
+  border-radius: 28px;
+  transform: rotate(14deg);
+}
+
+.story-compass-shape-2 {
+  right: 72px;
+  bottom: 2%;
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+}
+
+.story-cards {
+  grid-column: 2;
+  display: grid;
+  gap: clamp(22px, 3vw, 34px);
+  direction: rtl;
+}
+
+.story-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: "illustration copy";
+  align-items: center;
+  gap: clamp(26px, 4vw, 54px);
+  direction: ltr;
+  min-height: clamp(300px, 30vw, 380px);
+  overflow: hidden;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 32%, transparent);
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--color-surface) 78%, var(--color-bg));
+  box-shadow: 0 22px 60px color-mix(in srgb, var(--color-border) 6%, transparent);
+  opacity: .62;
+  transform: translateY(0) scale(.985);
+  transition: opacity 240ms ease, transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease, background 240ms ease;
+}
+
+.story-card::before {
+  position: absolute;
+  inset: 16px;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 0%, transparent);
+  border-radius: 20px;
+  pointer-events: none;
+  content: "";
+  transition: border-color 240ms ease;
+}
+
+.story-card.is-active {
+  border-color: color-mix(in srgb, var(--color-primary) 68%, var(--color-border));
+  background: color-mix(in srgb, var(--color-surface) 92%, var(--color-bg));
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--color-border) 82%, transparent), 0 28px 72px color-mix(in srgb, var(--color-border) 10%, transparent);
+  opacity: 1;
+  transform: translateY(-6px) scale(1);
+}
+
+.story-card.is-active::before {
+  border-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.story-card p {
+  margin: 0;
+  font-size: clamp(1.18rem, 1.7vw, 1.38rem);
+  line-height: 1.6;
+}
+
+.story-card strong {
+  color: var(--color-text);
+}
+
+.story-index {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--color-primary);
+  font-size: clamp(1.15rem, 1.55vw, 1.42rem);
+  font-weight: 900;
+  letter-spacing: .03em;
+  line-height: 1;
+}
+
+.story-illustration {
+  grid-area: illustration;
+  display: grid;
+  place-items: center;
+  justify-self: stretch;
+  width: 100%;
+  min-height: clamp(190px, 22vw, 270px);
+  margin: 0;
+  opacity: .62;
+  filter: saturate(.85);
+  transform: translateY(4px) scale(.94);
+  transition: opacity 240ms ease, filter 240ms ease, transform 240ms ease;
+}
+
+.story-illustration img {
+  display: block;
+  width: min(100%, clamp(190px, 22vw, 260px));
+  height: auto;
+}
+
+.story-card.is-active .story-illustration {
+  opacity: 1;
+  filter: saturate(1);
+  transform: translateY(0) scale(1.04);
+}
+
+.story-card-copy {
+  grid-area: copy;
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding-inline-start: clamp(22px, 3vw, 34px);
+  border-inline-start: 1px solid color-mix(in srgb, var(--color-border) 18%, transparent);
+  direction: rtl;
+}
+
+.story-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  color: var(--color-text);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.story-path i {
+  width: 28px;
+  height: 1.5px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-primary) 72%, transparent);
+}
+
+.story-path i::after {
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin-top: -3px;
+  margin-inline-start: -1px;
+  border-block-start: 1.5px solid color-mix(in srgb, var(--color-primary) 72%, transparent);
+  border-inline-start: 1.5px solid color-mix(in srgb, var(--color-primary) 72%, transparent);
+  transform: rotate(-45deg);
+  content: "";
+}
+
+.story-result {
+  display: block;
+  margin-top: 18px;
+  color: var(--color-primary);
+  font-size: clamp(1.9rem, 3vw, 2.45rem);
+  line-height: 1.15;
+}
+
+.story-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 46px;
+  text-align: center;
+}
+
+.story-cta p,
+.action-with-note>p {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.story-button-mark {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: -13px 0 0 currentColor;
+}

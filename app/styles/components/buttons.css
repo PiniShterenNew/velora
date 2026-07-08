@@ -1,0 +1,55 @@
+/* buttons */
+
+/* Shared components and homepage sections. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 0 25px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-weight: 750;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  box-shadow: var(--shadow-offset-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-offset-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background: var(--color-soft);
+}
+
+.services-action .btn-primary {
+  min-width: min(100%, 420px);
+  min-height: 60px;
+  background: linear-gradient(135deg, #c97942, var(--color-primary));
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-border) 86%, transparent);
+}
+
+.btn-dark-secondary {
+  border-color: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  color: var(--color-bg);
+}
+
+.btn-dark-secondary:hover {
+  background: color-mix(in srgb, var(--color-bg) 10%, transparent);
+  transform: translateY(-2px);
+}

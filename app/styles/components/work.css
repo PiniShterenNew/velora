@@ -1,0 +1,119 @@
+/* work */
+
+.work-content ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 16px 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tag,
+.work-content li {
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 24%, transparent);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-bg) 58%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 56%, transparent);
+  font-size: .72rem;
+  font-weight: 620;
+  line-height: 1.2;
+}
+
+.work-section {
+  background: var(--color-soft);
+}
+
+.work-section .section-label {
+  background: var(--color-peach);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(18px, 2.1vw, 28px);
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
+  border-radius: 30px;
+  background: color-mix(in srgb, var(--color-bg) 88%, var(--color-soft));
+  box-shadow: 0 22px 58px color-mix(in srgb, var(--color-border) 10%, transparent);
+  transition: opacity 220ms ease, filter 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.work-grid.has-scroll-focus .work-card {
+  opacity: 1;
+  filter: none;
+}
+
+.work-card:hover,
+.work-card:focus-within {
+  border-color: color-mix(in srgb, var(--color-border) 62%, transparent);
+  box-shadow: 0 28px 68px color-mix(in srgb, var(--color-border) 14%, transparent);
+}
+
+.work-card:hover .desktop-shot,
+.work-card:focus-within .desktop-shot {
+  box-shadow: 0 24px 48px color-mix(in srgb, var(--color-border) 20%, transparent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .work-card:hover .project-preview {
+    transform: translateY(-4px);
+  }
+
+  .work-card:hover .desktop-shot {
+    transform: translateY(-3px);
+  }
+
+  .work-card:hover .mobile-shot {
+    transform: translate(-4px, -5px);
+  }
+}
+
+.work-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 14px clamp(24px, 3vw, 34px) 32px;
+}
+
+.work-content h3 {
+  margin: 0 0 12px;
+  font-size: clamp(1.42rem, 2vw, 1.75rem);
+  line-height: 1.08;
+}
+
+.work-content a {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 7px;
+  min-height: 38px;
+  margin-top: auto;
+  padding-top: 24px;
+  color: var(--color-ink);
+  font-size: .95rem;
+  font-weight: 750;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.work-content a:hover {
+  color: var(--color-primary);
+  transform: translateX(-3px);
+}
+
+.work-content a svg {
+  width: 16px;
+  transition: transform 180ms ease;
+}
+
+.work-content a:hover svg {
+  transform: translate(-2px, -2px);
+}

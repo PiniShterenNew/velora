@@ -1,10 +1,38 @@
-"use client";
+﻿"use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { copy } from "@/lib/data";
 import { AmbientBackground } from "./AmbientBackground";
 
-const stages = copy.decisionBoard.stages;
+const stages = [
+  {
+    number: "01",
+    title: "מסר",
+    description: "מחדדים את המסר הייחודי של העסק, כדי שהלקוח יבין מיד את הערך שלך.",
+    tone: "peach",
+    shape: "circle",
+  },
+  {
+    number: "02",
+    title: "אמון",
+    description: "בונים ביטחון דרך בהירות, עקביות וחוויה שמרגישה מדויקת ואמינה.",
+    tone: "olive",
+    shape: "triangle",
+  },
+  {
+    number: "03",
+    title: "הוכחה",
+    description: "מוכיחים את ההבטחה בעזרת תוצאות, ניסיון ודוגמאות מהשטח.",
+    tone: "mustard",
+    shape: "square",
+  },
+  {
+    number: "04",
+    title: "פעולה",
+    description: "מובילים את הלקוח לצעד הבא בצורה ברורה, טבעית ומדויקת.",
+    tone: "rust",
+    shape: "hexagon",
+  },
+] as const;
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 16 },
@@ -42,10 +70,12 @@ export function DecisionBoard() {
 
       <div className="decision-bridge-inner container">
         <header className="strategy-heading">
-          <motion.p className="board-kicker" variants={reveal} custom={0}>{copy.decisionBoard.kicker}</motion.p>
-          <motion.h2 id="decision-board-title" variants={reveal} custom={0.12}>{copy.decisionBoard.title}</motion.h2>
-          <motion.p className="board-summary" variants={reveal} custom={0.2}>{copy.decisionBoard.summary}</motion.p>
-          <motion.div className="board-label" variants={reveal} custom={0.28}>{copy.decisionBoard.label}</motion.div>
+          <motion.p className="board-kicker" variants={reveal} custom={0}>הבעיה והמסגרת</motion.p>
+          <motion.h2 id="decision-board-title" variants={reveal} custom={0.12}>אתר לא נכשל בגלל עיצוב. הוא נכשל כשהלקוח לא מקבל החלטה.</motion.h2>
+          <motion.p className="board-summary" variants={reveal} custom={0.2}>
+            כדי שאתר יוביל לפנייה, הוא צריך לענות מהר על ארבעה דברים: מסר, אמון, הוכחה ופעולה.
+          </motion.p>
+          <motion.div className="board-label" variants={reveal} custom={0.28}>אסטרטגיה לפני עיצוב</motion.div>
         </header>
 
         <ol className="decision-steps">

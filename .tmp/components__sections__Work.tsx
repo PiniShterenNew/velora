@@ -1,16 +1,20 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { ArrowUpLeft, MessageCircle } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { SectionIntro, whatsappUrl } from "./shared";
 
-const projects = copy.work.projects.filter((project) => project.name !== "Cash Plus");
+const projects = [
+  { name: "Cash Plus", text: "פלטפורמה דיגיטלית בתחום הפיננסים, עם דגש על הצגת מוצר, בניית אמון, ממשק ברור וחוויית משתמש מודרנית.", tags: ["Product Website", "UX", "Fintech", "Conversion"], href: "https://cashplus-app.com/", featured: true },
+  { name: "א.ש אינסטלציה", text: "אתר לעסק שירות מקומי, שנועד ליצור ביטחון מהיר, להסביר את השירותים ולהוביל לקוחות לפנייה ישירה.", tags: ["Local Business", "Service Website", "Trust", "Leads"], href: "https://as-plumbing-cyan.vercel.app/", featured: true, screenshots: { desktop: "/projects/as-plumbing-desktop.webp", mobile: "/projects/as-plumbing-mobile.webp" } },
+  { name: "Karen Beauty", text: "אתר למותג יופי, עם שפה נקייה ועדינה שמטרתה לשדר מקצועיות, אסתטיקה ומהימנות.", tags: ["Beauty", "Premium", "Brand Website"], href: "https://karen-beauty.vercel.app/", screenshots: { desktop: "/projects/karen-beauty-desktop.webp", mobile: "/projects/karen-beauty-mobile.webp" } },
+  { name: "נותנים באהבה", text: "אתר תרומות שמציג מטרה חברתית בצורה ברורה, בונה אמון ומוביל את המשתמש לפעולת תרומה.", tags: ["Donation", "Nonprofit", "Trust", "CTA"], href: "https://donate.notnim.info/", screenshots: { desktop: "/projects/notnim-beahava-desktop.webp", mobile: "/projects/notnim-beahava-mobile.webp" } },
+];
 
 function ProjectPreview({ name, index, screenshots }: { name: string; index: number; screenshots?: { desktop: string; mobile: string } }) {
   if (screenshots) {
@@ -92,8 +96,8 @@ export function Work() {
   }, []);
 
   return <section id="work" className="page-section work-section" ref={sectionRef}><AmbientBackground variant="work" /><div className="container">
-    <SectionIntro label={copy.work.label} title={copy.work.title} text={copy.work.text} />
-    <div className="work-grid has-scroll-focus">{projects.map((project, i) => <Reveal key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={i} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p><ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noreferrer">{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
-    <Reveal className="section-action action-with-note"><p>{copy.work.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">{copy.work.ctaLabel} <MessageCircle aria-hidden="true" /></a></Reveal>
+    <SectionIntro label="עבודות" title="עבודות שמראות חשיבה, לא רק עיצוב." text="כל פרויקט נבנה סביב מטרה אחרת: להסביר מוצר, לבנות ביטחון, להוביל לפנייה או להציג מותג בצורה המדויקת ביותר." />
+    <div className="work-grid has-scroll-focus">{projects.map((project, i) => <Reveal key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={i} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p><ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noreferrer">צפה בפרויקט <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
+    <Reveal className="section-action action-with-note"><p>רוצה שגם האתר שלך ירגיש מדויק יותר?</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">בוא נדבר <MessageCircle aria-hidden="true" /></a></Reveal>
   </div></section>;
 }
