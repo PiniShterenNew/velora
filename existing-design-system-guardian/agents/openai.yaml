@@ -1,0 +1,4 @@
+interface:
+  display_name: "Existing Design System Guardian"
+  short_description: "Preserve existing UI systems during product changes"
+  default_prompt: "Use $existing-design-system-guardian to make this UI change while preserving the existing product design system."

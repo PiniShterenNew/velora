@@ -68,11 +68,14 @@ export function DecisionBoard() {
     >
       <AmbientBackground variant="decision" />
 
-      <div className="decision-bridge-inner">
+      <div className="decision-bridge-inner container">
         <header className="strategy-heading">
-          <motion.p className="board-kicker" variants={reveal} custom={0}>השאלה שמובילה את האתר</motion.p>
-          <motion.h2 id="decision-board-title" variants={reveal} custom={0.12}>למה לבחור דווקא בך?</motion.h2>
-          <motion.div className="board-label" variants={reveal} custom={0.24}>אסטרטגיה לפני עיצוב</motion.div>
+          <motion.p className="board-kicker" variants={reveal} custom={0}>הבעיה והמסגרת</motion.p>
+          <motion.h2 id="decision-board-title" variants={reveal} custom={0.12}>אתר לא נכשל בגלל עיצוב. הוא נכשל כשהלקוח לא מקבל החלטה.</motion.h2>
+          <motion.p className="board-summary" variants={reveal} custom={0.2}>
+            כדי שאתר יוביל לפנייה, הוא צריך לענות מהר על ארבעה דברים: מסר, אמון, הוכחה ופעולה.
+          </motion.p>
+          <motion.div className="board-label" variants={reveal} custom={0.28}>אסטרטגיה לפני עיצוב</motion.div>
         </header>
 
         <ol className="decision-steps">

@@ -1,10 +1,10 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { DecisionBoard } from "@/components/DecisionBoard";
-import { Problem, Approach, Services, StoryScrolling, Process, Work, About, FinalCTA } from "@/components/sections";
+import { Services, StoryScrolling, Work, Process, About, FinalCTA } from "@/components/sections";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
-  return <><Header /><main><Hero /><DecisionBoard /><Problem /><Approach /><Services /><StoryScrolling /><Process /><Work /><About /><FAQ /><FinalCTA /></main><Footer /></>;
+  return <><Header /><main><Hero /><DecisionBoard /><Services /><StoryScrolling /><Work /><Process /><About /><FAQ /><FinalCTA /></main><Footer /></>;
 }

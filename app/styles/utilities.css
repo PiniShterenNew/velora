@@ -1,0 +1,79 @@
+/*
+  Responsive contract:
+  - Desktop XL: 1440px and up, preserve composition with more vertical air.
+  - Desktop: 1001px-1439px, full navigation and centered viewport Hero.
+  - Laptop: desktop width with constrained height, compact vertical rhythm.
+  - Tablet: 521px-1000px, mobile navigation and single-column content.
+  - Mobile: 381px-520px, same composition scaled for narrow screens.
+  - Small Mobile: 320px-380px, density reductions only.
+
+  Viewport rule:
+  - Use svh/dvh for full-screen sections.
+  - Use clamp() when viewport-dependent spacing needs min/max bounds.
+*/
+
+.reveal {
+  opacity: 0;
+  animation: fade-up var(--duration-normal) var(--ease-standard) forwards;
+}
+
+.reveal-1 { animation-delay: 80ms; }
+.reveal-2 { animation-delay: 180ms; }
+.reveal-3 { animation-delay: 280ms; }
+.reveal-4 { animation-delay: 380ms; }
+.reveal-5 { animation-delay: 520ms; }
+.reveal-6 { animation-delay: 650ms; }
+.reveal-7 { animation-delay: 770ms; }
+.reveal-8 { animation-delay: 900ms; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up-soft {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee-rtl {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes primary-cta-breathe {
+  0%, 72%, 100% { box-shadow: var(--shadow-offset-md); }
+  86% {
+    box-shadow:
+      var(--shadow-offset-md),
+      0 0 0 8px color-mix(in srgb, var(--color-primary) 16%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}

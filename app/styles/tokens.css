@@ -1,0 +1,86 @@
+:root {
+  --color-bg: #faf7f0;
+  --color-surface: #fffdf8;
+  --color-text: #1f1a16;
+  --color-ink: #1f1a16;
+  --color-muted: #5f5851;
+  --color-soft: #eee8dc;
+  --color-primary: #b86b3e;
+  --color-mustard: #d9a441;
+  --color-olive: #8fa7a0;
+  --color-peach: #e8b7a1;
+  --color-border: #2a211b;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 40px;
+  --space-10: 48px;
+  --space-11: 64px;
+  --space-12: 80px;
+
+  --container-max: 1180px;
+  --container-padding: var(--space-4);
+  --container-padding-desktop: var(--space-8);
+  --section-padding-top: 110px;
+  --section-padding-bottom: 110px;
+  --header-height: 90px;
+  --header-height-mobile: 68px;
+  --header-sticky-offset: 96px;
+
+  --radius-xs: 8px;
+  --radius-sm: 14px;
+  --radius-md: 28px;
+  --radius-lg: 44px;
+  --radius-pill: 999px;
+  --radius-card: var(--radius-md);
+  --radius-large: var(--radius-lg);
+
+  --shadow-sm: 0 5px 18px color-mix(in srgb, var(--color-border) 10%, transparent);
+  --shadow-md: 0 7px 22px color-mix(in srgb, var(--color-border) 10%, transparent);
+  --shadow-lg: 5px 5px 0 var(--color-border);
+  --shadow-offset-sm: 3px 3px 0 var(--color-border);
+  --shadow-offset-md: 4px 4px 0 var(--color-border);
+  --shadow-offset-lg: 6px 6px 0 var(--color-border);
+
+  --transition-fast: 180ms ease;
+  --transition-normal: 240ms ease;
+  --transition-slow: 420ms ease;
+
+  --ease-standard: cubic-bezier(.22, 1, .36, 1);
+  --ease-emphasis: cubic-bezier(.16, 1, .3, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 600ms;
+  --duration-slow: 1.2s;
+
+  --font-display-xl-size: clamp(4.7rem, 7vw, 6.55rem);
+  --font-display-l-size: clamp(4rem, 5.85vw, 5.45rem);
+  --font-display-size: clamp(3.4rem, 5vw, 4.65rem);
+  --font-heading-size: clamp(2.5rem, 4vw, 4.2rem);
+  --font-title-size: clamp(1.55rem, 2.4vw, 2.4rem);
+  --font-body-size: 1.18rem;
+  --font-caption-size: .92rem;
+  --font-display-line-height: 1.08;
+  --font-heading-line-height: 1.12;
+  --font-body-line-height: 1.52;
+  --font-tight-letter-spacing: -.04em;
+  --font-display-weight: 800;
+  --font-heading-weight: 780;
+  --font-body-weight: 500;
+}
+
+@media (max-width: 1000px) {
+  :root {
+    --container-padding: var(--space-4);
+    --header-height: var(--header-height-mobile);
+    --font-display-xl-size: clamp(2.65rem, 12vw, 3.45rem);
+    --font-display-l-size: clamp(2.65rem, 12vw, 3.45rem);
+    --font-display-size: clamp(2.65rem, 12vw, 3.45rem);
+    --font-display-line-height: 1.1;
+  }
+}

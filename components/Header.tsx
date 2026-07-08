@@ -8,8 +8,8 @@ const whatsappUrl = "https://wa.me/972548345192";
 
 const navItems = [
   ["שירותים", "#services"],
-  ["תהליך", "#process"],
   ["עבודות", "#work"],
+  ["תהליך", "#process"],
   ["שאלות", "#faq"],
   ["צור קשר", whatsappUrl],
 ] as const;
@@ -35,7 +35,7 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <div className={`header-inner ${open ? "menu-open" : ""}`}>
+      <div className={`header-inner site-container ${open ? "menu-open" : ""}`}>
         <a className="brand" href="#top" aria-label="Velora Studio — חזרה לראש העמוד">
           <Image className="brand-logo" src="/full-logo.svg" alt="Velora Studio" width={148} height={62} priority />
         </a>

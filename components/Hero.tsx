@@ -7,8 +7,8 @@ export function Hero() {
   return (
     <section className="hero" id="top">
       <ValuePropositionBackground />
-      <div className="hero-layout">
-        <div className="hero-copy">
+      <div className="hero-container site-container">
+        <div className="hero-content">
           <p className="eyebrow reveal reveal-1">סטודיו לאתרים שבנויים סביב הסיבה לבחור בך</p>
 
           <h1 className="hero-title">
@@ -32,7 +32,7 @@ export function Hero() {
             </a>
           </div>
 
-          <ul className="service-chips reveal reveal-7" aria-label="שירותי הסטודיו">
+          <ul className="hero-tags reveal reveal-7" aria-label="שירותי הסטודיו">
             {services.slice(0, 4).map((service) => (
               <li className={`service-chip ${service === "Story Scrolling" ? "featured" : ""}`} key={service}>
                 {service}
@@ -42,8 +42,8 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="service-marquee" aria-hidden="true">
-        <div className="service-marquee-track">
+      <div className="hero-tags-marquee" aria-hidden="true">
+        <div className="hero-tags-marquee-track">
           {[...services, ...services].map((service, index) => (
             <span dir="rtl" className={`service-chip ${index % 3 === 0 ? "featured" : ""}`} key={`${service}-${index}`}>
               {service}

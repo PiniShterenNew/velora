@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { MessageCircle, Plus } from "lucide-react";
 import { AmbientBackground } from "./AmbientBackground";
 
@@ -16,32 +15,23 @@ const items = [
   ["למי השירות פחות מתאים?", "מי שמחפש בעיקר את הפתרון הזול והמהיר ביותר שיש, כנראה ימצא אצל ספקים אחרים התאמה טובה יותר. השירות בנוי למי שרוצה אתר מדויק ומקצועי, שמושקעת בו חשיבה אסטרטגית ושמטרתו להניב תוצאה עסקית."],
 ];
 
-function FAQItem({ question, answer, active, index, onToggle }: { question: string; answer: string; active: boolean; index: number; onToggle: () => void }) {
+function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <article className={`faq-item ${active ? "open" : ""}`}>
-      <h3>
-        <button type="button" aria-expanded={active} aria-controls={`answer-${index}`} onClick={onToggle}>
-          <span>{question}</span>
-          <Plus className="faq-icon" aria-hidden="true" />
-        </button>
-      </h3>
-      <div
-        className="faq-answer"
-        id={`answer-${index}`}
-        role="region"
-        aria-hidden={!active}
-      >
+    <details className="faq-item">
+      <summary>
+        <span>{question}</span>
+        <Plus className="faq-icon" aria-hidden="true" />
+      </summary>
+      <div className="faq-answer">
         <div className="faq-answer-inner">
           <p>{answer}</p>
         </div>
       </div>
-    </article>
+    </details>
   );
 }
 
 export function FAQ() {
-  const [open, setOpen] = useState<number | null>(null);
-
   return (
     <section id="faq" className="page-section faq-section">
       <AmbientBackground variant="faq" />
@@ -52,20 +42,13 @@ export function FAQ() {
           <p className="section-copy">לפני שבונים אתר, טבעי לרצות להבין איך נראה התהליך, מה כלול, עד כמה עמוק נכנסים לאסטרטגיה והאם זה בכלל מתאים לעסק שלך.</p>
         </div>
         <div className="faq-list">
-          {items.map(([question, answer], i) => {
-            const active = open === i;
-
-            return (
-              <FAQItem
-                active={active}
-                answer={answer}
-                index={i}
-                key={question}
-                onToggle={() => setOpen(active ? null : i)}
-                question={question}
-              />
-            );
-          })}
+          {items.map(([question, answer]) => (
+            <FAQItem
+              answer={answer}
+              key={question}
+              question={question}
+            />
+          ))}
         </div>
         <div className="faq-contact">
           <p>יש לך שאלה אחרת?</p>
