@@ -25,13 +25,22 @@ const rubik = Rubik({ subsets: ["hebrew", "latin"], variable: "--font-rubik", di
 export const metadata: Metadata = {
   title: copy.metadata.title,
   description: copy.metadata.description,
+  metadataBase: new URL("https://north-spark.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+  verification: {
+    google: "jrq-mj9t6iTGB0dhkcR9900W8waismDq31eIh15w74I",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
-
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#faf7f0" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return <html lang="he" dir="rtl" className={rubik.variable}>
-    <meta name="google-site-verification" content="jrq-mj9t6iTGB0dhkcR9900W8waismDq31eIh15w74I" />
     <body>{children}</body>
   </html>;
 }
