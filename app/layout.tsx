@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Rubik } from "next/font/google";
 import { copy } from "@/lib/data";
+import { getSiteUrl } from "@/lib/site-url";
 import "./styles/tokens.css";
 import "./globals.css";
 import "./styles/utilities.css";
@@ -21,11 +22,12 @@ import "./styles/components/footer.css";
 import "./styles/hero.css";
 
 const rubik = Rubik({ subsets: ["hebrew", "latin"], variable: "--font-rubik", display: "swap" });
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   title: copy.metadata.title,
   description: copy.metadata.description,
-  metadataBase: new URL("https://north-spark.vercel.app"),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/",
   },
