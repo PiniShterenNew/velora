@@ -2,7 +2,7 @@
 
 ## Motion Philosophy
 
-Motion on the Velora Studio homepage should feel strategic, calm, confident, and purposeful. It should support the central promise of the brand: websites are built to guide understanding and decision-making. Animation should never feel like decoration added after the fact. It should clarify hierarchy, pace the story, and help the visitor understand what matters next.
+Motion on the NorthSpark Studio homepage should feel strategic, calm, confident, and purposeful. It should support the central promise of the brand: websites are built to guide understanding and decision-making. Animation should never feel like decoration added after the fact. It should clarify hierarchy, pace the story, and help the visitor understand what matters next.
 
 The homepage may use expressive motion in the hero and Story Scrolling demonstration, but most motion should remain restrained. The experience should feel premium because it is clear and intentional, not because everything moves.
 

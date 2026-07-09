@@ -1,6 +1,6 @@
 # Brand Illustration Library
 
-Standalone SVG assets for reusable Velora brand illustrations.
+Standalone SVG assets for reusable NorthSpark brand illustrations.
 
 - `trust.svg`
 - `message.svg`

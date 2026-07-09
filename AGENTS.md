@@ -1,8 +1,8 @@
 # AGENTS.md
 
-# Velora Studio
+# NorthSpark Studio
 
-This repository contains the public marketing website for Velora Studio.
+This repository contains the public marketing website for NorthSpark Studio.
 
 The objective is **not** to build a generic website.
 
@@ -50,7 +50,7 @@ If another issue is discovered:
 
 # Design Philosophy
 
-Velora is not animation-heavy.
+NorthSpark is not animation-heavy.
 
 Motion exists to support understanding.
 
@@ -286,6 +286,6 @@ List what should be visually verified.
 
 Before making any implementation decision, ask:
 
-> Does this change move Velora closer to a production-ready V1 that can generate clients?
+> Does this change move NorthSpark closer to a production-ready V1 that can generate clients?
 
 If the answer is no, do not implement it.

@@ -8,7 +8,7 @@ Keep the user oriented throughout a long, narrative homepage and preserve immedi
 
 ## Content
 
-This section contains the Velora Studio brand mark, links to major homepage sections, and a primary contact action. It should not introduce new messaging beyond the brand and conversion path.
+This section contains the NorthSpark Studio brand mark, links to major homepage sections, and a primary contact action. It should not introduce new messaging beyond the brand and conversion path.
 
 ## Desktop Layout
 
@@ -34,7 +34,7 @@ Establish the core value proposition, make the strategic positioning unmistakabl
 
 ## Content
 
-The hero contains the studio category, main positioning statement, a concise explanation of the integrated service, primary and secondary CTAs, and a short list of service signals. The copy role is to answer what Velora does, why its approach is different, and what the visitor can do next.
+The hero contains the studio category, main positioning statement, a concise explanation of the integrated service, primary and secondary CTAs, and a short list of service signals. The copy role is to answer what NorthSpark does, why its approach is different, and what the visitor can do next.
 
 ## Desktop Layout
 
@@ -112,7 +112,7 @@ Explain the studio's strategic method before the user evaluates specific service
 
 ## Content
 
-This section should describe the way Velora thinks: strategy, story/message, design/development. The content role is to show that the output is derived from customer understanding, not from a template.
+This section should describe the way NorthSpark thinks: strategy, story/message, design/development. The content role is to show that the output is derived from customer understanding, not from a template.
 
 ## Desktop Layout
 

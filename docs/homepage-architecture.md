@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This document defines the Velora Studio homepage as a product and UX system. It is the source of truth for what each section must accomplish, why it exists, how it supports the user journey, and where the current structure should be challenged before future implementation continues.
+This document defines the NorthSpark Studio homepage as a product and UX system. It is the source of truth for what each section must accomplish, why it exists, how it supports the user journey, and where the current structure should be challenged before future implementation continues.
 
-The homepage must help a potential client understand one central idea: Velora Studio builds websites around the reason a customer should choose the business, not around generic templates or decoration. Every section should either clarify that positioning, reduce buying friction, prove capability, or move the visitor toward a conversation.
+The homepage must help a potential client understand one central idea: NorthSpark Studio builds websites around the reason a customer should choose the business, not around generic templates or decoration. Every section should either clarify that positioning, reduce buying friction, prove capability, or move the visitor toward a conversation.
 
 ## Intended User Journey
 
@@ -96,7 +96,7 @@ Translate the hero promise into a simple decision framework: message, trust, pro
 
 ### Business Goal
 
-Differentiate Velora from design-only or development-only providers by showing a strategic lens before services are discussed.
+Differentiate NorthSpark from design-only or development-only providers by showing a strategic lens before services are discussed.
 
 ### Why This Section Exists
 
@@ -156,7 +156,7 @@ Explain the studio's working philosophy before listing outputs.
 
 ### Business Goal
 
-Position Velora as a strategic partner, not a vendor executing a template.
+Position NorthSpark as a strategic partner, not a vendor executing a template.
 
 ### Why This Section Exists
 
@@ -212,7 +212,7 @@ Demonstrate a distinctive capability: using scroll behavior to unfold complex me
 
 ### User Question It Answers
 
-"What makes a Velora site feel different from a normal static page?"
+"What makes a NorthSpark site feel different from a normal static page?"
 
 ### Business Goal
 
@@ -442,7 +442,7 @@ No, though it should visually follow the Final CTA calmly rather than compete wi
 - A stronger proof layer may be needed before the Work section. This could be client outcomes, project metrics, testimonials, or a concise trust strip. Current proof relies mainly on portfolio examples.
 - Pricing guidance or budget qualification may be missing. Even a range or "best fit for" framing could reduce unqualified inquiries.
 - A clearer "who this is for" section may be useful. FAQ currently includes fit, but it appears late.
-- A compact engagement model may be missing: what the client provides, what Velora owns, what happens after launch.
+- A compact engagement model may be missing: what the client provides, what NorthSpark owns, what happens after launch.
 
 ### Recommended Structural Direction
 
