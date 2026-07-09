@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://north-spark.vercel.app/sitemap.xml
