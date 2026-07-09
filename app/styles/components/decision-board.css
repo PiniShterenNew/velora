@@ -109,7 +109,7 @@
 .strategy-stage p {
   width: 100%;
   max-width: 230px;
-  min-height: 78px;
+  min-height: 120px;
   margin: 20px 0 0;
   color: color-mix(in srgb, var(--color-muted) 88%, var(--color-text));
   font-size: 1rem;
@@ -117,13 +117,21 @@
   text-align: center;
 }
 
-.strategy-stage-peach { --stage-color: var(--color-peach); }
+.strategy-stage-peach {
+  --stage-color: var(--color-peach);
+}
 
-.strategy-stage-olive { --stage-color: var(--color-olive); }
+.strategy-stage-olive {
+  --stage-color: var(--color-olive);
+}
 
-.strategy-stage-mustard { --stage-color: var(--color-mustard); }
+.strategy-stage-mustard {
+  --stage-color: var(--color-mustard);
+}
 
-.strategy-stage-rust { --stage-color: var(--color-primary); }
+.strategy-stage-rust {
+  --stage-color: var(--color-primary);
+}
 
 .stage-connector {
   width: 1px;
@@ -347,10 +355,10 @@
 
 .decision-bridge .reveal,
 .decision-bridge .strategy-heading,
-.decision-bridge .strategy-heading > *,
+.decision-bridge .strategy-heading>*,
 .decision-bridge .decision-steps,
 .decision-bridge .strategy-stage,
-.decision-bridge .strategy-stage > * {
+.decision-bridge .strategy-stage>* {
   opacity: 1 !important;
   visibility: visible !important;
   transform: none !important;

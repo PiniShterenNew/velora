@@ -90,6 +90,15 @@
   line-height: 1.08;
 }
 
+
+.work-outcome {
+  margin-top: 12px !important;
+  padding-inline-start: 14px;
+  border-inline-start: 3px solid color-mix(in srgb, var(--color-primary) 62%, transparent);
+  color: var(--color-text) !important;
+  font-size: .95rem !important;
+  font-weight: 650;
+}
 .work-content a {
   display: inline-flex;
   align-items: center;
@@ -116,4 +125,18 @@
 
 .work-content a:hover svg {
   transform: translate(-2px, -2px);
+}
+
+@media (max-width: 800px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-card {
+    border-radius: 24px;
+  }
+
+  .work-content {
+    padding: 12px 22px 28px;
+  }
 }

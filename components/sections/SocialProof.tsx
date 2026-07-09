@@ -2,12 +2,25 @@ import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 
-function isTodo(value: string) {
-  return value === "TODO";
+type SocialProofCopy = {
+  socialProof?: {
+    label: string;
+    stats: Array<{ label: string; value: string }>;
+  };
+};
+
+function hasPublishableValue(value: string) {
+  const trimmed = value.trim();
+
+  return trimmed !== "" && trimmed !== "TODO" && !trimmed.startsWith("[");
 }
 
 export function SocialProof() {
-  const stats = copy.socialProof.stats.filter((stat) => !isTodo(stat.value));
+  const socialProof = (copy as unknown as SocialProofCopy).socialProof;
+
+  if (!socialProof) return null;
+
+  const stats = socialProof.stats.filter((stat) => hasPublishableValue(stat.value));
 
   if (stats.length === 0) return null;
 
@@ -16,7 +29,7 @@ export function SocialProof() {
       <AmbientBackground variant="work" />
       <div className="container social-proof-inner">
         <Reveal className="social-proof-heading">
-          <p className="section-label">{copy.socialProof.label}</p>
+          <p className="section-label">{socialProof.label}</p>
         </Reveal>
         <ul className="social-proof-stats">
           {stats.map((stat, index) => (

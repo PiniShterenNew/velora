@@ -2,15 +2,18 @@ import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 
-function isTodo(value: string) {
-  return value === "TODO";
+function hasPublishableValue(value?: string) {
+  const trimmed = value?.trim() ?? "";
+
+  return trimmed !== "" && trimmed !== "TODO" && !trimmed.startsWith("[");
 }
 
-function isValidTestimonial(item: { quote: string; name: string; role: string }) {
-  return !isTodo(item.quote) && !isTodo(item.name) && !isTodo(item.role);
+function isValidTestimonial(item: { quote?: string; name?: string; role?: string }) {
+  return hasPublishableValue(item.quote) && hasPublishableValue(item.name) && hasPublishableValue(item.role);
 }
 
 export function Testimonials() {
+  // TODO: Add the real testimonial text from Notnim Beahava. Do not publish placeholder testimonial copy.
   const items = copy.testimonials.items.filter(isValidTestimonial);
 
   if (items.length === 0) return null;

@@ -42,9 +42,15 @@ export function Services() {
         <p>{service.text}</p>
         <ul>{service.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
       </article></Reveal>)}</div>
+      {copy.servicesSection.audienceNote && (
+        <Reveal className="services-audience-note">
+          <p>{copy.servicesSection.audienceNote}</p>
+        </Reveal>
+      )}
       <Reveal className="services-action">
         <p className="services-helper-question">{copy.servicesSection.helperQuestion}</p>
-        <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer"><ArrowLeft aria-hidden="true" />{copy.servicesSection.primaryCta}</a>
+        <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+          {copy.servicesSection.primaryCta}<ArrowLeft aria-hidden="true" /></a>
         <a className="services-process-link" href="#process">{copy.common.watchProcess}</a>
       </Reveal>
     </div>

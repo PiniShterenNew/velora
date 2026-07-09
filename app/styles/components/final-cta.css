@@ -101,7 +101,7 @@
   line-height: 1.7;
 }
 
-.final-cta-content>p {
+.final-cta-copy {
   grid-area: copy;
   max-width: 430px;
   margin: 0;
@@ -110,6 +110,17 @@
   line-height: 1.7;
 }
 
+
+.final-cta-copy p {
+  margin: 0;
+}
+
+.final-cta-reassurance {
+  margin-top: 14px !important;
+  color: color-mix(in srgb, var(--color-bg) 62%, transparent);
+  font-size: .96rem;
+  line-height: 1.65;
+}
 .final-cta-actions {
   grid-area: actions;
   display: flex;
@@ -125,4 +136,57 @@
 
 .final-cta-actions .btn:hover {
   box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-bg) 24%, transparent);
+}
+
+@media (max-width: 800px) {
+  .final-cta {
+    padding-block: 76px 48px;
+  }
+
+  .final-cta-card {
+    padding: 54px 22px 28px;
+    border-radius: 26px;
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-border) 72%, transparent);
+  }
+
+  .final-cta-card::before {
+    inset: 10px;
+    border-radius: 20px;
+  }
+
+  .final-cta-card::after {
+    display: none;
+  }
+
+  .cta-logo-mark {
+    top: 18px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .final-cta-content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "copy"
+      "actions";
+    gap: 22px;
+  }
+
+  .final-cta-card h2 {
+    max-width: none;
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+    line-height: 1.05;
+  }
+
+  .final-cta-copy {
+    max-width: none;
+    font-size: 1rem;
+  }
+
+  .final-cta-actions .btn {
+    width: 100%;
+    min-height: 56px;
+  }
 }

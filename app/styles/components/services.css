@@ -365,6 +365,25 @@
   background: color-mix(in srgb, var(--color-olive) 26%, var(--color-bg));
 }
 
+
+.services-audience-note {
+  max-width: 880px;
+  margin: 26px auto 0;
+  padding: 18px clamp(20px, 3vw, 30px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 24%, transparent);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--color-surface) 70%, var(--color-bg));
+  box-shadow: 0 16px 42px color-mix(in srgb, var(--color-border) 6%, transparent);
+}
+
+.services-audience-note p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  font-weight: 650;
+  line-height: 1.75;
+  text-align: center;
+}
 .services-action {
   display: flex;
   flex-direction: column;
@@ -498,5 +517,58 @@
   .story-sticky {
     min-height: 500px;
     box-shadow: 9px 9px 0 color-mix(in srgb, var(--color-border) 82%, transparent);
+  }
+}
+
+@media (max-width: 700px) {
+  .services-section {
+    padding-block: 84px 72px;
+  }
+
+  .services-intro {
+    margin-bottom: 42px;
+  }
+
+  .services-heading {
+    text-align: center;
+  }
+
+  .services-heading h2 {
+    font-size: clamp(2.45rem, 12vw, 3.35rem);
+    line-height: 1.04;
+    letter-spacing: -.04em;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .services-heading > i {
+    margin-inline: auto;
+  }
+
+  .services-heading > p:not(.section-label) {
+    margin-inline: 0;
+    font-size: 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 0;
+    padding: 24px 22px 26px;
+  }
+
+  .service-number{
+    text-align: center;
+  }
+
+  .service-illustration {
+    height: 118px;
+    margin-block: 12px 22px;
+  }
+
+  .service-illustration-img {
+    width: min(100%, 126px);
   }
 }

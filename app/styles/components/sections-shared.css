@@ -823,3 +823,94 @@
   font-size: clamp(1.3rem, 2vw, 1.9rem);
   line-height: 1;
 }
+
+@media (max-width: 800px) {
+  .page-section {
+    padding-block: 76px;
+  }
+
+  .section-intro {
+    margin-bottom: 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-intro h2{
+    text-align: center;
+  }
+
+  .section-copy{
+    text-align: center;
+  }
+
+  .problem-flow {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .problem-step {
+    padding: 24px;
+  }
+
+  .problem-illustration {
+    height: 112px;
+    margin-bottom: 20px;
+  }
+
+  .problem-illustration img {
+    width: 116px;
+  }
+
+  .approach-section .section-intro {
+    margin-bottom: 46px;
+  }
+
+  .approach-track {
+    width: 100%;
+  }
+
+  .approach-step {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    min-height: 0;
+    padding: 32px 0;
+  }
+
+  .approach-number i {
+    flex: 1;
+  }
+
+  .approach-step h3 {
+    margin: 0;
+  }
+
+  .approach-step p {
+    max-width: none;
+    padding-top: 0;
+  }
+
+  .project-preview {
+    min-height: 220px;
+    margin: 8px;
+  }
+
+  .project-screenshot {
+    min-height: 250px;
+  }
+
+  .desktop-shot {
+    height: clamp(190px, 58vw, 250px);
+  }
+
+  .mobile-shot,
+  .abstract-mobile {
+    right: 18px;
+    bottom: 18px;
+    width: clamp(72px, 24%, 104px);
+  }
+
+  .abstract-desktop {
+    min-height: 205px;
+  }
+}

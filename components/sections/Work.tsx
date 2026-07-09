@@ -10,7 +10,8 @@ import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { SectionIntro, whatsappUrl } from "./shared";
 
-const projects = copy.work.projects.filter((project) => project.name !== "Cash Plus");
+const removedProjectNames = new Set(["Cash Plus"]);
+const projects = copy.work.projects.filter((project) => !removedProjectNames.has(project.name));
 
 function ProjectPreview({ name, index, screenshots }: { name: string; index: number; screenshots?: { desktop: string; mobile: string } }) {
   if (screenshots) {
@@ -93,7 +94,7 @@ export function Work() {
 
   return <section id="work" className="page-section work-section" ref={sectionRef}><AmbientBackground variant="work" /><div className="container">
     <SectionIntro label={copy.work.label} title={copy.work.title} text={copy.work.text} />
-    <div className="work-grid has-scroll-focus">{projects.map((project, i) => <Reveal key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={i} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p><ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noreferrer">{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
+    <div className="work-grid has-scroll-focus">{projects.map((project, i) => <Reveal key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={i} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noreferrer">{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
     <Reveal className="section-action action-with-note"><p>{copy.work.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">{copy.work.ctaLabel} <MessageCircle aria-hidden="true" /></a></Reveal>
   </div></section>;
 }

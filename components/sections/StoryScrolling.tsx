@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { copy } from "@/lib/data";
@@ -18,7 +18,14 @@ type StoryCard = {
 
 function renderStoryCardContent(card: StoryCardData) {
   if ("path" in card && card.path) {
-    return <><p>{card.intro}</p><div className="story-path">{card.path.map((item, index) => <span key={item}>{index > 0 && <i aria-hidden="true" />}{item}</span>)}</div></>;
+    return <><p>{card.intro}</p><div className="story-path">
+      {card.path.map((item, index) => (
+        <Fragment key={item}>
+          {index > 0 && <i aria-hidden="true" />}
+          <span>{item}</span>
+        </Fragment>
+      ))}
+    </div></>;
   }
 
   return <>{card.lines && <p>{card.lines.map((line) => <span key={line}>{line}<br /></span>)}{card.strong && <strong>{card.strong}</strong>}</p>}{!card.lines && card.intro && <><p>{card.intro}</p>{card.strong && <strong className="story-result">{card.strong}</strong>}</>}</>;
@@ -144,15 +151,23 @@ export function StoryScrolling() {
           <span className="story-compass-shape story-compass-shape-2" />
         </div>
       </aside>
-      <div className="story-cards">{cards.map((card, i) => <Reveal key={i}>
-        <article
-          className={`story-card ${activeIndex === i ? "is-active" : ""}`}
-          data-step={`0${i + 1}`}
-        >
-          <div className="story-illustration" aria-hidden="true"><Image src={card.illustration} alt="" width={196} height={196} /></div>
-          <div className="story-card-copy"><span className="story-index">0{i + 1}</span>{card.content}</div>
-        </article>
-      </Reveal>)}</div>
+      <div className="story-cards">{cards.map((card, i) =>
+        <Reveal key={i}>
+          <article
+            className={`story-card ${activeIndex === i ? "is-active" : ""}`}
+            data-step={`0${i + 1}`}
+          >
+            <div className="story-illustration" aria-hidden="true">
+              <Image src={card.illustration} alt="" width={196} height={196} />
+            </div>
+            <div className="story-card-copy">
+              <span className="story-index">0{i + 1}</span>
+              {card.content}
+            </div>
+          </article>
+        </Reveal>
+      )}
+      </div>
     </div>
     <Reveal className="story-cta"><p>{copy.storyScrolling.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">{copy.storyScrolling.ctaLabel} <span className="story-button-mark" aria-hidden="true" /></a></Reveal>
   </div></section>;

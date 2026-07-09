@@ -29,11 +29,15 @@
 }
 
 .btn-secondary {
-  background: transparent;
+  border-color: color-mix(in srgb, var(--color-border) 82%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 24%, transparent);
+  color: var(--color-text);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
   transform: translateY(-2px);
+  border-color: var(--color-border);
   background: var(--color-soft);
 }
 

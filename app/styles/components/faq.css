@@ -124,3 +124,33 @@
   margin: 0;
   font-weight: 750;
 }
+
+@media (max-width: 800px) {
+  .faq-wrap {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "list"
+      "contact";
+    gap: 28px;
+  }
+
+  .faq-item summary {
+    min-height: 64px;
+    padding: 16px 18px;
+  }
+
+  .faq-answer p {
+    padding: 0 18px 22px;
+  }
+
+  .faq-contact {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .faq-contact .btn {
+    width: 100%;
+  }
+}
