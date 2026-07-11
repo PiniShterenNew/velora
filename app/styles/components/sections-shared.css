@@ -295,6 +295,42 @@
   margin-bottom: 54px;
 }
 
+.section-intro h2,
+.services-heading h2,
+.about-copy h2 {
+  margin: 0;
+  font-size: var(--type-section-title-size);
+  font-weight: var(--type-section-title-weight);
+  line-height: var(--type-section-title-line-height);
+  letter-spacing: var(--type-section-title-letter-spacing);
+  text-wrap: balance;
+}
+
+.section-copy,
+.services-heading > p:not(.section-label),
+.about-copy > p {
+  color: var(--color-muted);
+  font-size: var(--type-section-copy-size);
+  font-weight: var(--type-section-copy-weight);
+  line-height: var(--type-section-copy-line-height);
+}
+.service-card h3,
+.process-card h3,
+.work-card:not(.featured) .work-content h3 {
+  font-size: var(--type-card-title-size);
+  font-weight: var(--type-card-title-weight);
+  line-height: var(--type-card-title-line-height);
+  letter-spacing: var(--type-card-title-letter-spacing);
+}
+
+.service-card p,
+.process-card p,
+.work-card:not(.featured) .work-content > p:not(.work-outcome) {
+  font-size: var(--type-card-body-size);
+  font-weight: var(--type-card-body-weight);
+  line-height: var(--type-card-body-line-height);
+}
+
 .section-label {
   display: inline-flex;
   margin: 0 0 18px;
@@ -302,8 +338,10 @@
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-pill);
   background: var(--color-bg);
-  font-size: .83rem;
-  font-weight: 750;
+  font-size: var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  line-height: var(--type-label-line-height);
+  letter-spacing: var(--type-label-letter-spacing);
 }
 
 .section-action {
@@ -826,14 +864,20 @@
 
 @media (max-width: 800px) {
   .page-section {
-    padding-block: 76px;
+    padding-block: var(--section-padding-mobile);
   }
 
   .section-intro {
-    margin-bottom: 38px;
+    margin-bottom: var(--section-intro-gap-mobile);
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .section-intro h2,
+  .services-heading h2,
+  .about-copy h2 {
+    font-size: var(--type-section-title-size-mobile);
   }
 
   .section-intro h2{
@@ -842,6 +886,10 @@
 
   .section-copy{
     text-align: center;
+  }
+
+  .section-action {
+    margin-top: var(--section-cta-gap-mobile);
   }
 
   .problem-flow {
@@ -891,16 +939,16 @@
   }
 
   .project-preview {
-    min-height: 220px;
-    margin: 8px;
+    min-height: 210px;
+    margin: 6px;
   }
 
   .project-screenshot {
-    min-height: 250px;
+    min-height: 238px;
   }
 
   .desktop-shot {
-    height: clamp(190px, 58vw, 250px);
+    height: clamp(184px, 56vw, 242px);
   }
 
   .mobile-shot,

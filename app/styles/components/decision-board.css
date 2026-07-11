@@ -243,13 +243,13 @@
 @media (max-width: 1000px) {
   .decision-steps {
     grid-template-columns: 1fr;
-    margin-top: 54px;
+    margin-top: 36px;
   }
 
   .strategy-stage {
     align-items: center;
     min-height: 0;
-    padding: 42px 10px 44px;
+    padding: 28px 10px 30px;
     text-align: center;
   }
 
@@ -271,6 +271,26 @@
   .strategy-stage p {
     min-height: 0;
   }
+  .stage-accent {
+    margin-top: 14px;
+  }
+
+  .strategy-stage h3 {
+    margin-top: 16px;
+  }
+
+  .strategy-stage p {
+    margin-top: 12px;
+  }
+
+  .stage-connector {
+    height: 30px;
+    margin-top: 18px;
+  }
+
+  .stage-shape {
+    margin-top: 12px;
+  }
 
   .stage-connector,
   .stage-shape {
@@ -278,19 +298,19 @@
   }
 
   .board-label {
-    margin-top: 22px;
+    margin-top: 16px;
     padding: 10px 24px;
     font-size: .88rem;
   }
 
   .decision-bridge {
     min-height: 0;
-    padding-block: 76px 68px;
+    padding-block: var(--section-padding-mobile) 58px;
   }
 
   .strategy-heading h2 {
-    margin-top: 18px;
-    font-size: clamp(2.7rem, 13vw, 4rem);
+    margin-top: 16px;
+    font-size: clamp(2.7rem, calc(2.25rem + 2vw), 3.5rem);
   }
 
   .strategy-decor-circle-peach,

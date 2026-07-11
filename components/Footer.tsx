@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { MessageCircle } from "lucide-react";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "./AmbientBackground";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const whatsappUrl = copy.brand.whatsappUrl;
 const links = copy.footer.links;
@@ -29,9 +29,9 @@ export function Footer() {
             </nav>
 
             <div className="footer-action">
-              <a className="footer-contact" href={whatsappUrl} target="_blank" rel="noreferrer">
+              <a className="footer-contact" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 {copy.common.whatsappFull}
-                <MessageCircle aria-hidden="true" />
+                <WhatsAppIcon />
               </a>
             </div>
           </div>

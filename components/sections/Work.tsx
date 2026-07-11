@@ -1,24 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpLeft, MessageCircle } from "lucide-react";
+import { ArrowUpLeft } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
+import { WhatsAppIcon } from "../WhatsAppIcon";
 import { SectionIntro, whatsappUrl } from "./shared";
 
 const removedProjectNames = new Set(["Cash Plus"]);
-const projects = copy.work.projects.filter((project) => !removedProjectNames.has(project.name));
+const projectEntries = copy.work.projects
+  .map((project, originalIndex) => ({ project, originalIndex }))
+  .filter(({ project }) => !removedProjectNames.has(project.name));
+const featuredEntry = projectEntries.find(({ project }) => project.featured);
+const orderedProjectEntries = featuredEntry
+  ? [featuredEntry, ...projectEntries.filter((entry) => entry !== featuredEntry)]
+  : projectEntries;
 
 function ProjectPreview({ name, index, screenshots }: { name: string; index: number; screenshots?: { desktop: string; mobile: string } }) {
   if (screenshots) {
     return <div className={`project-preview project-screenshot preview-${index}`}>
       <div className="desktop-shot">
         <div className="shot-chrome" aria-hidden="true"><i /><i /><i /></div>
-        <Image src={screenshots.desktop} alt={`${name} desktop website screenshot`} fill sizes="(min-width: 900px) 44vw, 92vw" />
+        <Image src={screenshots.desktop} alt={`${name} desktop website screenshot`} fill sizes="(min-width: 1180px) 46vw, (min-width: 900px) 58vw, 92vw" />
       </div>
       <div className="mobile-shot">
         <Image src={screenshots.mobile} alt={`${name} mobile website screenshot`} fill sizes="160px" />
@@ -94,7 +101,7 @@ export function Work() {
 
   return <section id="work" className="page-section work-section" ref={sectionRef}><AmbientBackground variant="work" /><div className="container">
     <SectionIntro label={copy.work.label} title={copy.work.title} text={copy.work.text} />
-    <div className="work-grid has-scroll-focus">{projects.map((project, i) => <Reveal key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={i} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noreferrer">{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
-    <Reveal className="section-action action-with-note"><p>{copy.work.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">{copy.work.ctaLabel} <MessageCircle aria-hidden="true" /></a></Reveal>
+    <div className="work-grid has-scroll-focus">{orderedProjectEntries.map(({ project, originalIndex }, i) => <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noopener noreferrer">{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
+    <Reveal className="section-action action-with-note"><p>{copy.work.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">{copy.work.ctaLabel} <WhatsAppIcon /></a></Reveal>
   </div></section>;
 }

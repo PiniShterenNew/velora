@@ -1,12 +1,8 @@
 /* about */
 
-.section-copy,
 .about-copy>p {
   max-width: 780px;
   margin: 25px 0 0;
-  color: var(--color-muted);
-  font-size: 1.15rem;
-  line-height: 1.75;
 }
 
 .about-grid {
@@ -27,9 +23,6 @@
 
 .about-copy h2 {
   max-width: 760px;
-  font-size: clamp(2.65rem, 4.35vw, 4.05rem);
-  line-height: 1.02;
-  letter-spacing: -.04em;
 }
 
 .about-copy>p {
@@ -177,28 +170,19 @@
     "copy founder"
     "copy strengths"
     "cta strengths";
-  gap: clamp(28px, 3.4vw, 44px) clamp(58px, 7vw, 104px);
+  gap: clamp(30px, 4vw, 54px) clamp(58px, 7vw, 104px);
   align-items: start;
-  padding: clamp(48px, 5.4vw, 70px);
-  border-color: color-mix(in srgb, var(--color-border) 18%, transparent);
-  border-radius: 34px;
-  background:
-    radial-gradient(circle at 14% 24%, color-mix(in srgb, var(--color-peach) 16%, transparent), transparent 27%),
-    radial-gradient(circle at 86% 74%, color-mix(in srgb, var(--color-olive) 12%, transparent), transparent 24%),
-    linear-gradient(145deg, color-mix(in srgb, var(--color-surface) 91%, var(--color-bg)), color-mix(in srgb, var(--color-bg) 84%, var(--color-soft)));
-  box-shadow: 0 32px 90px color-mix(in srgb, var(--color-border) 9%, transparent);
 }
 
 .about-grid::before {
-  inset: clamp(12px, 1.6vw, 18px);
-  border-color: color-mix(in srgb, var(--color-border) 8%, transparent);
-  border-radius: 24px;
+  content: none;
 }
 
 .about-copy {
   grid-area: copy;
   max-width: 650px;
-  padding-top: clamp(8px, 1.4vw, 18px);
+  padding-block: clamp(10px, 1.4vw, 18px) clamp(28px, 3.4vw, 44px);
+  border-block: 1px solid color-mix(in srgb, var(--color-border) 14%, transparent);
   text-align: right;
 }
 
@@ -209,18 +193,11 @@
 
 .about-copy h2 {
   max-width: 680px;
-  font-size: clamp(2.85rem, 4.45vw, 4.25rem);
-  font-weight: var(--font-heading-weight);
-  line-height: 1.12;
-  letter-spacing: var(--font-tight-letter-spacing);
 }
 
 .about-copy>p {
   max-width: 620px;
   margin-top: 28px;
-  color: color-mix(in srgb, var(--color-muted) 90%, var(--color-text));
-  font-size: clamp(1.08rem, 1.35vw, 1.18rem);
-  line-height: 1.82;
 }
 
 .about-founder {
@@ -234,7 +211,7 @@
   grid-area: cta;
   display: flex;
   justify-content: flex-start;
-  margin-top: clamp(10px, 1.4vw, 20px);
+  margin-top: clamp(4px, 1vw, 12px);
 }
 
 .about-cta .btn {
@@ -333,28 +310,28 @@
   content: none;
 }
 
-.strengths .strength-item {
+.strengths .scroll-reveal>.strength-item {
   position: relative;
   display: flex;
   align-items: center;
   gap: 16px;
-  min-height: 104px;
-  padding: 22px 20px 36px;
-  border-color: color-mix(in srgb, var(--color-border) 16%, transparent);
+  min-height: 0;
+  padding: clamp(18px, 2vw, 22px) clamp(18px, 2.2vw, 24px);
+  border: 1px solid color-mix(in srgb, var(--color-border) 22%, transparent);
   border-radius: 18px;
-  background:
-    radial-gradient(circle at 14% 14%, color-mix(in srgb, var(--color-peach) 13%, transparent), transparent 34%),
-    color-mix(in srgb, var(--color-surface) 78%, var(--color-bg));
-  box-shadow: 0 16px 42px color-mix(in srgb, var(--color-border) 6%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 78%, var(--color-bg));
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-border) 14%, transparent);
   line-height: 1.35;
 }
 
-.strengths .strength-item::before {
+.strengths .scroll-reveal>.strength-item::before {
   content: none;
 }
 
-.strengths .strength-item:hover {
-  box-shadow: 0 16px 32px color-mix(in srgb, var(--color-border) 7%, transparent);
+.strengths .scroll-reveal>.strength-item:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 34%, var(--color-border));
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-border) 20%, transparent);
+  transform: translateY(-1px);
 }
 
 .strength-icon {
@@ -406,24 +383,22 @@
 
 @media (max-width: 800px) {
   .about-section {
-    padding-block: clamp(86px, 16vw, 118px);
+    padding-block: var(--section-padding-mobile);
   }
 
   .about-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
-      "founder"
       "copy"
+      "founder"
       "strengths"
       "cta";
     gap: 0;
-    width: auto;
+    width: min(calc(100% - (var(--container-padding) * 2)), var(--container-max));
     min-height: 0;
-    margin-inline: clamp(18px, 5vw, 28px);
-    padding: clamp(28px, 6vw, 44px) clamp(24px, 6vw, 40px);
-    border-radius: 30px;
-    box-shadow: 0 20px 58px color-mix(in srgb, var(--color-border) 7%, transparent);
+    margin-inline: auto;
+    padding: 0;
   }
 
   .about-grid::before {
@@ -458,8 +433,9 @@
   .about-copy {
     justify-self: stretch;
     max-width: 680px;
-    margin: clamp(40px, 10vw, 58px) auto 0;
-    padding-top: 0;
+    margin: 0 auto;
+    padding-block: 0 var(--section-intro-gap-mobile);
+    border-block: 0;
     text-align: center;
   }
 
@@ -471,32 +447,27 @@
   .about-copy h2 {
     max-width: 650px;
     margin-inline: auto;
-    font-size: clamp(2.45rem, 9.6vw, 3.7rem);
-    line-height: 1.14;
   }
 
   .about-copy>p {
     max-width: 640px;
     margin: clamp(24px, 6vw, 34px) auto 0;
-    font-size: clamp(1.02rem, 4.1vw, 1.24rem);
-    line-height: 1.86;
   }
 
   .strengths {
     grid-template-columns: 1fr;
-    gap: clamp(14px, 3.8vw, 18px);
-    margin-top: clamp(38px, 9vw, 58px);
+    gap: clamp(12px, 3.4vw, 16px);
+    margin-top: var(--section-intro-gap-mobile);
   }
 
   .strengths .scroll-reveal {
     min-width: 0;
   }
 
-  .strengths .strength-item {
-    min-height: clamp(96px, 18vw, 116px);
-    padding: clamp(18px, 4vw, 24px) clamp(14px, 3.6vw, 20px) 38px;
+  .strengths .scroll-reveal>.strength-item {
+    min-height: 0;
+    padding: clamp(17px, 4vw, 22px) clamp(16px, 4.4vw, 22px);
     border-radius: 18px;
-    box-shadow: 0 14px 36px color-mix(in srgb, var(--color-border) 6%, transparent);
   }
 
   .strength-icon {
@@ -518,7 +489,7 @@
 
   .about-cta {
     justify-content: stretch;
-    margin-top: clamp(38px, 9vw, 56px);
+    margin-top: var(--section-cta-gap-mobile);
   }
 
   .about-cta .btn {
@@ -532,10 +503,6 @@
 }
 
 @media (max-width: 420px) {
-  .about-grid {
-    margin-inline: 18px;
-    padding-inline: 24px;
-  }
 
   .founder-card {
     padding: 22px 18px;
@@ -553,10 +520,10 @@
     gap: 12px;
   }
 
-  .strengths .strength-item {
+  .strengths .scroll-reveal>.strength-item {
     gap: 10px;
-    min-height: 128px;
-    padding-inline: 12px;
+    min-height: 0;
+    padding-inline: 14px;
   }
 
   .strength-icon {

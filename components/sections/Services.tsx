@@ -1,17 +1,15 @@
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
+import { CtaLabel } from "../CtaLabel";
+import { WhatsAppIcon } from "../WhatsAppIcon";
 import { whatsappUrl } from "./shared";
 
 const services = copy.servicesSection.items;
 
 const serviceIllustrations: Record<string, string> = {
-  landing: "/illustrations/browser.svg",
   brand: "/illustrations/trust.svg",
-  story: "/illustrations/strategy.svg",
-  commerce: "/illustrations/shopping.svg",
 };
 
 function ServiceIllustration({ kind }: { kind: string }) {
@@ -31,8 +29,6 @@ export function Services() {
           <p className="section-label services-label"><span aria-hidden="true" />{copy.servicesSection.label}</p>
           <h2>{copy.servicesSection.title}</h2>
           <p>{copy.servicesSection.intro}</p>
-          <i aria-hidden="true" />
-          <p>{copy.servicesSection.note}</p>
         </Reveal>
       </div>
       <div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
@@ -42,15 +38,16 @@ export function Services() {
         <p>{service.text}</p>
         <ul>{service.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
       </article></Reveal>)}</div>
-      {copy.servicesSection.audienceNote && (
-        <Reveal className="services-audience-note">
-          <p>{copy.servicesSection.audienceNote}</p>
-        </Reveal>
-      )}
+      <Reveal className="services-scope-note">
+        <p>{copy.servicesSection.scopeNote}</p>
+      </Reveal>
+      <Reveal className="services-aftercare-note">
+        <p>{copy.servicesSection.aftercareNote}</p>
+      </Reveal>
       <Reveal className="services-action">
         <p className="services-helper-question">{copy.servicesSection.helperQuestion}</p>
-        <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
-          {copy.servicesSection.primaryCta}<ArrowLeft aria-hidden="true" /></a>
+        <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.servicesSection.primaryCta}>
+          <CtaLabel desktop={copy.servicesSection.primaryCta} mobile={copy.servicesSection.primaryCtaMobile} /><WhatsAppIcon /></a>
         <a className="services-process-link" href="#process">{copy.common.watchProcess}</a>
       </Reveal>
     </div>

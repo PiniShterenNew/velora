@@ -10,11 +10,38 @@
   padding: 0 25px;
   border: 2px solid var(--color-border);
   border-radius: var(--radius-pill);
+  font-size: 1rem;
   font-weight: 750;
+  line-height: 1;
+  letter-spacing: 0;
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast),
     background var(--transition-fast);
+}
+
+.whatsapp-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  background-color: currentColor;
+  mask: url("/icons/whatsapp.svg") center / contain no-repeat;
+  -webkit-mask: url("/icons/whatsapp.svg") center / contain no-repeat;
+}
+
+.cta-label-mobile {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .cta-label-desktop {
+    display: none;
+  }
+
+  .cta-label-mobile {
+    display: inline;
+  }
 }
 
 .btn-primary {

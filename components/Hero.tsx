@@ -1,5 +1,7 @@
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { copy } from "@/lib/data";
+import { CtaLabel } from "./CtaLabel";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import ValuePropositionBackground from "./ValuePropositionBackground";
 
 const whatsappUrl = copy.brand.whatsappUrl;
@@ -22,11 +24,11 @@ export function Hero() {
           <p className="hero-text reveal reveal-5">{copy.hero.text}</p>
 
           <div className="hero-actions reveal reveal-6">
-            <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
-              {copy.common.whatsappFull} <MessageCircle aria-hidden="true" />
+            <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              {copy.common.whatsappFull} <WhatsAppIcon />
             </a>
-            <a className="btn btn-secondary" href="#decision-board">
-              {copy.common.watchProcess} <ArrowLeft aria-hidden="true" />
+            <a className="btn btn-secondary" href="#decision-board" aria-label={copy.hero.secondaryCta.desktop}>
+              <CtaLabel desktop={copy.hero.secondaryCta.desktop} mobile={copy.hero.secondaryCta.mobile} /> <ArrowLeft aria-hidden="true" />
             </a>
           </div>
 

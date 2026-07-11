@@ -13,7 +13,8 @@ function isValidTestimonial(item: { quote?: string; name?: string; role?: string
 }
 
 export function Testimonials() {
-  // TODO: Add the real testimonial text from Notnim Beahava. Do not publish placeholder testimonial copy.
+  if (copy.testimonials.items.length === 0) return null;
+
   const items = copy.testimonials.items.filter(isValidTestimonial);
 
   if (items.length === 0) return null;

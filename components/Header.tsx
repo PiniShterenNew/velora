@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Menu, MessageCircle, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { copy } from "@/lib/data";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const whatsappUrl = copy.brand.whatsappUrl;
-const navItems = [...copy.navigation.items, { label: copy.navigation.contactLabel, href: whatsappUrl }];
+const navItems = [...copy.navigation.items, { label: copy.navigation.contactLabel, href: "#contact" }];
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -38,7 +39,7 @@ export function Header() {
           {navItems.map(({ label, href }) => <a key={label} href={href}>{label}</a>)}
         </nav>
 
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
+        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
           {copy.common.whatsappShort}
         </a>
 
@@ -72,8 +73,8 @@ export function Header() {
               <a key={label} href={href} tabIndex={open ? 0 : -1} onClick={closeMenu}>{label}</a>
             ))}
           </div>
-          <a className="mobile-menu-cta" href={whatsappUrl} target="_blank" rel="noreferrer" tabIndex={open ? 0 : -1} onClick={closeMenu}>
-            {copy.common.mobileWhatsapp} <MessageCircle aria-hidden="true" />
+          <a className="mobile-menu-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer" tabIndex={open ? 0 : -1} onClick={closeMenu}>
+            {copy.common.mobileWhatsapp} <WhatsAppIcon />
           </a>
         </nav>
       </div>

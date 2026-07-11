@@ -7,6 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
+import { CtaLabel } from "../CtaLabel";
+import { WhatsAppIcon } from "../WhatsAppIcon";
 import { LineBreakTitle, SectionIntro, whatsappUrl } from "./shared";
 
 const process = copy.process.items;
@@ -74,6 +76,6 @@ export function Process() {
         </article>
       </Reveal>)}
     </div>
-    <Reveal className="section-action action-with-note"><p>{copy.process.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">{copy.process.ctaLabel} <span className="process-button-mark" aria-hidden="true" /></a></Reveal>
+    <Reveal className="section-action action-with-note"><p>{copy.process.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.process.ctaLabel}><CtaLabel desktop={copy.process.ctaLabel} mobile={copy.process.ctaLabelMobile} /> <WhatsAppIcon /></a></Reveal>
   </div></section>;
 }

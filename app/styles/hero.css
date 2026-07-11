@@ -145,8 +145,10 @@
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-pill);
   background: var(--color-mustard);
-  font-size: var(--font-caption-size);
-  font-weight: 700;
+  font-size: var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  line-height: var(--type-label-line-height);
+  letter-spacing: var(--type-label-letter-spacing);
 }
 
 .hero-title {
@@ -335,7 +337,6 @@
 
   .eyebrow {
     margin-bottom: clamp(10px, 1.5svh, 14px);
-    font-size: .7rem;
     padding: 5px var(--space-4);
   }
 

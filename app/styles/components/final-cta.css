@@ -5,13 +5,8 @@
   content: none;
 }
 
-.section-intro h2,
-.about-copy h2,
 .final-cta-card h2 {
   margin: 0;
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  line-height: 1.04;
-  letter-spacing: -.04em;
   text-wrap: balance;
 }
 

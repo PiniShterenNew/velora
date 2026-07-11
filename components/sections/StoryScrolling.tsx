@@ -7,6 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
+import { CtaLabel } from "../CtaLabel";
+import { WhatsAppIcon } from "../WhatsAppIcon";
 import { SectionIntro, whatsappUrl } from "./shared";
 
 type StoryCardData = typeof copy.storyScrolling.cards[number];
@@ -169,6 +171,6 @@ export function StoryScrolling() {
       )}
       </div>
     </div>
-    <Reveal className="story-cta"><p>{copy.storyScrolling.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noreferrer">{copy.storyScrolling.ctaLabel} <span className="story-button-mark" aria-hidden="true" /></a></Reveal>
+    <Reveal className="story-cta"><p>{copy.storyScrolling.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.storyScrolling.ctaLabel}><CtaLabel desktop={copy.storyScrolling.ctaLabel} mobile={copy.storyScrolling.ctaLabelMobile} /> <WhatsAppIcon /></a></Reveal>
   </div></section>;
 }
