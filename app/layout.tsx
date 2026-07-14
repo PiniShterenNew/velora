@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Rubik } from "next/font/google";
+import Script from "next/script";
+import { GoogleAnalyticsPageView } from "@/components/GoogleAnalyticsPageView";
 import { copy } from "@/lib/data";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -31,6 +33,7 @@ const rubik = Rubik({
 const siteUrl = getSiteUrl();
 const baseUrl = siteUrl.replace(/\/$/, "");
 const ogImageUrl = `${baseUrl}/og-image.png`;
+const googleAnalyticsId = "G-YBED7XP2EX";
 
 export const metadata: Metadata = {
   title: copy.metadata.title,
@@ -85,7 +88,19 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="he" dir="rtl" className={rubik.variable}>
-      <body>{children}</body>
+      <body>
+        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}', { send_page_view: false });
+          `}
+        </Script>
+        <GoogleAnalyticsPageView measurementId={googleAnalyticsId} />
+        {children}
+      </body>
     </html>
   );
 }
