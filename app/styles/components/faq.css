@@ -8,9 +8,7 @@
 .faq-wrap {
   display: grid;
   grid-template-columns: minmax(280px, .72fr) minmax(0, 1fr);
-  grid-template-areas:
-    "intro list"
-    ". contact";
+  grid-template-areas: "intro list";
   gap: clamp(36px, 6vw, 84px);
   max-width: 1120px;
   align-items: start;
@@ -126,24 +124,6 @@
   transform: translateY(0);
 }
 
-.faq-contact {
-  grid-area: contact;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 8px;
-  padding: 18px 20px;
-  border: 1px solid color-mix(in srgb, var(--color-border) 18%, transparent);
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--color-bg) 62%, transparent);
-}
-
-.faq-contact p {
-  margin: 0;
-  font-weight: 750;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .faq-item,
   .faq-item button svg,
@@ -158,8 +138,7 @@
     grid-template-columns: 1fr;
     grid-template-areas:
       "intro"
-      "list"
-      "contact";
+      "list";
     gap: var(--section-intro-gap-mobile);
   }
 
@@ -170,15 +149,5 @@
 
   .faq-answer p {
     padding: 0 18px 22px;
-  }
-
-  .faq-contact {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-  }
-
-  .faq-contact .btn {
-    width: 100%;
   }
 }

@@ -1,7 +1,6 @@
 export { Problem } from "./Problem";
 export { Approach } from "./Approach";
 export { Services } from "./Services";
-export { StoryScrolling } from "./StoryScrolling";
 export { Process } from "./Process";
 export { Work } from "./Work";
 export { SocialProof } from "./SocialProof";

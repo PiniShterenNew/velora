@@ -45,7 +45,7 @@
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-cta);
   color: var(--color-bg);
   box-shadow: var(--shadow-offset-md);
 }
@@ -71,7 +71,7 @@
 .services-action .btn-primary {
   min-width: min(100%, 420px);
   min-height: 60px;
-  background: linear-gradient(135deg, #c97942, var(--color-primary));
+  background: linear-gradient(135deg, #b96638, var(--color-cta));
   box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-border) 86%, transparent);
 }
 

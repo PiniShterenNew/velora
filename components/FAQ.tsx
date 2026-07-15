@@ -4,10 +4,7 @@ import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "./AmbientBackground";
-import { CtaLabel } from "./CtaLabel";
-import { WhatsAppIcon } from "./WhatsAppIcon";
 
-const whatsappUrl = copy.brand.whatsappUrl;
 const items = copy.faq.items;
 
 function FAQItem({
@@ -91,10 +88,6 @@ export function FAQ() {
               question={question}
             />
           ))}
-        </div>
-        <div className="faq-contact">
-          <p>{copy.faq.contactText}</p>
-          <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.faq.contactLabel}><CtaLabel desktop={copy.faq.contactLabel} mobile={copy.faq.contactLabelMobile} /> <WhatsAppIcon /></a>
         </div>
       </div>
     </section>

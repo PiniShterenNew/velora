@@ -168,8 +168,7 @@
   grid-template-columns: minmax(0, 1.02fr) minmax(360px, .78fr);
   grid-template-areas:
     "copy founder"
-    "copy strengths"
-    "cta strengths";
+    "copy strengths";
   gap: clamp(30px, 4vw, 54px) clamp(58px, 7vw, 104px);
   align-items: start;
 }
@@ -205,17 +204,6 @@
   align-self: start;
   justify-self: stretch;
   padding-top: clamp(8px, 1.4vw, 18px);
-}
-
-.about-cta {
-  grid-area: cta;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: clamp(4px, 1vw, 12px);
-}
-
-.about-cta .btn {
-  min-width: min(100%, 460px);
 }
 
 .founder-card {
@@ -392,8 +380,7 @@
     grid-template-areas:
       "copy"
       "founder"
-      "strengths"
-      "cta";
+      "strengths";
     gap: 0;
     width: min(calc(100% - (var(--container-padding) * 2)), var(--container-max));
     min-height: 0;
@@ -485,16 +472,6 @@
 
   .strength-copy>span {
     font-size: clamp(.9rem, 3.4vw, 1rem);
-  }
-
-  .about-cta {
-    justify-content: stretch;
-    margin-top: var(--section-cta-gap-mobile);
-  }
-
-  .about-cta .btn {
-    width: 100%;
-    min-width: 0;
   }
 
   .strength-check {

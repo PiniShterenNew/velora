@@ -13,7 +13,6 @@ import "./styles/components/buttons.css";
 import "./styles/components/sections-shared.css";
 import "./styles/components/decision-board.css";
 import "./styles/components/services.css";
-import "./styles/components/story.css";
 import "./styles/components/work.css";
 import "./styles/components/process.css";
 import "./styles/components/about.css";
@@ -66,7 +65,7 @@ export const metadata: Metadata = {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: "NorthSpark Studio – אתרי תדמית, דפי נחיתה וחוויות דיגיטליות",
+        alt: "NorthSpark Studio: אתרי תדמית, דפי נחיתה וחוויות דיגיטליות",
       },
     ],
   },

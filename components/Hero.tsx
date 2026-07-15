@@ -27,7 +27,7 @@ export function Hero() {
             <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
               {copy.common.whatsappFull} <WhatsAppIcon />
             </a>
-            <a className="btn btn-secondary" href="#decision-board" aria-label={copy.hero.secondaryCta.desktop}>
+            <a className="btn btn-secondary" href="#process" aria-label={copy.hero.secondaryCta.desktop}>
               <CtaLabel desktop={copy.hero.secondaryCta.desktop} mobile={copy.hero.secondaryCta.mobile} /> <ArrowLeft aria-hidden="true" />
             </a>
           </div>
