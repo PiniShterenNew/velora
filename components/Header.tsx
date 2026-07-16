@@ -8,12 +8,27 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const whatsappUrl = copy.brand.whatsappUrl;
 const navItems = [...copy.navigation.items, { label: copy.navigation.contactLabel, href: "#contact" }];
+const menuAnimationMs = 280;
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [renderMenu, setRenderMenu] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   useEffect(() => {
-    if (!open) return;
+    if (open) {
+      setRenderMenu(true);
+      const frame = window.requestAnimationFrame(() => setMenuVisible(true));
+      return () => window.cancelAnimationFrame(frame);
+    }
+
+    setMenuVisible(false);
+    const timeout = window.setTimeout(() => setRenderMenu(false), menuAnimationMs);
+    return () => window.clearTimeout(timeout);
+  }, [open]);
+
+  useEffect(() => {
+    if (!renderMenu) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -24,7 +39,12 @@ export function Header() {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", closeOnEscape);
     };
-  }, [open]);
+  }, [renderMenu]);
+
+  useEffect(() => {
+    document.body.classList.toggle("mobile-menu-open", menuVisible);
+    return () => document.body.classList.remove("mobile-menu-open");
+  }, [menuVisible]);
 
   const closeMenu = () => setOpen(false);
 
@@ -54,17 +74,17 @@ export function Header() {
           {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
 
-        <button
-          className={`menu-backdrop ${open ? "is-open" : ""}`}
+        {renderMenu ? <button
+          className={`menu-backdrop ${menuVisible ? "is-open" : ""}`}
           type="button"
           aria-label={copy.aria.closeMenu}
           tabIndex={open ? 0 : -1}
           onClick={closeMenu}
-        />
+        /> : null}
 
-        <nav
+        {renderMenu ? <nav
           id="mobile-navigation"
-          className={`mobile-menu ${open ? "is-open" : ""}`}
+          className={`mobile-menu ${menuVisible ? "is-open" : ""}`}
           aria-label={copy.aria.mobileNavigation}
           aria-hidden={!open}
         >
@@ -76,7 +96,7 @@ export function Header() {
           <a className="mobile-menu-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer" tabIndex={open ? 0 : -1} onClick={closeMenu}>
             {copy.common.mobileWhatsapp} <WhatsAppIcon />
           </a>
-        </nav>
+        </nav> : null}
       </div>
     </header>
   );
