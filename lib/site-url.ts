@@ -1,4 +1,4 @@
-const FALLBACK_SITE_URL = "https://north-spark.vercel.app";
+const FALLBACK_SITE_URL = "https://northsparkstudio.com";
 
 function withProtocol(url: string) {
   return /^https?:\/\//i.test(url) ? url : `https://${url}`;
