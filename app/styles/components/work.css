@@ -57,8 +57,33 @@
 
 .work-card.featured {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+  grid-template-columns: minmax(0, 3fr) minmax(320px, 2fr);
   align-items: stretch;
+}
+
+.work-section .project-preview {
+  padding: 11px;
+}
+
+.work-section .project-preview.project-screenshot,
+.work-section .featured .project-preview,
+.work-section .featured .project-screenshot {
+  min-height: 0;
+}
+
+.work-section .desktop-shot {
+  height: auto;
+  aspect-ratio: 16 / 10;
+  padding-top: 24px;
+}
+
+.work-section .desktop-shot img {
+  position: static !important;
+  display: block;
+  width: 100% !important;
+  height: calc(100% - 24px) !important;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .work-grid.has-scroll-focus .work-card {
@@ -208,6 +233,28 @@
   .work-card.featured {
     display: flex;
     border-radius: 24px;
+  }
+
+  .work-section .project-preview {
+    min-height: 0;
+    padding: 7px;
+  }
+
+  .work-section .project-screenshot,
+  .work-section .featured .project-preview,
+  .work-section .featured .project-screenshot {
+    min-height: 0;
+  }
+
+  .work-section .desktop-shot {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .work-section .desktop-shot img {
+    display: block;
+    width: 100% !important;
+    height: calc(100% - 24px) !important;
   }
 
   .work-content,

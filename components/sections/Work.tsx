@@ -20,12 +20,20 @@ const orderedProjectEntries = featuredEntry
   ? [featuredEntry, ...projectEntries.filter((entry) => entry !== featuredEntry)]
   : projectEntries;
 
+const desktopScreenshotDimensions: Record<string, { width: number; height: number }> = {
+  "/projects/as-plumbing-desktop.webp": { width: 1448, height: 909 },
+  "/projects/kim-beauty-desktop.webp": { width: 1541, height: 913 },
+  "/projects/notnim-beahava-desktop.webp": { width: 1900, height: 912 },
+};
+
 function ProjectPreview({ name, index, screenshots }: { name: string; index: number; screenshots?: { desktop: string; mobile: string } }) {
   if (screenshots) {
+    const desktopDimensions = desktopScreenshotDimensions[screenshots.desktop] ?? { width: 1600, height: 900 };
+
     return <div className={`project-preview project-screenshot preview-${index}`}>
       <div className="desktop-shot">
         <div className="shot-chrome" aria-hidden="true"><i /><i /><i /></div>
-        <Image src={screenshots.desktop} alt={`${name} desktop website screenshot`} fill sizes="(min-width: 1180px) 46vw, (min-width: 900px) 58vw, 92vw" />
+        <Image src={screenshots.desktop} alt={`${name} desktop website screenshot`} width={desktopDimensions.width} height={desktopDimensions.height} sizes="(min-width: 1180px) 56vw, (min-width: 900px) 54vw, 92vw" />
       </div>
       <div className="mobile-shot">
         <Image src={screenshots.mobile} alt={`${name} mobile website screenshot`} fill sizes="160px" />
