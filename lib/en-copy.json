@@ -1,0 +1,392 @@
+{
+    "brand": {
+        "name": "NorthSpark Studio",
+        "whatsappUrl": "https://wa.me/972548345192?text=Hi%2C%20I%27d%20love%20to%20talk%20about%20my%20website"
+    },
+    "metadata": {
+        "title": "Business Websites for Small Businesses | NorthSpark Studio",
+        "description": "I build business websites with clear content, professional design and a simple way to get in touch.",
+        "opengraphAlt": "NorthSpark Studio: business websites for small businesses",
+        "opengraphTitleLine1": "A clear, professional website",
+        "opengraphTitleLine2": "that truly fits your business.",
+        "opengraphFooter": "Copy · Design · Development"
+    },
+    "navigation": {
+        "items": [
+            {
+                "label": "Services",
+                "href": "#services"
+            },
+            {
+                "label": "Work",
+                "href": "#work"
+            },
+            {
+                "label": "Process",
+                "href": "#process"
+            },
+            {
+                "label": "FAQ",
+                "href": "#faq"
+            }
+        ],
+        "contactLabel": "Let's talk"
+    },
+    "aria": {
+        "backToTop": "NorthSpark Studio, back to top",
+        "primaryNavigation": "Primary navigation",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "mobileNavigation": "Mobile navigation",
+        "footerNavigation": "Footer navigation",
+        "studioServices": "NorthSpark Studio services",
+        "storyCompass": "How the information is ordered on the site",
+        "viewProject": "View project"
+    },
+    "common": {
+        "whatsappShort": "Let's talk",
+        "whatsappFull": "Message me on WhatsApp",
+        "mobileWhatsapp": "Message me on WhatsApp",
+        "watchProcess": "See the process",
+        "watchProject": "View project",
+        "skipToContent": "Skip to main content"
+    },
+    "siteIntro": {
+        "skip": "Skip intro",
+        "aria": "NorthSpark Studio intro"
+    },
+    "languageSwitch": {
+        "short": "עב",
+        "aria": "Switch to Hebrew"
+    },
+    "hero": {
+        "eyebrow": "Business websites for small businesses",
+        "title": {
+            "first": "A website that shows",
+            "second": "your business",
+            "thirdPrefix": "the way it",
+            "thirdEmphasis": "should",
+            "thirdSuffix": " be."
+        },
+        "text": "I build business websites for companies that win clients through calls, messages or bookings. Together we'll organize your information, and I'll turn it into a clear, professional and easy-to-use website.",
+        "microTrust": "You can start with a short WhatsApp message. Tell me about your business and I'll tell you honestly whether a website is the right move right now.",
+        "services": [
+            "Understanding the business",
+            "Copy",
+            "Design",
+            "Development",
+            "Mobile-ready",
+            "Basic SEO"
+        ],
+        "secondaryCta": {
+            "desktop": "See the process",
+            "mobile": "See the process"
+        }
+    },
+    "storyScrolling": {
+        "label": "Story Scrolling",
+        "title": "When your message needs to unfold in steps, scrolling can help people understand it.",
+        "text": "Not every website needs special effects. But when there's a process, product or story that has to be explained gradually, scrolling can become an experience that guides the client step by step.",
+        "compassBefore": "Instead of loading all the information at once",
+        "compassAfter": "we build a clear path that moves forward as you read.",
+        "cards": [
+            {
+                "illustration": "/illustrations/strategy.svg",
+                "intro": "We start from the question a client actually asks when they land on the site.",
+                "path": [
+                    "What is it?",
+                    "Who is it for?",
+                    "Why trust it?",
+                    "How do I reach out?"
+                ]
+            },
+            {
+                "illustration": "/illustrations/document.svg",
+                "lines": [
+                    "Each step gets its own space.",
+                    "The client doesn't have to guess what matters."
+                ],
+                "strong": "The information moves at a natural pace."
+            },
+            {
+                "illustration": "/illustrations/trust.svg",
+                "intro": "The design and animation aren't there to impress on their own, but to highlight the right point at the right time.",
+                "strong": "The experience stays clear, calm and action-oriented."
+            },
+            {
+                "illustration": "/illustrations/browser.svg",
+                "intro": "By the end of the path, the client better understands the offer, the value and the next step.",
+                "strong": "More clarity before they get in touch."
+            }
+        ],
+        "ctaText": "Want to check whether a scrolling experience like this fits your website?",
+        "ctaLabel": "Let's talk about the right structure",
+        "ctaLabelMobile": "Let's talk structure"
+    },
+    "decisionBoard": {
+        "kicker": "The information that matters",
+        "title": "Clients shouldn't have to hunt for what matters.",
+        "summary": "Right from the top of the site it should be clear what the business offers, who it's for and why to get in touch.",
+        "label": "First we organize the content",
+        "stages": [
+            {
+                "number": "01",
+                "title": "The service",
+                "description": "What the business offers and exactly what you get.",
+                "tone": "peach",
+                "shape": "circle"
+            },
+            {
+                "number": "02",
+                "title": "The fit",
+                "description": "Who the service suits and when it can help.",
+                "tone": "olive",
+                "shape": "triangle"
+            },
+            {
+                "number": "03",
+                "title": "Reason to choose",
+                "description": "What's special about the business and which work or details back it up.",
+                "tone": "mustard",
+                "shape": "square"
+            },
+            {
+                "number": "04",
+                "title": "Get in touch",
+                "description": "How to call, send a message or book an appointment.",
+                "tone": "rust",
+                "shape": "hexagon"
+            }
+        ]
+    },
+    "servicesSection": {
+        "label": "Business websites",
+        "title": "One page or a multi-page website?",
+        "intro": "It depends on how many services you have and how much content you need to show. I help you choose the right structure and handle the copy, design and development until the site is ready.",
+        "scopeNote": "Before we start, I send a clear proposal that spells out exactly what's included.",
+        "aftercareNote": "After the site goes live, you can still reach me for small changes and maintenance.",
+        "helperQuestion": "Not sure which option fits your business?",
+        "primaryCta": "Ask me on WhatsApp",
+        "items": [
+            {
+                "number": "01",
+                "kind": "brand",
+                "title": "Single-page website | ₪3,900",
+                "text": "For a business with one main service and a modest amount of content. All the key information lives on a single, well-organized page.",
+                "tags": [
+                    "One comprehensive page",
+                    "Structure and copy",
+                    "Design and development",
+                    "7 to 10 working days"
+                ]
+            },
+            {
+                "number": "02",
+                "kind": "brand",
+                "title": "Full business website | ₪6,900",
+                "text": "For a business with several services or a lot of content. Each topic gets its own space, making the information easier to understand and find.",
+                "tags": [
+                    "Multiple pages",
+                    "Pages for different services",
+                    "A stronger SEO foundation",
+                    "15 to 20 working days"
+                ]
+            }
+        ],
+        "primaryCtaMobile": "Check the fit"
+    },
+    "work": {
+        "label": "Work",
+        "title": "A few sites I've built",
+        "text": "Three different projects, each built around the business and the information it needed to show.",
+        "ctaText": "Want to talk about your website?",
+        "ctaLabel": "Let's talk",
+        "projects": [
+            {
+                "name": "A.S Plumbing",
+                "text": "A site that brings together the company's plumbing and restoration services and lets clients reach out straight from their phone.",
+                "outcome": "The information is organized by service type, so clients can quickly find what they need.",
+                "tags": [
+                    "Local business",
+                    "Service website",
+                    "Trust",
+                    "Contact"
+                ],
+                "href": "https://www.as-plumbing-services.com/",
+                "featured": true,
+                "screenshots": {
+                    "desktop": "/projects/as-plumbing-desktop.webp",
+                    "mobile": "/projects/as-plumbing-mobile.webp"
+                }
+            },
+            {
+                "name": "KIM Beauty",
+                "text": "A business website for a beauty clinic that presents its treatments within a calm, clean and precise experience.",
+                "outcome": "Each treatment gets a clear place, and the path leads from discovery to booking.",
+                "tags": [
+                    "Demo project",
+                    "Beauty & care",
+                    "Business website"
+                ],
+                "href": "https://kim-beauty.vercel.app/",
+                "screenshots": {
+                    "desktop": "/projects/kim-beauty-desktop.webp",
+                    "mobile": "/projects/kim-beauty-mobile.webp"
+                }
+            },
+            {
+                "name": "Giving with Love",
+                "text": "A donation page that explains who the donations help, why they matter and how to complete one.",
+                "outcome": "All the information and the donation process live on a single page.",
+                "tags": [
+                    "Nonprofit",
+                    "Donations",
+                    "Trust",
+                    "Action"
+                ],
+                "href": "https://donate.notnim.info/",
+                "screenshots": {
+                    "desktop": "/projects/notnim-beahava-desktop.webp",
+                    "mobile": "/projects/notnim-beahava-mobile.webp"
+                }
+            }
+        ]
+    },
+    "testimonials": {
+        "label": "Testimonials",
+        "title": "What clients say",
+        "items": []
+    },
+    "process": {
+        "label": "Process",
+        "title": [
+            "From the first call",
+            "to the site going live."
+        ],
+        "text": "The process is split into four stages. At each stage it's clear what we're working on and what needs approval before moving on.",
+        "ctaText": "Want to see how the process would look for you?",
+        "ctaLabel": "Let's start with a short call",
+        "items": [
+            {
+                "number": "01",
+                "title": "Intro call",
+                "text": "You tell me about your business, your services and the clients you want to reach.",
+                "illustration": "/illustrations/strategy.svg"
+            },
+            {
+                "number": "02",
+                "title": "Content",
+                "text": "I organize the information and write the copy for every page and section of the site.",
+                "illustration": "/illustrations/document.svg"
+            },
+            {
+                "number": "03",
+                "title": "Design",
+                "text": "Once the content is approved, I design the site around your business's style.",
+                "illustration": "/illustrations/trust.svg"
+            },
+            {
+                "number": "04",
+                "title": "Build & launch",
+                "text": "I build the site, make it mobile-ready and check that everything works before it goes live.",
+                "illustration": "/illustrations/browser.svg"
+            }
+        ],
+        "ctaLabelMobile": "Let's talk"
+    },
+    "about": {
+        "expertise": "Copy · Design · Development",
+        "label": "Nice to meet you",
+        "title": "I'm Pini, the person behind NorthSpark.",
+        "paragraphs": [
+            "I work on every website myself, from the first call until it goes live.",
+            "Throughout the project you talk to me directly. No handoffs between team members and no need to re-explain your business at every step."
+        ],
+        "ctaLabel": "Tell me about your business and the website you need",
+        "strengths": [
+            {
+                "title": "Work directly with me",
+                "text": "The same person throughout the project"
+            },
+            {
+                "title": "Down-to-earth writing",
+                "text": "No jargon your clients wouldn't use"
+            },
+            {
+                "title": "Design that fits the business",
+                "text": "Not a template with swapped colors"
+            },
+            {
+                "title": "A site that's ready to use",
+                "text": "Including mobile and pre-launch testing"
+            }
+        ],
+        "ctaLabelMobile": "Tell me about your site"
+    },
+    "faq": {
+        "label": "FAQ",
+        "title": "What's worth knowing before we start",
+        "text": "These are the things people usually want to know before deciding to start.",
+        "contactText": "Still have a question?",
+        "contactLabel": "Message me on WhatsApp",
+        "items": [
+            {
+                "question": "How long does it take to build a website?",
+                "answer": "A single-page site is usually ready within 7 to 10 working days. A full website is usually ready within 15 to 20 working days. The clock starts after the first payment and once I've received your materials, and doesn't include days spent waiting for feedback or approval."
+            },
+            {
+                "question": "How much does a website cost?",
+                "answer": "A single-page site costs ₪3,900. A full website costs ₪6,900. Before we start, I send a proposal that spells out exactly what's included. NorthSpark is a VAT-exempt business (osek patur), so no VAT is added."
+            },
+            {
+                "question": "What does the service include?",
+                "answer": "The service includes understanding your business, organizing the content, writing the copy, design, development, mobile optimization, basic SEO and pre-launch testing. The exact scope is set out in the proposal."
+            },
+            {
+                "question": "Do I need to come with ready-made text?",
+                "answer": "No. If you have existing text or materials, we'll use them as a starting point. I organize the information and write the site's copy, and you review it and confirm everything is accurate."
+            },
+            {
+                "question": "Does the website include SEO?",
+                "answer": "Yes. Every site includes basic SEO within the agreed scope. I set up the titles, descriptions, URLs and links, and connect analytics tools where I have access. I can't guarantee a specific position in search results."
+            },
+            {
+                "question": "Who is the service right for, and who less so?",
+                "answer": "It's a good fit for a business that wants a professional website and is ready to invest in content and design. It's less suited to someone looking for the cheapest option, needing an online store, or expecting guaranteed leads and Google rankings."
+            }
+        ],
+        "contactLabelMobile": "Message me"
+    },
+    "finalCta": {
+        "title": "Need a new website for your business?",
+        "text": "Send me a short message and tell me about your business. I'll ask a few questions and tell you which option fits, and whether starting with a website is even the right move.",
+        "secondaryCta": "Want to see some work?"
+    },
+    "footer": {
+        "tagline": "Business websites for small businesses.",
+        "copyright": "© 2026 NorthSpark Studio. All rights reserved.",
+        "credit": "Copy, design and development by NorthSpark Studio.",
+        "links": [
+            {
+                "label": "Services",
+                "href": "#services"
+            },
+            {
+                "label": "Process",
+                "href": "#process"
+            },
+            {
+                "label": "Work",
+                "href": "#work"
+            },
+            {
+                "label": "FAQ",
+                "href": "#faq"
+            },
+            {
+                "label": "Let's talk",
+                "href": "#contact"
+            }
+        ]
+    }
+}

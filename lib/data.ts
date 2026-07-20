@@ -1,4 +1,6 @@
 import siteCopy from "./site-copy.json";
+import enCopy from "./en-copy.json";
+import type { Locale } from "./i18n/config";
 
 export interface ServiceItemCopy {
   number: string;
@@ -59,4 +61,13 @@ type SiteCopyContract = Omit<typeof siteCopy, "servicesSection" | "testimonials"
 };
 
 export const copy: SiteCopyContract = siteCopy;
-export type SiteCopy = typeof copy;
+export type SiteCopy = SiteCopyContract;
+
+export const dictionaries: Record<Locale, SiteCopyContract> = {
+  he: siteCopy,
+  en: enCopy,
+};
+
+export function getDictionary(locale: Locale): SiteCopyContract {
+  return dictionaries[locale] ?? dictionaries.he;
+}

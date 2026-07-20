@@ -3,14 +3,16 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { copy } from "@/lib/data";
+import { useI18n } from "@/lib/i18n/context";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
-const whatsappUrl = copy.brand.whatsappUrl;
-const navItems = [...copy.navigation.items, { label: copy.navigation.contactLabel, href: "#contact" }];
 const menuAnimationMs = 280;
 
 export function Header() {
+  const { copy } = useI18n();
+  const whatsappUrl = copy.brand.whatsappUrl;
+  const navItems = [...copy.navigation.items, { label: copy.navigation.contactLabel, href: "#contact" }];
   const [open, setOpen] = useState(false);
   const [renderMenu, setRenderMenu] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
@@ -59,9 +61,12 @@ export function Header() {
           {navItems.map(({ label, href }) => <a key={label} href={href}>{label}</a>)}
         </nav>
 
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          {copy.common.whatsappShort}
-        </a>
+        <div className="header-actions">
+          <LanguageSwitcher />
+          <a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            {copy.common.whatsappShort}
+          </a>
+        </div>
 
         <button
           className="menu-button"
@@ -96,6 +101,7 @@ export function Header() {
           <a className="mobile-menu-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer" tabIndex={open ? 0 : -1} onClick={closeMenu}>
             {copy.common.mobileWhatsapp} <WhatsAppIcon />
           </a>
+          <LanguageSwitcher className="mobile-menu-lang" />
         </nav> : null}
       </div>
     </header>

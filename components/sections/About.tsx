@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
-import { copy } from "@/lib/data";
+import { getI18n } from "@/lib/i18n/server";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 
-const strengths = copy.about.strengths;
+export async function About() {
+  const { copy } = await getI18n();
+  const strengths = copy.about.strengths;
 
-export function About() {
   return <section id="about" className="page-section about-section"><AmbientBackground variant="about" /><div className="container about-grid">
     <Reveal className="about-founder"><article className="founder-card"><span className="about-panel-line" aria-hidden="true" /><div className="founder-card-top"><div className="founder-mark" aria-hidden="true"><Image src="/logo.svg" alt="" width={70} height={70} /></div><i aria-hidden="true" /></div><div className="founder-details"><p>{copy.about.expertise}</p></div></article></Reveal>
     <Reveal className="about-copy"><p className="section-label">{copy.about.label}</p><h2>{copy.about.title}</h2>{copy.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</Reveal>

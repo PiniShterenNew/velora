@@ -1,13 +1,14 @@
 import { ArrowLeft } from "lucide-react";
-import { copy } from "@/lib/data";
+import { getI18n } from "@/lib/i18n/server";
 import { CtaLabel } from "./CtaLabel";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import ValuePropositionBackground from "./ValuePropositionBackground";
 
-const whatsappUrl = copy.brand.whatsappUrl;
-const services = copy.hero.services;
+export async function Hero() {
+  const { copy, dir } = await getI18n();
+  const whatsappUrl = copy.brand.whatsappUrl;
+  const services = copy.hero.services;
 
-export function Hero() {
   return (
     <section className="hero" id="top">
       <ValuePropositionBackground />
@@ -47,7 +48,7 @@ export function Hero() {
       <div className="hero-tags-marquee" aria-hidden="true">
         <div className="hero-tags-marquee-track">
           {[...services, ...services].map((service, index) => (
-            <span dir="rtl" className={`service-chip ${index % 3 === 0 ? "featured" : ""}`} key={`${service}-${index}`}>
+            <span dir={dir} className={`service-chip ${index % 3 === 0 ? "featured" : ""}`} key={`${service}-${index}`}>
               {service}
             </span>
           ))}

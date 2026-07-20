@@ -1,10 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { copy } from "@/lib/data";
+import { useI18n } from "@/lib/i18n/context";
 import { AmbientBackground } from "./AmbientBackground";
-
-const stages = copy.decisionBoard.stages;
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 16 },
@@ -26,6 +24,8 @@ const stageReveal: Variants = {
 };
 
 export function DecisionBoard() {
+  const { copy } = useI18n();
+  const stages = copy.decisionBoard.stages;
   const reduceMotion = useReducedMotion();
   const initial = reduceMotion ? false : "hidden";
 

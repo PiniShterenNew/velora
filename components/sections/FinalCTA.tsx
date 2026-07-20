@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
-import { copy } from "@/lib/data";
+import type { SiteCopy } from "@/lib/data";
+import { getI18n } from "@/lib/i18n/server";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { WhatsAppIcon } from "../WhatsAppIcon";
-import { whatsappUrl } from "./shared";
 
-type FinalCtaCopy = typeof copy.finalCta & {
+type FinalCtaCopy = SiteCopy["finalCta"] & {
   reassurance?: string;
 };
 
-export function FinalCTA() {
+export async function FinalCTA() {
+  const { copy } = await getI18n();
+  const whatsappUrl = copy.brand.whatsappUrl;
   const finalCta = copy.finalCta as FinalCtaCopy;
 
   return (

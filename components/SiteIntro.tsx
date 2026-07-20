@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 const introSeenKey = "northspark-intro-seen";
 const exitDuration = 420;
 
-export function SiteIntro() {
+export function SiteIntro({ skipLabel, ariaLabel }: { skipLabel: string; ariaLabel: string }) {
   const animationContainerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<AnimationItem | null>(null);
   const skipButtonRef = useRef<HTMLButtonElement>(null);
@@ -112,11 +112,11 @@ export function SiteIntro() {
       className={`site-intro${isLeaving ? " is-leaving" : ""}`}
       role="dialog"
       aria-modal="true"
-      aria-label="פתיח NorthSpark Studio"
+      aria-label={ariaLabel}
     >
       <div className="site-intro-animation" ref={animationContainerRef} aria-hidden="true" />
       <button className="site-intro-skip" type="button" onClick={closeIntro} ref={skipButtonRef}>
-        דלג על הפתיח
+        {skipLabel}
       </button>
     </div>
   );

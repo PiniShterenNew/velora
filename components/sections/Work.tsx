@@ -5,20 +5,13 @@ import { ArrowUpLeft } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { copy } from "@/lib/data";
+import { useI18n } from "@/lib/i18n/context";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { WhatsAppIcon } from "../WhatsAppIcon";
-import { SectionIntro, whatsappUrl } from "./shared";
+import { SectionIntro } from "./shared";
 
 const removedProjectNames = new Set(["Cash Plus"]);
-const projectEntries = copy.work.projects
-  .map((project, originalIndex) => ({ project, originalIndex }))
-  .filter(({ project }) => !removedProjectNames.has(project.name));
-const featuredEntry = projectEntries.find(({ project }) => project.featured);
-const orderedProjectEntries = featuredEntry
-  ? [featuredEntry, ...projectEntries.filter((entry) => entry !== featuredEntry)]
-  : projectEntries;
 
 const desktopScreenshotDimensions: Record<string, { width: number; height: number }> = {
   "/projects/as-plumbing-desktop.webp": { width: 1448, height: 909 },
@@ -54,6 +47,15 @@ function ProjectPreview({ name, index, screenshots }: { name: string; index: num
 }
 
 export function Work() {
+  const { copy } = useI18n();
+  const whatsappUrl = copy.brand.whatsappUrl;
+  const projectEntries = copy.work.projects
+    .map((project, originalIndex) => ({ project, originalIndex }))
+    .filter(({ project }) => !removedProjectNames.has(project.name));
+  const featuredEntry = projectEntries.find(({ project }) => project.featured);
+  const orderedProjectEntries = featuredEntry
+    ? [featuredEntry, ...projectEntries.filter((entry) => entry !== featuredEntry)]
+    : projectEntries;
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -109,7 +111,7 @@ export function Work() {
 
   return <section id="work" className="page-section work-section" ref={sectionRef}><AmbientBackground variant="work" /><div className="container">
     <SectionIntro label={copy.work.label} title={copy.work.title} text={copy.work.text} />
-    <div className="work-grid has-scroll-focus">{orderedProjectEntries.map(({ project, originalIndex }, i) => <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`צפייה בפרויקט ${project.name}`}>{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
+    <div className="work-grid has-scroll-focus">{orderedProjectEntries.map(({ project, originalIndex }, i) => <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${copy.aria.viewProject} ${project.name}`}>{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
     <Reveal className="section-action action-with-note"><p>{copy.work.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">{copy.work.ctaLabel} <WhatsAppIcon /></a></Reveal>
   </div></section>;
 }

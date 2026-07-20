@@ -1,12 +1,13 @@
 import Image from "next/image";
-import { copy } from "@/lib/data";
+import { getI18n } from "@/lib/i18n/server";
 import { AmbientBackground } from "./AmbientBackground";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
-const whatsappUrl = copy.brand.whatsappUrl;
-const links = copy.footer.links;
+export async function Footer() {
+  const { copy } = await getI18n();
+  const whatsappUrl = copy.brand.whatsappUrl;
+  const links = copy.footer.links;
 
-export function Footer() {
   return (
     <footer className="site-footer">
       <AmbientBackground variant="footer" />

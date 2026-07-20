@@ -1,12 +1,9 @@
 import Image from "next/image";
-import { copy } from "@/lib/data";
+import { getI18n } from "@/lib/i18n/server";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { CtaLabel } from "../CtaLabel";
 import { WhatsAppIcon } from "../WhatsAppIcon";
-import { whatsappUrl } from "./shared";
-
-const services = copy.servicesSection.items;
 
 const serviceIllustrations: Record<string, string> = {
   brand: "/illustrations/trust.svg",
@@ -20,7 +17,11 @@ function ServiceIllustration({ kind }: { kind: string }) {
   </div>;
 }
 
-export function Services() {
+export async function Services() {
+  const { copy } = await getI18n();
+  const whatsappUrl = copy.brand.whatsappUrl;
+  const services = copy.servicesSection.items;
+
   return <section id="services" className="page-section services-section">
     <AmbientBackground variant="services" />
     <div className="container services-inner">

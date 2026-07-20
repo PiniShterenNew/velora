@@ -2,15 +2,19 @@ import type { Metadata } from "next";
 import { FAQ } from "@/components/FAQ";
 import { SectionPageLayout } from "@/components/SectionPageLayout";
 import { FinalCTA } from "@/components/sections";
-import { copy } from "@/lib/data";
+import { getI18n } from "@/lib/i18n/server";
 
-export const metadata: Metadata = {
-  title: `${copy.faq.label} | ${copy.brand.name}`,
-  description: copy.faq.text,
-  alternates: {
-    canonical: "/faq",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { copy } = await getI18n();
+
+  return {
+    title: `${copy.faq.label} | ${copy.brand.name}`,
+    description: copy.faq.text,
+    alternates: {
+      canonical: "/faq",
+    },
+  };
+}
 
 export default function FAQPage() {
   return (

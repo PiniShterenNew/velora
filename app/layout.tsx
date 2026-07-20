@@ -3,7 +3,9 @@ import { Rubik } from "next/font/google";
 import Script from "next/script";
 import { GoogleAnalyticsPageView } from "@/components/GoogleAnalyticsPageView";
 import { SiteIntro } from "@/components/SiteIntro";
-import { copy } from "@/lib/data";
+import { I18nProvider } from "@/lib/i18n/context";
+import { openGraphLocale } from "@/lib/i18n/config";
+import { getI18n } from "@/lib/i18n/server";
 import { getSiteUrl } from "@/lib/site-url";
 
 import "./styles/tokens.css";
@@ -36,49 +38,53 @@ const baseUrl = siteUrl.replace(/\/$/, "");
 const ogImageUrl = `${baseUrl}/og-image.png`;
 const googleAnalyticsId = "G-YBED7XP2EX";
 
-export const metadata: Metadata = {
-  title: copy.metadata.title,
-  description: copy.metadata.description,
+export async function generateMetadata(): Promise<Metadata> {
+  const { locale, copy } = await getI18n();
 
-  metadataBase: new URL(baseUrl),
-
-  alternates: {
-    canonical: "/",
-  },
-
-  verification: {
-    google: "jrq-mj9t6iTGB0dhkcR9900W8waismDq31eIh15w74I",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
-  openGraph: {
+  return {
     title: copy.metadata.title,
     description: copy.metadata.description,
-    url: baseUrl,
-    siteName: "NorthSpark Studio",
-    locale: "he_IL",
-    type: "website",
-    images: [
-      {
-        url: ogImageUrl,
-        width: 1200,
-        height: 630,
-        alt: "NorthSpark Studio: אתרי תדמית, דפי נחיתה וחוויות דיגיטליות",
-      },
-    ],
-  },
 
-  twitter: {
-    card: "summary_large_image",
-    title: copy.metadata.title,
-    description: copy.metadata.description,
-    images: [ogImageUrl],
-  },
-};
+    metadataBase: new URL(baseUrl),
+
+    alternates: {
+      canonical: "/",
+    },
+
+    verification: {
+      google: "jrq-mj9t6iTGB0dhkcR9900W8waismDq31eIh15w74I",
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+
+    openGraph: {
+      title: copy.metadata.title,
+      description: copy.metadata.description,
+      url: baseUrl,
+      siteName: "NorthSpark Studio",
+      locale: openGraphLocale(locale),
+      type: "website",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: copy.metadata.opengraphAlt,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: copy.metadata.title,
+      description: copy.metadata.description,
+      images: [ogImageUrl],
+    },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -86,22 +92,26 @@ export const viewport: Viewport = {
   themeColor: "#faf7f0",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const { locale, dir, copy } = await getI18n();
+
   return (
-    <html lang="he" dir="rtl" className={rubik.variable}>
+    <html lang={locale} dir={dir} className={rubik.variable}>
       <body>
-        <SiteIntro />
-        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} />
-        <Script id="google-analytics">
-          {`
+        <I18nProvider value={{ locale, dir, copy }}>
+          <SiteIntro skipLabel={copy.siteIntro.skip} ariaLabel={copy.siteIntro.aria} />
+          <Script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} />
+          <Script id="google-analytics">
+            {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${googleAnalyticsId}', { send_page_view: false });
           `}
-        </Script>
-        <GoogleAnalyticsPageView measurementId={googleAnalyticsId} />
-        {children}
+          </Script>
+          <GoogleAnalyticsPageView measurementId={googleAnalyticsId} />
+          {children}
+        </I18nProvider>
       </body>
     </html>
   );

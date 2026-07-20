@@ -40,14 +40,24 @@
         "mobileNavigation": "ניווט למובייל",
         "footerNavigation": "ניווט תחתון",
         "studioServices": "שירותי NorthSpark Studio",
-        "storyCompass": "סדר המידע באתר"
+        "storyCompass": "סדר המידע באתר",
+        "viewProject": "צפייה בפרויקט"
     },
     "common": {
         "whatsappShort": "בוא נדבר",
         "whatsappFull": "דבר איתי בוואטסאפ",
         "mobileWhatsapp": "דבר איתי בוואטסאפ",
         "watchProcess": "תהליך העבודה",
-        "watchProject": "לצפייה בפרויקט"
+        "watchProject": "לצפייה בפרויקט",
+        "skipToContent": "דלג לתוכן המרכזי"
+    },
+    "siteIntro": {
+        "skip": "דלג על הפתיח",
+        "aria": "פתיח NorthSpark Studio"
+    },
+    "languageSwitch": {
+        "short": "EN",
+        "aria": "מעבר לאנגלית"
     },
     "hero": {
         "eyebrow": "בניית אתרי תדמית לעסקים",
