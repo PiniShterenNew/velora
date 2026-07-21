@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { AnimationItem } from "lottie-web";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -75,6 +76,7 @@ export function SiteIntro() {
           loop: false,
           autoplay: true,
           path: "/animation/northspark-intro.json",
+          assetsPath: "/",
           rendererSettings: {
             preserveAspectRatio: "xMidYMid meet",
           },
@@ -114,7 +116,10 @@ export function SiteIntro() {
       aria-modal="true"
       aria-label="פתיח NorthSpark Studio"
     >
-      <div className="site-intro-animation" ref={animationContainerRef} aria-hidden="true" />
+      <div className="site-intro-visual" aria-hidden="true">
+        <div className="site-intro-animation" ref={animationContainerRef} />
+        <Image className="site-intro-logo" src="/full-logo.svg" alt="" width={1086} height={225} priority unoptimized />
+      </div>
       <button className="site-intro-skip" type="button" onClick={closeIntro} ref={skipButtonRef}>
         דלג על הפתיח
       </button>
