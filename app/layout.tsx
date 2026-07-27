@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Rubik } from "next/font/google";
+import { Frank_Ruhl_Libre, Rubik } from "next/font/google";
 import Script from "next/script";
 import { GoogleAnalyticsPageView } from "@/components/GoogleAnalyticsPageView";
 import { SiteIntro } from "@/components/SiteIntro";
@@ -28,6 +28,13 @@ import "./styles/hero.css";
 const rubik = Rubik({
   subsets: ["hebrew", "latin"],
   variable: "--font-rubik",
+  display: "swap",
+});
+
+const frankRuhlLibre = Frank_Ruhl_Libre({
+  subsets: ["hebrew", "latin"],
+  variable: "--font-frank-ruhl-libre",
+  style: "normal",
   display: "swap",
 });
 
@@ -88,7 +95,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={rubik.variable}>
+    <html lang="he" dir="rtl" className={`${rubik.variable} ${frankRuhlLibre.variable}`}>
       <body>
         <SiteIntro />
         <Script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} />

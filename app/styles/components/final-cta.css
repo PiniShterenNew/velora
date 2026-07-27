@@ -11,7 +11,7 @@
 }
 
 .final-cta {
-  padding-block: clamp(86px, 9vw, 126px) clamp(48px, 6vw, 78px);
+  padding-block: var(--section-padding-cta);
 }
 
 .final-cta-card {
@@ -19,7 +19,7 @@
   padding: clamp(60px, 7vw, 88px) clamp(30px, 6vw, 76px);
   overflow: hidden;
   border: 1.5px solid color-mix(in srgb, var(--color-bg) 22%, transparent);
-  border-radius: 36px;
+  border-radius: var(--radius-card-lg);
   background:
     radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--color-primary) 24%, transparent), transparent 31%),
     linear-gradient(90deg, color-mix(in srgb, var(--color-bg) 7%, transparent) 1px, transparent 1px),
@@ -29,14 +29,14 @@
   background-size: auto, 84px 84px, 84px 84px, auto, auto;
   color: var(--color-bg);
   text-align: right;
-  box-shadow: 0 34px 92px color-mix(in srgb, var(--color-border) 18%, transparent), 6px 6px 0 color-mix(in srgb, var(--color-border) 72%, transparent);
+  box-shadow: var(--shadow-lg);
 }
 
 .final-cta-card::before {
   position: absolute;
   inset: 16px;
   border: 1px solid color-mix(in srgb, var(--color-bg) 11%, transparent);
-  border-radius: 34px;
+  border-radius: calc(var(--radius-card-lg) - 2px);
   pointer-events: none;
   content: "";
 }
@@ -125,28 +125,28 @@
   margin-top: 0;
 }
 
-.final-cta-actions .btn {
+.final-cta-actions .btn-primary {
   box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-bg) 18%, transparent);
 }
 
-.final-cta-actions .btn:hover {
+.final-cta-actions .btn-primary:hover {
   box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-bg) 24%, transparent);
 }
 
 @media (max-width: 800px) {
   .final-cta {
-    padding-block: 76px 48px;
+    padding-block: var(--section-padding-cta);
   }
 
   .final-cta-card {
     padding: 54px 22px 28px;
-    border-radius: 26px;
-    box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-border) 72%, transparent);
+    border-radius: var(--radius-card-lg);
+    box-shadow: var(--shadow-lg);
   }
 
   .final-cta-card::before {
     inset: 10px;
-    border-radius: 20px;
+    border-radius: calc(var(--radius-card-lg) - 2px);
   }
 
   .final-cta-card::after {

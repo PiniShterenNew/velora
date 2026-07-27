@@ -1,6 +1,5 @@
 /* buttons */
 
-/* Shared components and homepage sections. */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -8,16 +7,103 @@
   gap: 10px;
   min-height: 54px;
   padding: 0 25px;
-  border: 2px solid var(--color-border);
+  border: 2px solid var(--color-border-strong);
   border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text);
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 750;
   line-height: 1;
   letter-spacing: 0;
+  cursor: pointer;
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast),
-    background var(--transition-fast);
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 4px;
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  border-color: var(--color-border-disabled);
+  box-shadow: none !important;
+  opacity: .5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn[aria-busy="true"] {
+  cursor: wait;
+}
+
+.btn-primary {
+  background: var(--color-cta);
+  color: var(--color-bg);
+  box-shadow: var(--shadow-offset-md);
+}
+
+.btn-primary:hover {
+  color: var(--color-bg);
+  box-shadow: var(--shadow-offset-lg);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  box-shadow: var(--shadow-offset-sm);
+  transform: translateY(0);
+}
+
+.btn-primary:focus-visible {
+  outline-color: var(--color-border-focus);
+  outline-offset: 3px;
+}
+
+.btn-secondary {
+  border-color: var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-bg) 24%, transparent);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: var(--color-border-strong);
+  background: var(--color-soft);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  background: color-mix(in srgb, var(--color-soft) 82%, var(--color-border-subtle));
+  transform: translateY(0);
+}
+
+.btn-dark-secondary {
+  border-color: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  background: transparent;
+  color: var(--color-bg);
+}
+
+.btn-dark-secondary:hover {
+  background: color-mix(in srgb, var(--color-bg) 10%, transparent);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+}
+
+.btn-dark-secondary:active {
+  background: color-mix(in srgb, var(--color-bg) 16%, transparent);
+  transform: translateY(0);
+}
+
+.services-action .btn-primary {
+  min-width: min(100%, 420px);
+  min-height: 60px;
+  background: linear-gradient(135deg, var(--ns-rust-cta-hi), var(--color-cta));
 }
 
 .whatsapp-icon {
@@ -42,45 +128,4 @@
   .cta-label-mobile {
     display: inline;
   }
-}
-
-.btn-primary {
-  background: var(--color-cta);
-  color: var(--color-bg);
-  box-shadow: var(--shadow-offset-md);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-offset-lg);
-}
-
-.btn-secondary {
-  border-color: color-mix(in srgb, var(--color-border) 82%, transparent);
-  background: color-mix(in srgb, var(--color-bg) 24%, transparent);
-  color: var(--color-text);
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus-visible {
-  transform: translateY(-2px);
-  border-color: var(--color-border);
-  background: var(--color-soft);
-}
-
-.services-action .btn-primary {
-  min-width: min(100%, 420px);
-  min-height: 60px;
-  background: linear-gradient(135deg, #b96638, var(--color-cta));
-  box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-border) 86%, transparent);
-}
-
-.btn-dark-secondary {
-  border-color: color-mix(in srgb, var(--color-bg) 72%, transparent);
-  color: var(--color-bg);
-}
-
-.btn-dark-secondary:hover {
-  background: color-mix(in srgb, var(--color-bg) 10%, transparent);
-  transform: translateY(-2px);
 }

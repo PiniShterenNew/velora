@@ -1,7 +1,7 @@
 /* testimonials */
 
 .testimonials-section {
-  padding-block: clamp(88px, 9vw, 132px);
+  padding-block: var(--section-padding-default);
   background:
     radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--color-olive) 16%, transparent), transparent 26%),
     linear-gradient(180deg, var(--color-bg), color-mix(in srgb, var(--color-soft) 48%, var(--color-bg)));

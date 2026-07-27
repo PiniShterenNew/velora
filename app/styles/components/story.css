@@ -2,7 +2,7 @@
 
 .story-section {
   overflow: visible;
-  padding-block: clamp(78px, 8vw, 118px);
+  padding-block: var(--section-padding-default);
   background: var(--color-bg);
 }
 
@@ -224,7 +224,7 @@
 .story-card.is-active {
   border-color: color-mix(in srgb, var(--color-primary) 68%, var(--color-border));
   background: color-mix(in srgb, var(--color-surface) 92%, var(--color-bg));
-  box-shadow: 8px 8px 0 color-mix(in srgb, var(--color-border) 82%, transparent), 0 28px 72px color-mix(in srgb, var(--color-border) 10%, transparent);
+  box-shadow: var(--shadow-md);
   opacity: 1;
   transform: translateY(-6px) scale(1);
 }
@@ -357,7 +357,7 @@
 @media (max-width: 800px) {
   .story-section {
     overflow: hidden;
-    padding-block: var(--section-padding-mobile);
+    padding-block: var(--section-padding-default);
   }
 
   .story-shell {
@@ -378,7 +378,7 @@
     min-height: 0;
     padding: 24px 22px;
     border-radius: 26px;
-    box-shadow: 6px 6px 0 color-mix(in srgb, var(--color-border) 82%, transparent);
+    box-shadow: var(--shadow-md);
   }
 
   .story-compass-copy {

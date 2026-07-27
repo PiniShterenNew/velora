@@ -203,6 +203,7 @@
                     "יצירת קשר"
                 ],
                 "href": "https://www.as-plumbing-services.com/",
+                "status": "launched",
                 "featured": true,
                 "screenshots": {
                     "desktop": "/projects/as-plumbing-desktop.webp",
@@ -219,6 +220,7 @@
                     "אתר תדמית"
                 ],
                 "href": "https://kim-beauty.vercel.app/",
+                "status": "demo",
                 "screenshots": {
                     "desktop": "/projects/kim-beauty-desktop.webp",
                     "mobile": "/projects/kim-beauty-mobile.webp"
@@ -235,6 +237,7 @@
                     "פעולה"
                 ],
                 "href": "https://donate.notnim.info/",
+                "status": "launched",
                 "screenshots": {
                     "desktop": "/projects/notnim-beahava-desktop.webp",
                     "mobile": "/projects/notnim-beahava-mobile.webp"

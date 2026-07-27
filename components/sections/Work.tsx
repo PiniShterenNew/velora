@@ -20,17 +20,26 @@ const orderedProjectEntries = featuredEntry
   ? [featuredEntry, ...projectEntries.filter((entry) => entry !== featuredEntry)]
   : projectEntries;
 
+const projectStatusLabels = {
+  launched: "הושק",
+  demo: "פרויקט הדגמה",
+  building: "בבנייה",
+} as const;
+
+type ProjectStatus = keyof typeof projectStatusLabels;
+
 const desktopScreenshotDimensions: Record<string, { width: number; height: number }> = {
   "/projects/as-plumbing-desktop.webp": { width: 1448, height: 909 },
   "/projects/kim-beauty-desktop.webp": { width: 1541, height: 913 },
   "/projects/notnim-beahava-desktop.webp": { width: 1900, height: 912 },
 };
 
-function ProjectPreview({ name, index, screenshots }: { name: string; index: number; screenshots?: { desktop: string; mobile: string } }) {
+function ProjectPreview({ name, index, screenshots, status }: { name: string; index: number; screenshots?: { desktop: string; mobile: string }; status: ProjectStatus }) {
   if (screenshots) {
     const desktopDimensions = desktopScreenshotDimensions[screenshots.desktop] ?? { width: 1600, height: 900 };
 
     return <div className={`project-preview project-screenshot preview-${index}`}>
+      <span className={`project-status project-status-${status}`}><span aria-hidden="true" />{projectStatusLabels[status]}</span>
       <div className="desktop-shot">
         <div className="shot-chrome" aria-hidden="true"><i /><i /><i /></div>
         <Image src={screenshots.desktop} alt={`${name} desktop website screenshot`} width={desktopDimensions.width} height={desktopDimensions.height} sizes="(min-width: 1180px) 56vw, (min-width: 900px) 54vw, 92vw" />
@@ -109,7 +118,7 @@ export function Work() {
 
   return <section id="work" className="page-section work-section" ref={sectionRef}><AmbientBackground variant="work" /><div className="container">
     <SectionIntro label={copy.work.label} title={copy.work.title} text={copy.work.text} />
-    <div className="work-grid has-scroll-focus">{orderedProjectEntries.map(({ project, originalIndex }, i) => <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`צפייה בפרויקט ${project.name}`}>{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
+    <div className="work-grid has-scroll-focus">{orderedProjectEntries.map(({ project, originalIndex }, i) => <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} status={project.status as ProjectStatus} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`צפייה בפרויקט ${project.name}`}>{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
     <Reveal className="section-action action-with-note"><p>{copy.work.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">{copy.work.ctaLabel} <WhatsAppIcon /></a></Reveal>
   </div></section>;
 }

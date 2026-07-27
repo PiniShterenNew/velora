@@ -6,14 +6,14 @@
 .skip-link {
   position: fixed;
   top: 14px;
-  right: var(--container-padding);
+  inset-inline-end: var(--container-padding);
   z-index: 1000;
   padding: 12px 18px;
-  border: 2px solid var(--color-border);
+  border: 2px solid var(--color-border-strong);
   border-radius: var(--radius-pill);
   background: var(--color-bg);
   color: var(--color-text);
-  box-shadow: var(--shadow-offset-sm);
+  box-shadow: var(--shadow-sm);
   font-weight: 800;
   opacity: 0;
   transform: translateY(-140%);
@@ -23,6 +23,7 @@
 .skip-link:focus-visible {
   opacity: 1;
   transform: translateY(0);
+  outline: none;
 }
 
 .site-header {
@@ -69,14 +70,18 @@
   align-items: center;
   gap: var(--space-6);
   padding: 11px var(--space-5);
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border-strong);
   border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--color-soft) 92%, transparent);
-  box-shadow: var(--shadow-offset-sm);
+  box-shadow: var(--shadow-md);
   backdrop-filter: blur(12px);
 }
 
 .nav-pill a {
+  position: relative;
+  padding: 6px 4px;
+  border-radius: var(--radius-xs);
+  color: var(--color-text);
   font-size: .88rem;
   font-weight: 650;
   transition: color var(--transition-fast);
@@ -86,13 +91,26 @@
   color: var(--color-primary);
 }
 
+.nav-pill a:active {
+  color: var(--color-cta);
+}
+
+.nav-pill a:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 3px;
+}
+
+.nav-pill a[aria-current="page"] {
+  color: var(--color-cta);
+}
+
 .header-cta {
   justify-self: end;
   display: inline-flex;
   align-items: center;
   min-height: 46px;
   padding: 0 22px;
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border-strong);
   border-radius: var(--radius-pill);
   background: var(--color-text);
   color: var(--color-bg);
@@ -105,6 +123,16 @@
   background: var(--color-cta);
 }
 
+.header-cta:active {
+  transform: translateY(0);
+  background: color-mix(in srgb, var(--color-cta) 88%, black);
+}
+
+.header-cta:focus-visible {
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 3px;
+}
+
 .menu-button,
 .menu-backdrop,
 .mobile-menu {
@@ -112,7 +140,7 @@
 }
 
 .page-section {
-  padding-block: var(--section-padding-top) var(--section-padding-bottom);
+  padding-block: var(--section-padding-default);
   scroll-margin-top: var(--header-sticky-offset);
 }
 main {
@@ -197,7 +225,7 @@ main {
     grid-template-columns: 1fr auto auto;
     gap: 7px;
     padding-inline: var(--space-4) 7px;
-    border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border-strong) 72%, transparent);
     border-radius: var(--radius-pill);
     background: color-mix(in srgb, var(--color-bg) 92%, transparent);
     box-shadow: var(--shadow-sm);
@@ -225,7 +253,7 @@ main {
     justify-self: center;
     min-height: 0;
     padding: 9px 14px;
-    border: 1.5px solid var(--color-border);
+    border: 1.5px solid var(--color-border-strong);
     border-radius: var(--radius-pill);
     background: var(--color-text);
     color: var(--color-bg);
@@ -248,7 +276,7 @@ main {
     place-items: center;
     width: 44px;
     height: 44px;
-    border: 1.5px solid var(--color-border);
+    border: 1.5px solid var(--color-border-strong);
     border-radius: 50%;
     background: var(--color-soft);
     color: var(--color-text);
@@ -257,6 +285,19 @@ main {
 
   .menu-button svg {
     width: 20px;
+  }
+
+  .menu-button:hover {
+    background: color-mix(in srgb, var(--color-soft) 70%, var(--color-bg));
+  }
+
+  .menu-button:active {
+    transform: scale(.96);
+  }
+
+  .menu-button:focus-visible {
+    outline: 3px solid var(--color-border-focus);
+    outline-offset: 2px;
   }
 
   .menu-backdrop {
@@ -294,7 +335,7 @@ main {
     display: grid;
     gap: 18px;
     padding: var(--space-6);
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--color-border-strong);
     border-radius: var(--radius-md);
     background: var(--color-soft);
     box-shadow: var(--shadow-lg);
@@ -336,8 +377,13 @@ main {
     border-bottom: 0;
   }
 
-  .mobile-menu-links a:hover {
+  .mobile-menu-links a:hover,
+  .mobile-menu-links a:focus-visible {
     color: var(--color-primary);
+  }
+
+  .mobile-menu-links a:active {
+    color: var(--color-cta);
   }
 
   .mobile-menu-cta {
@@ -347,12 +393,28 @@ main {
     gap: 9px;
     min-height: 54px;
     padding: 12px 18px;
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--color-border-strong);
     border-radius: var(--radius-pill);
     background: var(--color-cta);
     color: var(--color-bg);
     box-shadow: var(--shadow-offset-sm);
     font-weight: 800;
+  }
+
+  .mobile-menu-cta:hover {
+    color: var(--color-bg);
+    box-shadow: var(--shadow-offset-md);
+    transform: translateY(-2px);
+  }
+
+  .mobile-menu-cta:active {
+    box-shadow: var(--shadow-offset-sm);
+    transform: translateY(0);
+  }
+
+  .mobile-menu-cta:focus-visible {
+    outline: 3px solid var(--color-border-focus);
+    outline-offset: 3px;
   }
 
   .mobile-menu-cta svg {
@@ -385,7 +447,7 @@ main {
     column-gap: var(--space-6);
     height: 66px;
     padding-inline: 18px var(--space-6);
-    border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border-strong) 72%, transparent);
     border-radius: var(--radius-pill);
     background: color-mix(in srgb, var(--color-bg) 92%, transparent);
     box-shadow: var(--shadow-md);
@@ -415,23 +477,11 @@ main {
     font-weight: 800;
   }
 
-  .nav-pill a:not(:last-child)::after {
-    position: absolute;
-    top: 50%;
-    left: -9px;
-    width: 1px;
-    height: 14px;
-    border-radius: var(--radius-pill);
-    background: color-mix(in srgb, var(--color-border) 22%, transparent);
-    content: "";
-    transform: translateY(-50%);
-  }
-
   .header-cta {
     justify-self: end;
     min-height: 0;
     padding: 11px 22px;
-    border: 1.5px solid var(--color-border);
+    border: 1.5px solid var(--color-border-strong);
     background: var(--color-text);
     color: var(--color-bg);
     font-size: .9375rem;

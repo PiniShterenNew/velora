@@ -13,18 +13,20 @@
 */
 
 .reveal {
+  --reveal-index: 0;
   opacity: 0;
   animation: fade-up var(--duration-normal) var(--ease-standard) forwards;
+  animation-delay: calc(var(--reveal-index) * 80ms);
 }
 
-.reveal-1 { animation-delay: 80ms; }
-.reveal-2 { animation-delay: 180ms; }
-.reveal-3 { animation-delay: 280ms; }
-.reveal-4 { animation-delay: 380ms; }
-.reveal-5 { animation-delay: 520ms; }
-.reveal-6 { animation-delay: 650ms; }
-.reveal-7 { animation-delay: 770ms; }
-.reveal-8 { animation-delay: 900ms; }
+.reveal-1 { --reveal-index: 1; }
+.reveal-2 { --reveal-index: 2; }
+.reveal-3 { --reveal-index: 3; }
+.reveal-4 { --reveal-index: 4; }
+.reveal-5 { --reveal-index: 5; }
+.reveal-6 { --reveal-index: 6; }
+.reveal-7 { --reveal-index: 7; }
+.reveal-8 { --reveal-index: 8; }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(16px); }
@@ -56,11 +58,11 @@
 }
 
 @keyframes primary-cta-breathe {
-  0%, 72%, 100% { box-shadow: var(--shadow-offset-md); }
-  86% {
+  0%, 78%, 100% { box-shadow: var(--shadow-offset-md); }
+  90% {
     box-shadow:
       var(--shadow-offset-md),
-      0 0 0 8px color-mix(in srgb, var(--color-primary) 16%, transparent);
+      0 0 0 6px color-mix(in srgb, var(--color-primary) 14%, transparent);
   }
 }
 

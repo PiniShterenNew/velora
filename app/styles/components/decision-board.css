@@ -84,7 +84,7 @@
 
 .step-number {
   color: var(--stage-color);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(3.2rem, 4.5vw, 4.5rem);
   font-weight: 400;
   line-height: 1;
@@ -310,7 +310,7 @@
 
   .decision-bridge {
     min-height: 0;
-    padding-block: var(--section-padding-mobile) 58px;
+    padding-block: var(--section-padding-default);
   }
 
   .strategy-heading h2 {

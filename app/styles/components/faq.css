@@ -1,6 +1,7 @@
 /* faq */
 
 .faq-section {
+  padding-block: var(--section-padding-dense);
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--color-soft) 86%, var(--color-bg)) 0%, var(--color-soft) 100%);
 }
@@ -87,7 +88,7 @@
 .faq-item[data-expanded="true"] {
   border-color: color-mix(in srgb, var(--color-primary) 42%, var(--color-border));
   background: var(--color-bg);
-  box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-border) 20%, transparent);
+  box-shadow: var(--shadow-sm);
 }
 
 .faq-item[data-expanded="true"] button svg {

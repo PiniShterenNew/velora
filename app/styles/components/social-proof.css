@@ -2,7 +2,7 @@
 
 /* Social proof and testimonials */
 .social-proof-section {
-  padding-block: clamp(72px, 8vw, 112px);
+  padding-block: var(--section-padding-default);
   background:
     radial-gradient(circle at 12% 24%, color-mix(in srgb, var(--color-peach) 18%, transparent), transparent 28%),
     linear-gradient(180deg, color-mix(in srgb, var(--color-soft) 42%, var(--color-bg)), var(--color-bg));

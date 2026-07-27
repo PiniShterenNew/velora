@@ -43,11 +43,11 @@
   overflow: hidden;
   padding: clamp(30px, 3.6vw, 42px);
   border: 1px solid color-mix(in srgb, var(--color-border) 38%, transparent);
-  border-radius: 28px;
+  border-radius: var(--radius-card-lg);
   background:
     radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--color-peach) 38%, transparent), transparent 34%),
     linear-gradient(145deg, color-mix(in srgb, var(--color-bg) 80%, var(--color-peach)), color-mix(in srgb, var(--color-soft) 92%, white));
-  box-shadow: var(--shadow-offset-md);
+  box-shadow: var(--shadow-md);
 }
 
 .founder-card::before {
@@ -87,7 +87,7 @@
   color: var(--color-bg);
   font-size: 1.35rem;
   font-weight: 850;
-  box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-border) 82%, transparent);
+  box-shadow: var(--shadow-sm);
 }
 
 .founder-details {
@@ -138,14 +138,14 @@
   border: 1px solid color-mix(in srgb, var(--color-border) 28%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--color-surface) 76%, var(--color-soft));
-  box-shadow: 3px 3px 0 color-mix(in srgb, var(--color-border) 18%, transparent);
+  box-shadow: var(--shadow-sm);
   font-weight: 700;
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .strengths .scroll-reveal>div:hover {
   border-color: color-mix(in srgb, var(--color-primary) 42%, var(--color-border));
-  box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-border) 26%, transparent);
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
@@ -157,7 +157,7 @@
 
 /* About section: integrated with the Hero, Services and Process visual rhythm. */
 .about-section {
-  padding-block: clamp(112px, 11vw, 168px);
+  padding-block: var(--section-padding-default);
   background:
     radial-gradient(circle at 8% 18%, color-mix(in srgb, var(--color-peach) 23%, transparent), transparent 25%),
     radial-gradient(circle at 91% 82%, color-mix(in srgb, var(--color-olive) 16%, transparent), transparent 24%),
@@ -210,7 +210,7 @@
   min-height: 0;
   padding: clamp(24px, 2.8vw, 34px);
   border-color: color-mix(in srgb, var(--color-border) 16%, transparent);
-  border-radius: 24px;
+  border-radius: var(--radius-card-lg);
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--color-surface) 92%, var(--color-bg)), color-mix(in srgb, var(--color-bg) 84%, var(--color-soft)));
   color: var(--color-text);
@@ -308,7 +308,7 @@
   border: 1px solid color-mix(in srgb, var(--color-border) 22%, transparent);
   border-radius: 18px;
   background: color-mix(in srgb, var(--color-surface) 78%, var(--color-bg));
-  box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-border) 14%, transparent);
+  box-shadow: var(--shadow-sm);
   line-height: 1.35;
 }
 
@@ -318,7 +318,7 @@
 
 .strengths .scroll-reveal>.strength-item:hover {
   border-color: color-mix(in srgb, var(--color-primary) 34%, var(--color-border));
-  box-shadow: 5px 5px 0 color-mix(in srgb, var(--color-border) 20%, transparent);
+  box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
@@ -371,7 +371,7 @@
 
 @media (max-width: 800px) {
   .about-section {
-    padding-block: var(--section-padding-mobile);
+    padding-block: var(--section-padding-default);
   }
 
   .about-grid {

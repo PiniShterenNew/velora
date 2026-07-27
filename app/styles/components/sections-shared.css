@@ -333,9 +333,11 @@
 
 .section-label {
   display: inline-flex;
+  align-items: center;
+  height: 26px;
   margin: 0 0 18px;
-  padding: 7px 13px;
-  border: 1.5px solid var(--color-border);
+  padding: 4px 12px;
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-pill);
   background: var(--color-bg);
   font-size: var(--type-label-size);
@@ -866,7 +868,7 @@
 
 @media (max-width: 800px) {
   .page-section {
-    padding-block: var(--section-padding-mobile);
+    padding-block: var(--section-padding-default);
   }
 
   .section-intro {
