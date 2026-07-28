@@ -48,7 +48,7 @@ export function DecisionBoard() {
           <motion.div className="board-label" variants={reveal} custom={0.28}>{copy.decisionBoard.label}</motion.div>
         </header>
 
-        <ol className="decision-steps">
+        <ul className="decision-steps">
           {stages.map((stage, index) => (
             <motion.li
               className={`strategy-stage strategy-stage-${stage.tone}`}
@@ -64,7 +64,7 @@ export function DecisionBoard() {
               <span className={`stage-shape stage-shape-${stage.shape}`} aria-hidden="true" />
             </motion.li>
           ))}
-        </ol>
+        </ul>
       </div>
     </motion.section>
   );

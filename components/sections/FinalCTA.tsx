@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
@@ -29,9 +28,6 @@ export function FinalCTA() {
               <div className="final-cta-actions">
                 <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   {copy.common.whatsappFull} <WhatsAppIcon />
-                </a>
-                <a className="btn btn-dark-secondary" href="#work">
-                  {finalCta.secondaryCta} <ArrowLeft aria-hidden="true" />
                 </a>
               </div>
             </div>
