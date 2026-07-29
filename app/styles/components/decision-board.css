@@ -83,7 +83,8 @@
 }
 
 .step-number {
-  color: var(--stage-color);
+  /* Mixed with ink so the numbers keep the stage hue but pass contrast on cream. */
+  color: color-mix(in srgb, var(--stage-color) 55%, var(--color-ink));
   font-family: var(--font-serif);
   font-size: clamp(3.2rem, 4.5vw, 4.5rem);
   font-weight: 400;
@@ -333,6 +334,7 @@
 @media (max-width: 700px) {
   .decision-steps {
     grid-template-columns: 1fr;
+    margin-top: 24px;
   }
 
   .strategy-stage:not(:nth-child(even)) {
@@ -341,6 +343,35 @@
 
   .strategy-stage:not(:last-child) {
     border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+  }
+
+  /* Compact stacked cards: drop decorative connectors so the section
+     spans ~2 screens instead of ~4 on phones. */
+  .strategy-stage {
+    padding: 18px 10px 20px;
+  }
+
+  .stage-connector,
+  .stage-shape {
+    display: none;
+  }
+
+  .step-number {
+    font-size: 2.3rem;
+  }
+
+  .stage-accent {
+    margin-top: 10px;
+  }
+
+  .strategy-stage h3 {
+    margin-top: 12px;
+    font-size: 1.55rem;
+  }
+
+  .strategy-stage p {
+    margin-top: 8px;
+    max-width: 320px;
   }
 }
 @media (min-width: 1001px) {

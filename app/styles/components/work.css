@@ -15,7 +15,7 @@
   border: 1px solid color-mix(in srgb, var(--color-border) 24%, transparent);
   border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--color-bg) 58%, transparent);
-  color: color-mix(in srgb, var(--color-ink) 56%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 80%, transparent);
   font-size: .72rem;
   font-weight: 620;
   line-height: 1.2;

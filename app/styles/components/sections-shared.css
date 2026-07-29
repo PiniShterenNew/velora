@@ -631,7 +631,8 @@
 }
 
 .service-number {
-  color: var(--color-primary);
+  /* CTA rust instead of primary rust — small text needs the darker shade for contrast. */
+  color: var(--color-cta);
   font-size: .84rem;
   font-weight: 850;
   letter-spacing: .06em;
