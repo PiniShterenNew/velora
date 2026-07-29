@@ -345,15 +345,26 @@
     border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
   }
 
-  /* Compact stacked cards: drop decorative connectors so the section
-     spans ~2 screens instead of ~4 on phones. */
+  /* Compact stacked cards: drop the dashed connectors so the section
+     spans ~2 screens instead of ~4 on phones. The stage shapes stay —
+     they are part of the section's character — but move to the card
+     corner so they cost no vertical space. */
   .strategy-stage {
     padding: 18px 10px 20px;
   }
 
-  .stage-connector,
-  .stage-shape {
+  .stage-connector {
     display: none;
+  }
+
+  .stage-shape {
+    position: absolute;
+    top: 20px;
+    inset-inline-start: 14px;
+    width: 22px;
+    height: 22px;
+    margin-top: 0;
+    opacity: .9;
   }
 
   .step-number {
