@@ -11,5 +11,6 @@ export function getSiteUrl() {
     process.env.VERCEL_URL ||
     FALLBACK_SITE_URL;
 
-  return withProtocol(rawUrl).replace(/\/+$/, "");
+  // Canonical form is the apex domain — never www.
+  return withProtocol(rawUrl).replace(/\/+$/, "").replace(/^https:\/\/www\./i, "https://");
 }
