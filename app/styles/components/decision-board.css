@@ -347,10 +347,15 @@
 
   /* Compact stacked cards: drop the dashed connectors so the section
      spans ~2 screens instead of ~4 on phones. The stage shapes stay —
-     they are part of the section's character — but move to the card
-     corner so they cost no vertical space. */
+     they are part of the section's character — shrunk to a small solid
+     mark sitting at the number's baseline, echoing the brand-logo dot
+     ("NorthSpark•"), so they cost no vertical space. */
   .strategy-stage {
     padding: 18px 10px 20px;
+  }
+
+  .strategy-stage:first-child {
+    padding-top: 18px;
   }
 
   .stage-connector {
@@ -359,12 +364,50 @@
 
   .stage-shape {
     position: absolute;
-    top: 20px;
-    inset-inline-start: 14px;
-    width: 22px;
-    height: 22px;
+    /* Baseline of the 2.3rem two-digit serif number, just past its edge. */
+    top: 41px;
+    left: calc(50% + 26px);
+    width: 14px;
+    height: 14px;
     margin-top: 0;
-    opacity: .9;
+  }
+
+  /* Large stage shape as a soft side backdrop: identical box and opacity
+     on every card, offset to the card corner so it never sits behind the
+     centered title or paragraph. */
+  .strategy-stage {
+    z-index: 0;
+  }
+
+  .strategy-stage::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    inset-inline-end: -14px;
+    width: 76px;
+    height: 76px;
+    background: var(--stage-color);
+    opacity: .12;
+    z-index: -1;
+  }
+
+  .strategy-stage-peach::before {
+    border-radius: 50%;
+  }
+
+  .strategy-stage-olive::before {
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+
+  .strategy-stage-rust::before {
+    clip-path: polygon(25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
+  }
+
+  /* Desktop-tuned ambient decorations land arbitrarily on stacked cards
+     (the stray frame around card 02, the pale shape under 03) — off. */
+  .ambient-decision .ambient-square,
+  .ambient-decision .ambient-dots {
+    display: none;
   }
 
   .step-number {
