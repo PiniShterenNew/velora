@@ -601,3 +601,14 @@
     margin-top: 20px;
   }
 }
+/* On phones the hero's transition geometries land deep inside the next
+   section (its cards carry their own ambient shapes there) — hide them. */
+@media (max-width: 700px) {
+  .hero-geometry-transition-circle,
+  .hero-geometry-transition-square,
+  .hero-geometry-transition-triangle,
+  .hero-geometry-transition-hexagon,
+  .hero-dot-field-transition {
+    display: none;
+  }
+}
