@@ -8,12 +8,14 @@ import { whatsappUrl } from "./shared";
 
 const services = copy.servicesSection.items;
 
-const serviceIllustrations: Record<string, string> = {
-  brand: "/illustrations/trust.svg",
-};
+const serviceIllustrations = [
+  "/illustrations/cursor.svg",
+  "/illustrations/document.svg",
+  "/illustrations/browser.svg",
+];
 
-function ServiceIllustration({ kind }: { kind: string }) {
-  const src = serviceIllustrations[kind] ?? "/illustrations/browser.svg";
+function ServiceIllustration({ kind, index }: { kind: string; index: number }) {
+  const src = serviceIllustrations[index] ?? "/illustrations/trust.svg";
 
   return <div className={`service-illustration service-illustration-${kind}`} aria-hidden="true">
     <Image className="service-illustration-img" src={src} alt="" width={150} height={150} />
@@ -31,13 +33,13 @@ export function Services() {
           <p>{copy.servicesSection.intro}</p>
         </Reveal>
       </div>
-      <div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
+      <div className="rail-viewport"><div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
         <span className="service-number">{service.number}</span>
-        <ServiceIllustration kind={service.kind} />
+        <ServiceIllustration kind={service.kind} index={i} />
         <h3>{service.title}</h3>
         <p>{service.text}</p>
         <ul>{service.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-      </article></Reveal>)}</div>
+      </article></Reveal>)}</div></div>
       <Reveal className="services-scope-note">
         <p>{copy.servicesSection.scopeNote}</p>
       </Reveal>

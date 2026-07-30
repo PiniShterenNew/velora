@@ -36,7 +36,7 @@ export function Hero() {
 
           <ul className="hero-tags reveal reveal-8" aria-label={copy.aria.studioServices}>
             {services.slice(0, 4).map((service) => (
-              <li className={`service-chip ${service === "Story Scrolling" ? "featured" : ""}`} key={service}>
+              <li className="service-chip" key={service}>
                 {service}
               </li>
             ))}

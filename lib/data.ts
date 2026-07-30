@@ -33,29 +33,9 @@ export interface TestimonialsCopy {
   items: TestimonialCopy[];
 }
 
-export interface StoryScrollingCardCopy {
-  illustration: string;
-  intro?: string;
-  path?: string[];
-  lines?: string[];
-  strong?: string;
-}
-
-export interface StoryScrollingCopy {
-  label: string;
-  title: string;
-  text: string;
-  compassBefore: string;
-  compassAfter: string;
-  cards: StoryScrollingCardCopy[];
-  ctaText: string;
-  ctaLabel: string;
-  ctaLabelMobile: string;
-}
-type SiteCopyContract = Omit<typeof siteCopy, "servicesSection" | "testimonials" | "storyScrolling"> & {
+type SiteCopyContract = Omit<typeof siteCopy, "servicesSection" | "testimonials"> & {
   servicesSection: ServicesSectionCopy;
   testimonials: TestimonialsCopy;
-  storyScrolling: StoryScrollingCopy;
 };
 
 export const copy: SiteCopyContract = siteCopy;

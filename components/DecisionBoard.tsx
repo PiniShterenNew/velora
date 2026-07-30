@@ -1,8 +1,10 @@
 "use client";
 
+import { useRef } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "./AmbientBackground";
+import { useMobileRailPin } from "./useMobileRailPin";
 
 const stages = copy.decisionBoard.stages;
 
@@ -28,15 +30,18 @@ const stageReveal: Variants = {
 export function DecisionBoard() {
   const reduceMotion = useReducedMotion();
   const initial = reduceMotion ? false : "hidden";
+  const sectionRef = useRef<HTMLElement>(null);
+  useMobileRailPin(sectionRef, ".decision-steps");
 
   return (
     <motion.section
+      ref={sectionRef}
       className="decision-bridge"
       id="decision-board"
       aria-labelledby="decision-board-title"
       initial={initial}
       whileInView="visible"
-      viewport={{ once: true, amount: 0.38 }}
+      viewport={{ once: true, amount: 0.2 }}
     >
       <AmbientBackground variant="decision" />
 
@@ -48,6 +53,7 @@ export function DecisionBoard() {
           <motion.div className="board-label" variants={reveal} custom={0.28}>{copy.decisionBoard.label}</motion.div>
         </header>
 
+        <div className="rail-viewport">
         <ul className="decision-steps">
           {stages.map((stage, index) => (
             <motion.li
@@ -65,6 +71,14 @@ export function DecisionBoard() {
             </motion.li>
           ))}
         </ul>
+        </div>
+
+        <div className="rail-progress" aria-hidden="true">
+          <span className="rail-progress-track"><span className="rail-progress-fill" /></span>
+          <span className="rail-dots">
+            {stages.map((stage) => <span key={stage.number} />)}
+          </span>
+        </div>
       </div>
     </motion.section>
   );

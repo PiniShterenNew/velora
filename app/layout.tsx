@@ -16,7 +16,6 @@ import "./styles/components/services.css";
 import "./styles/components/work.css";
 import "./styles/components/process.css";
 import "./styles/components/about.css";
-import "./styles/components/social-proof.css";
 import "./styles/components/testimonials.css";
 import "./styles/components/faq.css";
 import "./styles/components/final-cta.css";
@@ -38,7 +37,7 @@ const frankRuhlLibre = Frank_Ruhl_Libre({
 
 const siteUrl = getSiteUrl();
 const baseUrl = siteUrl.replace(/\/$/, "");
-const ogImageUrl = `${baseUrl}/og-image.png`;
+const ogImageUrl = `${baseUrl}/og-image.jpg`;
 const googleAnalyticsId = "G-YBED7XP2EX";
 
 export const metadata: Metadata = {
@@ -72,7 +71,7 @@ export const metadata: Metadata = {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: "NorthSpark Studio: אתרי תדמית, דפי נחיתה וחוויות דיגיטליות",
+        alt: copy.metadata.opengraphAlt,
       },
     ],
   },
