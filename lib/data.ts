@@ -15,6 +15,7 @@ export interface ServicesSectionCopy {
   scopeNote: string;
   aftercareNote: string;
   helperQuestion: string;
+  mobileScrollHint: string;
   primaryCta: string;
   primaryCtaMobile: string;
   items: ServiceItemCopy[];

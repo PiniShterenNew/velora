@@ -331,12 +331,11 @@
 }
 
 @media (max-width: 700px) {
-  /* Full-screen stage: the whole section pins (GSAP pin + scrub) while
-     vertical scroll slides the four stages sideways. Heading sits on top,
-     rail in the middle, progress bar + dots fill the bottom dead space. */
+  /* Full-screen stage: the section stays pinned while accumulated vertical
+     scroll advances the rail one complete card at a time. */
   .decision-bridge {
     min-height: 100svh;
-    padding-block: calc(58px + 24px) 24px;
+    padding-block: calc(58px + 24px) calc(var(--space-12) + env(safe-area-inset-bottom));
   }
 
   .decision-bridge-inner {
@@ -344,12 +343,18 @@
     flex-direction: column;
     justify-content: center;
     gap: clamp(18px, 4svh, 40px);
-    min-height: calc(100svh - 58px - 48px);
+    min-height: calc(100svh - 82px - var(--space-12) - env(safe-area-inset-bottom));
   }
 
   .decision-steps {
     display: flex;
+    width: 100%;
     margin-top: 0;
+  }
+
+  .decision-bridge .rail-viewport {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
   }
 
   .strategy-stage:not(:nth-child(even)) {
@@ -362,9 +367,12 @@
   }
 
   .strategy-stage {
-    flex: 0 0 min(82vw, 340px);
-    scroll-snap-align: center;
-    padding: 18px 16px 20px;
+    flex: 0 0 100%;
+    justify-content: center;
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 18px clamp(20px, 7vw, 36px) 20px;
     z-index: 0;
   }
 
@@ -475,57 +483,5 @@
   .decision-bridge .strategy-stage {
     opacity: 1 !important;
     transform: none !important;
-  }
-}
-
-/* Rail progress UI: shown only while the mobile pin is active
-   (data-rail-active is set by useMobileRailPin). */
-.rail-progress {
-  display: none;
-}
-
-@media (max-width: 700px) {
-  .decision-bridge[data-rail-active] .rail-progress {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-  }
-
-  .rail-progress-track {
-    flex: 0 1 170px;
-    height: 2px;
-    border-radius: var(--radius-pill);
-    background: color-mix(in srgb, var(--color-primary) 22%, transparent);
-    overflow: hidden;
-  }
-
-  .rail-progress-fill {
-    display: block;
-    height: 100%;
-    background: var(--color-primary);
-    transform: scaleX(var(--rail-progress, 0));
-    transform-origin: 100% 50%;
-  }
-
-  .rail-dots {
-    display: inline-flex;
-    gap: 7px;
-  }
-
-  .rail-dots span {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--color-primary) 30%, transparent);
-    transition: background 200ms ease, transform 200ms ease;
-  }
-
-  .decision-bridge[data-rail-active="0"] .rail-dots span:nth-child(1),
-  .decision-bridge[data-rail-active="1"] .rail-dots span:nth-child(2),
-  .decision-bridge[data-rail-active="2"] .rail-dots span:nth-child(3),
-  .decision-bridge[data-rail-active="3"] .rail-dots span:nth-child(4) {
-    background: var(--color-primary);
-    transform: scale(1.3);
   }
 }

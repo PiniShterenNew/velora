@@ -377,8 +377,10 @@
   .rail-viewport {
     display: block;
     overflow-x: auto;
+    overscroll-behavior-inline: contain;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   .rail-viewport::-webkit-scrollbar {

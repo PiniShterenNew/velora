@@ -73,12 +73,6 @@ export function DecisionBoard() {
         </ul>
         </div>
 
-        <div className="rail-progress" aria-hidden="true">
-          <span className="rail-progress-track"><span className="rail-progress-fill" /></span>
-          <span className="rail-dots">
-            {stages.map((stage) => <span key={stage.number} />)}
-          </span>
-        </div>
       </div>
     </motion.section>
   );

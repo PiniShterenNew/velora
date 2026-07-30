@@ -96,6 +96,10 @@
   gap: 18px;
 }
 
+.services-rail-hint {
+  display: none;
+}
+
 .service-card {
   display: flex;
   flex-direction: column;
@@ -357,17 +361,51 @@
     margin-inline: 0;
   }
 
-  /* Horizontal rail: vertical scroll pins the grid and slides the three
-     service cards sideways (GSAP pin + scrub via .rail-viewport). */
+  /* Horizontal rail for the three service cards. */
+  .services-rail-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    gap: var(--space-2);
+    margin: 0 auto var(--space-4);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--color-surface) 76%, var(--color-bg));
+    color: var(--color-muted);
+    font-size: .84rem;
+    font-weight: 650;
+  }
+
+  .services-rail-hint span {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .services-section .rail-viewport {
+    overflow-y: hidden;
+    margin-inline: calc(var(--container-padding) * -1);
+    padding: var(--space-1) var(--container-padding);
+    scroll-padding-inline: var(--container-padding);
+  }
+
   .services-grid {
     display: flex;
-    gap: 16px;
+    gap: var(--space-3);
   }
 
   .services-grid > div {
     display: flex;
-    flex: 0 0 min(84vw, 350px);
+    flex: 0 0 calc(100% - var(--space-8));
+    min-width: 0;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .services-grid::after {
+    content: "";
+    flex: 0 0 var(--space-1);
   }
 
   .service-card {

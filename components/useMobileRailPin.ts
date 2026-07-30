@@ -8,13 +8,9 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
- * GSAP's documented "horizontal scroll section" pattern (pin + scrub),
- * applied on phones only via gsap.matchMedia. The whole section pins as a
- * full-screen stage while vertical scroll drives the rail horizontally;
- * RTL layout means the track translates rightwards to expose the leftward
- * overflow. Progress is exposed on the section as a --rail-progress CSS
- * variable and a data-rail-active index for progress UI. The section must
- * contain a .rail-viewport clip box that directly wraps the rail.
+ * Pins a mobile section while vertical scroll advances a full-width RTL rail.
+ * Scroll distance is divided into discrete steps: crossing a threshold moves
+ * to the next or previous card instead of scrubbing between cards.
  */
 export function useMobileRailPin(sectionRef: RefObject<HTMLElement | null>, railSelector: string) {
   useGSAP(
@@ -29,41 +25,52 @@ export function useMobileRailPin(sectionRef: RefObject<HTMLElement | null>, rail
         const viewport = section.querySelector<HTMLElement>(".rail-viewport");
         if (!rail || !viewport) return;
 
-        viewport.classList.add("rail-pin-active");
-        section.dataset.railActive = "0";
-        section.style.setProperty("--rail-progress", "0");
-
-        const distance = () => Math.max(0, rail.scrollWidth - viewport.clientWidth);
         const cardCount = rail.children.length;
+        if (cardCount < 2) return;
 
-        gsap.to(rail, {
-          x: () => distance(),
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: () => `+=${distance()}`,
-            pin: true,
-            scrub: 0.55,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            snap: cardCount > 1
-              ? { snapTo: 1 / (cardCount - 1), duration: { min: 0.15, max: 0.4 }, ease: "power1.inOut" }
-              : undefined,
-            onUpdate: (self) => {
-              section.style.setProperty("--rail-progress", self.progress.toFixed(4));
-              const next = String(Math.round(self.progress * (cardCount - 1)));
-              if (section.dataset.railActive !== next) section.dataset.railActive = next;
-            },
+        viewport.classList.add("rail-pin-active");
+        let activeIndex = 0;
+        let cardTween: gsap.core.Tween | null = null;
+
+        const scrollStep = () => Math.min(420, Math.max(280, viewport.clientHeight * 0.5));
+        const showCard = (nextIndex: number, immediate = false) => {
+          const clampedIndex = Math.max(0, Math.min(cardCount - 1, nextIndex));
+          if (!immediate && clampedIndex === activeIndex) return;
+
+          activeIndex = clampedIndex;
+          cardTween?.kill();
+          cardTween = gsap.to(rail, {
+            x: () => activeIndex * viewport.clientWidth,
+            duration: immediate ? 0 : 0.46,
+            ease: "power2.inOut",
+            overwrite: "auto",
+          });
+        };
+
+        const trigger = ScrollTrigger.create({
+          trigger: section,
+          start: "top top",
+          end: () => `+=${scrollStep() * (cardCount - 1)}`,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onRefresh: (self) => {
+            showCard(Math.round(self.progress * (cardCount - 1)), true);
+          },
+          onUpdate: (self) => {
+            showCard(Math.round(self.progress * (cardCount - 1)));
           },
         });
 
         return () => {
+          cardTween?.kill();
+          trigger.kill();
           viewport.classList.remove("rail-pin-active");
-          delete section.dataset.railActive;
-          section.style.removeProperty("--rail-progress");
+          gsap.set(rail, { clearProps: "transform" });
         };
       });
+
+      return () => media.revert();
     },
     { scope: sectionRef }
   );
