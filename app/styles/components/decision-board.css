@@ -83,8 +83,7 @@
 }
 
 .step-number {
-  /* Mixed with ink so the numbers keep the stage hue but pass contrast on cream. */
-  color: color-mix(in srgb, var(--stage-color) 55%, var(--color-ink));
+  color: var(--stage-color);
   font-family: var(--font-serif);
   font-size: clamp(3.2rem, 4.5vw, 4.5rem);
   font-weight: 400;
@@ -332,9 +331,25 @@
 }
 
 @media (max-width: 700px) {
+  /* Full-screen stage: the whole section pins (GSAP pin + scrub) while
+     vertical scroll slides the four stages sideways. Heading sits on top,
+     rail in the middle, progress bar + dots fill the bottom dead space. */
+  .decision-bridge {
+    min-height: 100svh;
+    padding-block: calc(58px + 24px) 24px;
+  }
+
+  .decision-bridge-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(18px, 4svh, 40px);
+    min-height: calc(100svh - 58px - 48px);
+  }
+
   .decision-steps {
-    grid-template-columns: 1fr;
-    margin-top: 24px;
+    display: flex;
+    margin-top: 0;
   }
 
   .strategy-stage:not(:nth-child(even)) {
@@ -342,91 +357,65 @@
   }
 
   .strategy-stage:not(:last-child) {
-    border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+    border-bottom: 0;
+    border-inline-end: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
   }
 
-  /* Compact stacked cards: drop the dashed connectors so the section
-     spans ~2 screens instead of ~4 on phones. The stage shapes stay —
-     they are part of the section's character — shrunk to a small solid
-     mark sitting at the number's baseline, echoing the brand-logo dot
-     ("NorthSpark•"), so they cost no vertical space. */
   .strategy-stage {
-    padding: 18px 10px 20px;
+    flex: 0 0 min(82vw, 340px);
+    scroll-snap-align: center;
+    padding: 18px 16px 20px;
+    z-index: 0;
   }
 
   .strategy-stage:first-child {
     padding-top: 18px;
   }
 
-  .stage-connector {
+  .stage-connector,
+  .stage-shape {
     display: none;
   }
 
-  .stage-shape {
-    position: absolute;
-    /* Baseline of the 2.3rem two-digit serif number, just past its edge. */
-    top: 41px;
-    left: calc(50% + 26px);
-    width: 14px;
-    height: 14px;
-    margin-top: 0;
-  }
-
-  /* Large stage shapes join the ambient background layer: the exact
-     .ambient-circle wash formula, one uniform box per card, vertically
-     centered and bleeding off the section edge on alternating sides. */
-  .strategy-stage {
-    z-index: 0;
-  }
-
+  /* One large ambient-wash shape per card, centered behind its content —
+     the same .ambient-circle formula, traveling with the card through the
+     stage so each step arrives with its own backdrop. */
   .strategy-stage::before {
     content: "";
     position: absolute;
     top: 50%;
-    width: 120px;
-    height: 120px;
+    left: 50%;
+    width: 150px;
+    height: 150px;
     background: color-mix(in srgb, var(--stage-color) 58%, transparent);
     opacity: .2;
     z-index: -1;
   }
 
-  .strategy-stage:nth-child(odd)::before {
-    inset-inline-end: -48px;
-  }
-
-  .strategy-stage:nth-child(even)::before {
-    inset-inline-start: -48px;
-  }
-
   .strategy-stage-peach::before {
     border-radius: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
   }
 
   .strategy-stage-olive::before {
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    transform: translateY(-50%) rotate(-10deg);
+    transform: translate(-50%, -50%) rotate(-10deg);
   }
 
   .strategy-stage-mustard::before {
     border-radius: 22px;
-    transform: translateY(-50%) rotate(14deg);
+    transform: translate(-50%, -50%) rotate(14deg);
   }
 
   .strategy-stage-rust::before {
     clip-path: polygon(25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
-    transform: translateY(-50%) rotate(8deg);
+    transform: translate(-50%, -50%) rotate(8deg);
   }
 
-  /* Desktop-tuned ambient decorations land arbitrarily on stacked cards
-     (the stray frame around card 02, the pale shape under 03) — off. */
+  /* Desktop-tuned ambient decorations land arbitrarily on the stage — off. */
   .ambient-decision .ambient-square,
   .ambient-decision .ambient-dots {
     display: none;
-  }
-
-  .step-number {
-    font-size: 2.3rem;
   }
 
   .stage-accent {
@@ -435,7 +424,6 @@
 
   .strategy-stage h3 {
     margin-top: 12px;
-    font-size: 1.55rem;
   }
 
   .strategy-stage p {
@@ -482,23 +470,62 @@
   opacity: .1;
 }
 
-.decision-bridge,
-.decision-bridge-inner,
-.strategy-heading,
-.decision-steps,
-.strategy-stage {
-  opacity: 1 !important;
-  visibility: visible !important;
+@media (prefers-reduced-motion: reduce) {
+  .decision-bridge .strategy-heading>*,
+  .decision-bridge .strategy-stage {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
-.decision-bridge .reveal,
-.decision-bridge .strategy-heading,
-.decision-bridge .strategy-heading>*,
-.decision-bridge .decision-steps,
-.decision-bridge .strategy-stage,
-.decision-bridge .strategy-stage>* {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-  animation: none !important;
+/* Rail progress UI: shown only while the mobile pin is active
+   (data-rail-active is set by useMobileRailPin). */
+.rail-progress {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .decision-bridge[data-rail-active] .rail-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .rail-progress-track {
+    flex: 0 1 170px;
+    height: 2px;
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--color-primary) 22%, transparent);
+    overflow: hidden;
+  }
+
+  .rail-progress-fill {
+    display: block;
+    height: 100%;
+    background: var(--color-primary);
+    transform: scaleX(var(--rail-progress, 0));
+    transform-origin: 100% 50%;
+  }
+
+  .rail-dots {
+    display: inline-flex;
+    gap: 7px;
+  }
+
+  .rail-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    transition: background 200ms ease, transform 200ms ease;
+  }
+
+  .decision-bridge[data-rail-active="0"] .rail-dots span:nth-child(1),
+  .decision-bridge[data-rail-active="1"] .rail-dots span:nth-child(2),
+  .decision-bridge[data-rail-active="2"] .rail-dots span:nth-child(3),
+  .decision-bridge[data-rail-active="3"] .rail-dots span:nth-child(4) {
+    background: var(--color-primary);
+    transform: scale(1.3);
+  }
 }

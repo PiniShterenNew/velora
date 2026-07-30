@@ -357,12 +357,21 @@
     margin-inline: 0;
   }
 
+  /* Horizontal rail: vertical scroll pins the grid and slides the three
+     service cards sideways (GSAP pin + scrub via .rail-viewport). */
   .services-grid {
-    grid-template-columns: 1fr;
+    display: flex;
     gap: 16px;
   }
 
+  .services-grid > div {
+    display: flex;
+    flex: 0 0 min(84vw, 350px);
+    scroll-snap-align: center;
+  }
+
   .service-card {
+    width: 100%;
     min-height: 0;
     padding: 24px 22px 26px;
   }

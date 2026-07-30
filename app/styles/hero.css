@@ -163,7 +163,7 @@
   text-wrap: balance;
 }
 
-.hero-title span {
+.hero-title > span {
   display: block;
   overflow: visible;
 }
@@ -241,6 +241,8 @@
   animation-timing-function: var(--ease-standard);
 }
 
+/* Keep every headline line on the same CSS timeline so the RTL reading
+   sequence remains deterministic before and after hydration. */
 .hero-title-first,
 .hero-title-second,
 .hero-title-third {
@@ -472,7 +474,7 @@
   .hero-title {
     max-width: 1040px;
     margin: 0;
-    line-height: var(--font-display-line-height);
+    line-height: .98;
     letter-spacing: var(--font-tight-letter-spacing);
     overflow: visible;
     text-wrap: balance;

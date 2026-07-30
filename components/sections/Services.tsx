@@ -33,13 +33,13 @@ export function Services() {
           <p>{copy.servicesSection.intro}</p>
         </Reveal>
       </div>
-      <div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
+      <div className="rail-viewport"><div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
         <span className="service-number">{service.number}</span>
         <ServiceIllustration kind={service.kind} index={i} />
         <h3>{service.title}</h3>
         <p>{service.text}</p>
         <ul>{service.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-      </article></Reveal>)}</div>
+      </article></Reveal>)}</div></div>
       <Reveal className="services-scope-note">
         <p>{copy.servicesSection.scopeNote}</p>
       </Reveal>

@@ -366,17 +366,56 @@
   width: 19px;
 }
 
-.scroll-reveal {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(0) !important;
-  transition: opacity 550ms ease, transform 550ms ease;
+/* Mobile horizontal rail: on phones the wrapper becomes the pinned
+   clipping viewport (GSAP ScrollTrigger pin + scrub drives the track);
+   without JS or with reduced motion it degrades to native swipe. */
+.rail-viewport {
+  display: contents;
 }
 
-.scroll-reveal.is-visible {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(0) !important;
+@media (max-width: 700px) {
+  .rail-viewport {
+    display: block;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .rail-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rail-viewport.rail-pin-active {
+    overflow: hidden;
+    scroll-snap-type: none;
+  }
+}
+
+.scroll-reveal {
+  transition: opacity 700ms var(--ease-standard), transform 700ms var(--ease-emphasis);
+}
+
+.scroll-reveal.is-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.scroll-reveal.is-hidden.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+  .scroll-reveal.is-hidden {
+    transform: translateY(18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal.is-hidden {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .problem-section {
@@ -631,8 +670,7 @@
 }
 
 .service-number {
-  /* CTA rust instead of primary rust — small text needs the darker shade for contrast. */
-  color: var(--color-cta);
+  color: var(--color-primary);
   font-size: .84rem;
   font-weight: 850;
   letter-spacing: .06em;

@@ -198,6 +198,11 @@ main {
     left: var(--container-padding);
     z-index: 1000;
     height: auto;
+    transition: transform 320ms var(--ease-standard);
+  }
+
+  .site-header.is-hidden {
+    transform: translateY(calc(-100% - 14px));
   }
 
   .site-header .site-container {

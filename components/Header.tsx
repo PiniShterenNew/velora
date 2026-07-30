@@ -14,6 +14,27 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [renderMenu, setRenderMenu] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const delta = y - lastY;
+        if (Math.abs(delta) > 8) {
+          setHidden(y > 140 && delta > 0);
+          lastY = y;
+        }
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -49,7 +70,7 @@ export function Header() {
   const closeMenu = () => setOpen(false);
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${hidden && !open ? "is-hidden" : ""}`}>
       <div className={`header-inner site-container ${open ? "menu-open" : ""}`}>
         <a className="brand" href="#top" aria-label={copy.aria.backToTop}>
           <Image className="brand-logo" src="/full-logo.svg" alt={copy.brand.name} width={148} height={62} priority />
