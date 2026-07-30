@@ -12,6 +12,12 @@
   margin-bottom: clamp(48px, 6vw, 76px);
 }
 
+/* Two-line title hierarchy through lightness: the opening line pulls,
+   the closing line completes. */
+.process-section .section-intro h2 span + span {
+  color: color-mix(in srgb, var(--color-muted) 72%, var(--color-text));
+}
+
 .process-grid {
   position: relative;
   display: grid;

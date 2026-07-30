@@ -125,8 +125,31 @@
   margin-top: 0;
 }
 
+.final-cta-qmark {
+  color: var(--color-peach);
+}
+
 .final-cta-actions .btn-primary {
   box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-bg) 18%, transparent);
+  animation: final-cta-breathe 6.5s ease-in-out 2.2s infinite;
+}
+
+/* Same rhythm as the hero's primary-cta-breathe, with this card's dark-context shadow. */
+@keyframes final-cta-breathe {
+  0%, 78%, 100% {
+    box-shadow: 4px 4px 0 color-mix(in srgb, var(--color-bg) 18%, transparent);
+  }
+  90% {
+    box-shadow:
+      4px 4px 0 color-mix(in srgb, var(--color-bg) 18%, transparent),
+      0 0 0 6px color-mix(in srgb, var(--color-bg) 14%, transparent);
+  }
+}
+
+.final-cta-actions .btn-primary:hover,
+.final-cta-actions .btn-primary:focus-visible,
+.final-cta-actions .btn-primary:active {
+  animation: none;
 }
 
 .final-cta-actions .btn-primary:hover {

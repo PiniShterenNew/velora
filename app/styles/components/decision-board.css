@@ -23,11 +23,22 @@
 }
 
 .board-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin: 0;
-  color: var(--color-muted);
+  color: var(--color-primary);
   font-size: .86rem;
   font-weight: 500;
   letter-spacing: .14em;
+}
+
+.board-kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 .strategy-heading::after {
@@ -60,7 +71,7 @@
 
 .decision-steps {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   direction: rtl;
   margin: 68px 0 0;
   padding: 0;
@@ -73,13 +84,20 @@
   flex-direction: column;
   align-items: center;
   min-width: 0;
-  min-height: 450px;
-  padding: 0 clamp(24px, 3.2vw, 50px);
+  padding: 40px clamp(24px, 3.2vw, 50px) 44px;
   text-align: center;
 }
 
-.strategy-stage:not(:last-child) {
+.strategy-stage:not(:nth-child(even)) {
   border-inline-end: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.strategy-stage:not(:nth-last-child(-n + 2)) {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.strategy-stage:nth-child(-n + 2) {
+  padding-top: 0;
 }
 
 .step-number {
@@ -108,13 +126,21 @@
 
 .strategy-stage p {
   width: 100%;
-  max-width: 230px;
-  min-height: 120px;
+  max-width: 380px;
   margin: 20px 0 0;
   color: color-mix(in srgb, var(--color-muted) 88%, var(--color-text));
   font-size: 1rem;
   line-height: 1.65;
   text-align: center;
+}
+
+/* One quiet emphasis phrase per card: a color shift only, no weight change. */
+.stage-emphasis-strong {
+  color: var(--color-text);
+}
+
+.stage-emphasis-accent {
+  color: var(--color-primary);
 }
 
 .strategy-stage-peach {
@@ -147,6 +173,17 @@
   height: 29px;
   margin-top: 18px;
   background: var(--stage-color);
+  animation: stage-shape-float 5.5s ease-in-out infinite;
+}
+
+/* Offset phases so the four shapes never bob in unison. */
+.strategy-stage:nth-child(2) .stage-shape { animation-delay: -1.4s; }
+.strategy-stage:nth-child(3) .stage-shape { animation-delay: -2.8s; }
+.strategy-stage:nth-child(4) .stage-shape { animation-delay: -4.2s; }
+
+@keyframes stage-shape-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(11deg); }
 }
 
 .stage-shape-circle {
@@ -334,16 +371,14 @@
   /* Full-screen stage: the section stays pinned while accumulated vertical
      scroll advances the rail one complete card at a time. */
   .decision-bridge {
-    min-height: 100svh;
-    padding-block: calc(58px + 24px) calc(var(--space-12) + env(safe-area-inset-bottom));
+    min-height: 0;
+    padding-block: var(--section-padding-default) calc(var(--space-10) + env(safe-area-inset-bottom));
   }
 
   .decision-bridge-inner {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: clamp(18px, 4svh, 40px);
-    min-height: calc(100svh - 82px - var(--space-12) - env(safe-area-inset-bottom));
+    gap: clamp(16px, 3.5svh, 34px);
   }
 
   .decision-steps {
@@ -355,6 +390,59 @@
   .decision-bridge .rail-viewport {
     width: 100vw;
     margin-inline: calc(50% - 50vw);
+  }
+
+  /* The reparented pinned deck owns the full viewport width, independent of
+     the section container and its overflow clipping. */
+  .rail-viewport.rail-pin-active {
+    width: 100vw;
+    margin-inline: 0;
+  }
+
+  /* Pinned deck mode: cards stack in one cell; the active one holds the
+     stage, the rest wait hidden above/below. !important outranks the
+     inline styles framer-motion leaves on the cards. */
+  /* The pinned deck fills the free viewport below the header, so while it's
+     pinned nothing else shares the screen; cards center inside it. */
+  .rail-pin-active .decision-steps {
+    display: grid;
+    height: calc(100svh - var(--header-height-mobile) - 8px);
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+
+  .rail-pin-active .strategy-stage {
+    grid-area: 1 / 1;
+    width: 100%;
+    padding-inline: 0;
+    border: 0;
+    visibility: hidden;
+    opacity: 0 !important;
+    transform: translateY(38px) !important;
+    transition:
+      opacity .4s var(--ease-standard),
+      transform .5s var(--ease-emphasis),
+      visibility 0s linear .5s;
+  }
+
+  .rail-pin-active .strategy-stage[data-pos="above"] {
+    transform: translateY(-38px) !important;
+  }
+
+  .rail-pin-active .strategy-stage[data-pos="active"] {
+    visibility: visible;
+    opacity: 1 !important;
+    transform: none !important;
+    transition:
+      opacity .45s var(--ease-standard) .12s,
+      transform .55s var(--ease-emphasis) .12s,
+      visibility 0s;
+  }
+
+  /* Deck cards own the full stage width; the copy spans it, centered. */
+  .rail-pin-active .strategy-stage h3,
+  .rail-pin-active .strategy-stage p {
+    max-width: none;
+    margin-inline: 0;
   }
 
   .strategy-stage:not(:nth-child(even)) {

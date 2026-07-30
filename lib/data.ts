@@ -3,6 +3,7 @@ import siteCopy from "./site-copy.json";
 export interface ServiceItemCopy {
   number: string;
   kind: string;
+  badge?: string;
   title: string;
   text: string;
   tags: string[];

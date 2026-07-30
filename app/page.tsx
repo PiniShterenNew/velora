@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { MobileStickyCta } from "@/components/MobileStickyCta";
 import { DecisionBoard } from "@/components/DecisionBoard";
 import { Services, Work, Testimonials, Process, About, FinalCTA } from "@/components/sections";
 import { FAQ } from "@/components/FAQ";
@@ -67,5 +68,6 @@ export default function Home() {
       dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
     />
     <Footer />
+    <MobileStickyCta />
   </>;
 }

@@ -35,6 +35,7 @@ export function Services() {
       </div>
       <p className="services-rail-hint"><span aria-hidden="true">↔</span>{copy.servicesSection.mobileScrollHint}</p>
       <div className="rail-viewport" role="region" aria-label={copy.servicesSection.mobileScrollHint} tabIndex={0}><div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
+        {service.badge && <span className="service-badge">{service.badge}</span>}
         <span className="service-number">{service.number}</span>
         <ServiceIllustration kind={service.kind} index={i} />
         <h3>{service.title}</h3>

@@ -13,12 +13,10 @@ export function Hero() {
       <ValuePropositionBackground />
       <div className="hero-container site-container">
         <div className="hero-content">
-          <p className="eyebrow reveal reveal-1">{copy.hero.eyebrow}</p>
-
           <h1 className="hero-title">
-            <span className="hero-title-first reveal reveal-2">{copy.hero.title.first}</span>
-            <span className="hero-title-second reveal reveal-3">{copy.hero.title.second}</span>
-            <span className="hero-title-third reveal reveal-4">{copy.hero.title.thirdPrefix} <em>{copy.hero.title.thirdEmphasis}</em>{copy.hero.title.thirdSuffix}</span>
+            <span className="hero-line"><span className="hero-title-first">{copy.hero.title.first}</span></span>
+            <span className="hero-line"><span className="hero-title-second">{copy.hero.title.second}</span></span>
+            <span className="hero-line"><span className="hero-title-third">{copy.hero.title.thirdPrefix} <em>{copy.hero.title.thirdEmphasis}</em>{copy.hero.title.thirdSuffix}</span></span>
           </h1>
 
           <p className="hero-text reveal reveal-5">{copy.hero.text}</p>
@@ -30,15 +28,14 @@ export function Hero() {
             <a className="btn btn-secondary" href="#process" aria-label={copy.hero.secondaryCta.desktop}>
               <CtaLabel desktop={copy.hero.secondaryCta.desktop} mobile={copy.hero.secondaryCta.mobile} /> <ArrowLeft aria-hidden="true" />
             </a>
+            <span className="hero-sticker" aria-hidden="true">בלי התחייבות</span>
           </div>
 
           <p className="hero-micro-trust reveal reveal-7">{copy.hero.microTrust}</p>
 
-          <ul className="hero-tags reveal reveal-8" aria-label={copy.aria.studioServices}>
-            {services.slice(0, 4).map((service) => (
-              <li className="service-chip" key={service}>
-                {service}
-              </li>
+          <ul className="sr-only" aria-label={copy.aria.studioServices}>
+            {services.map((service) => (
+              <li key={service}>{service}</li>
             ))}
           </ul>
         </div>

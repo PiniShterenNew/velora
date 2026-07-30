@@ -27,6 +27,22 @@ const stageReveal: Variants = {
   }),
 };
 
+type Stage = (typeof stages)[number];
+
+function StageDescription({ stage }: { stage: Stage }) {
+  const { description, emphasis, emphasisTone } = stage;
+  if (!emphasis || !description.includes(emphasis)) return <p>{description}</p>;
+
+  const [before, after] = description.split(emphasis);
+  return (
+    <p>
+      {before}
+      <span className={`stage-emphasis stage-emphasis-${emphasisTone}`}>{emphasis}</span>
+      {after}
+    </p>
+  );
+}
+
 export function DecisionBoard() {
   const reduceMotion = useReducedMotion();
   const initial = reduceMotion ? false : "hidden";
@@ -65,7 +81,7 @@ export function DecisionBoard() {
               <span className="step-number" aria-hidden="true">{stage.number}</span>
               <span className="stage-accent" aria-hidden="true" />
               <h3>{stage.title}</h3>
-              <p>{stage.description}</p>
+              <StageDescription stage={stage} />
               <span className="stage-connector" aria-hidden="true" />
               <span className={`stage-shape stage-shape-${stage.shape}`} aria-hidden="true" />
             </motion.li>

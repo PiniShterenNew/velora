@@ -8,9 +8,10 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
- * Pins a mobile section while vertical scroll advances a full-width RTL rail.
- * Scroll distance is divided into discrete steps: crossing a threshold moves
- * to the next or previous card instead of scrubbing between cards.
+ * Pins a mobile section while vertical scroll advances a card deck in place:
+ * the active card holds the stage, crossing a scroll threshold sends it up
+ * and out while the next one rises in from below (CSS drives the motion via
+ * data-pos). Without JS or with reduced motion it degrades to native swipe.
  */
 export function useMobileRailPin(sectionRef: RefObject<HTMLElement | null>, railSelector: string) {
   useGSAP(
@@ -25,47 +26,55 @@ export function useMobileRailPin(sectionRef: RefObject<HTMLElement | null>, rail
         const viewport = section.querySelector<HTMLElement>(".rail-viewport");
         if (!rail || !viewport) return;
 
-        const cardCount = rail.children.length;
-        if (cardCount < 2) return;
+        const cards = Array.from(rail.children) as HTMLElement[];
+        if (cards.length < 2) return;
 
         viewport.classList.add("rail-pin-active");
-        let activeIndex = 0;
-        let cardTween: gsap.core.Tween | null = null;
+        let activeIndex = -1;
 
-        const scrollStep = () => Math.min(420, Math.max(280, viewport.clientHeight * 0.5));
-        const showCard = (nextIndex: number, immediate = false) => {
-          const clampedIndex = Math.max(0, Math.min(cardCount - 1, nextIndex));
-          if (!immediate && clampedIndex === activeIndex) return;
+        const scrollStep = () => Math.min(520, Math.max(360, window.screen.height * 0.55));
+        const pinTop = () => {
+          const rootStyles = window.getComputedStyle(document.documentElement);
+          const headerHeight = Number.parseFloat(rootStyles.getPropertyValue("--header-height-mobile")) || 68;
+          return headerHeight + 8;
+        };
+
+        const showCard = (nextIndex: number) => {
+          const clampedIndex = Math.max(0, Math.min(cards.length - 1, nextIndex));
+          if (clampedIndex === activeIndex) return;
 
           activeIndex = clampedIndex;
-          cardTween?.kill();
-          cardTween = gsap.to(rail, {
-            x: () => activeIndex * viewport.clientWidth,
-            duration: immediate ? 0 : 0.46,
-            ease: "power2.inOut",
-            overwrite: "auto",
+          cards.forEach((card, index) => {
+            card.dataset.pos = index < activeIndex ? "above" : index > activeIndex ? "below" : "active";
           });
         };
 
+        /* Equal scroll share per card: card N holds the stage for exactly one
+           scrollStep of pinned scroll before the next one takes over. */
+        const cardAt = (progress: number) => Math.min(cards.length - 1, Math.floor(progress * cards.length));
+
         const trigger = ScrollTrigger.create({
-          trigger: section,
-          start: "top top",
-          end: () => `+=${scrollStep() * (cardCount - 1)}`,
+          trigger: viewport,
+          /* Pin once the deck itself clears the fixed mobile header, so the
+             screen holds only the cards — not the section's heading. */
+          start: () => `top ${pinTop()}px`,
+          end: () => `+=${scrollStep() * cards.length}`,
           pin: true,
+          pinReparent: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onRefresh: (self) => {
-            showCard(Math.round(self.progress * (cardCount - 1)), true);
+            showCard(cardAt(self.progress));
           },
           onUpdate: (self) => {
-            showCard(Math.round(self.progress * (cardCount - 1)));
+            showCard(cardAt(self.progress));
           },
         });
 
         return () => {
-          cardTween?.kill();
           trigger.kill();
           viewport.classList.remove("rail-pin-active");
+          cards.forEach((card) => delete card.dataset.pos);
           gsap.set(rail, { clearProps: "transform" });
         };
       });
