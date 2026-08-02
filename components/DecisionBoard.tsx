@@ -1,10 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { copy } from "@/lib/data";
 import { AmbientBackground } from "./AmbientBackground";
-import { useMobileRailPin } from "./useMobileRailPin";
 
 const stages = copy.decisionBoard.stages;
 
@@ -46,12 +44,9 @@ function StageDescription({ stage }: { stage: Stage }) {
 export function DecisionBoard() {
   const reduceMotion = useReducedMotion();
   const initial = reduceMotion ? false : "hidden";
-  const sectionRef = useRef<HTMLElement>(null);
-  useMobileRailPin(sectionRef, ".decision-steps");
 
   return (
     <motion.section
-      ref={sectionRef}
       className="decision-bridge"
       id="decision-board"
       aria-labelledby="decision-board-title"

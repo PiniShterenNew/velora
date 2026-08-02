@@ -365,18 +365,17 @@
 @media (max-width: 1000px) {
   .hero {
     height: auto;
-    min-height: 100svh;
-    min-height: 100dvh;
+    min-height: 0;
     overflow-x: clip;
     overflow-y: visible;
-    padding-block: var(--section-padding-hero) var(--section-padding-default);
+    padding-block: var(--section-padding-hero) 0;
     text-align: center;
   }
 
-  .hero-decoration,
-  .value-proposition-background,
-  .shared-page-background {
-    height: calc(100% + clamp(760px, 130svh, 1500px));
+  .hero .hero-decoration,
+  .hero .value-proposition-background,
+  .hero .shared-page-background {
+    height: 100%;
     opacity: .86;
   }
 
@@ -405,6 +404,11 @@
     font-size: inherit;
   }
 
+  .hero-title-second {
+    font-size: clamp(2rem, 9.1vw, 2.8rem);
+    white-space: nowrap;
+  }
+
   .hero-text {
     margin-inline: auto;
     margin-top: clamp(5px, 1svh, 10px);
@@ -423,6 +427,14 @@
   .hero-actions .btn {
     width: 100%;
     min-height: 56px;
+  }
+
+  .hero-tags-marquee {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin-top: clamp(32px, 9vw, 48px);
   }
 
   .hero-tags-marquee .service-chip {
@@ -612,7 +624,7 @@
 
 @media (max-width: 1000px) and (max-height: 740px) {
   .hero {
-    padding-block: 76px 112px;
+    padding-block: 76px 0;
   }
 
 

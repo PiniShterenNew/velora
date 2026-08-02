@@ -9,7 +9,7 @@
 }
 
 .process-section .section-intro {
-  margin-bottom: clamp(48px, 6vw, 76px);
+  margin-bottom: clamp(38px, 5vw, 58px);
 }
 
 /* Two-line title hierarchy through lightness: the opening line pulls,
@@ -22,7 +22,7 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(18px, 2.4vw, 30px);
+  gap: clamp(14px, 2vw, 22px);
   direction: rtl;
 }
 
@@ -96,11 +96,11 @@
   display: grid;
   grid-template-rows: auto 1fr;
   align-content: start;
-  gap: clamp(24px, 3vw, 34px);
+  gap: clamp(18px, 2.2vw, 24px);
   height: 100%;
-  min-height: clamp(275px, 26vw, 330px);
+  min-height: clamp(230px, 22vw, 280px);
   overflow: hidden;
-  padding: clamp(26px, 3.2vw, 38px);
+  padding: clamp(22px, 2.6vw, 30px);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-card);
   background:
@@ -140,8 +140,8 @@
   display: grid;
   place-items: center;
   align-self: start;
-  width: clamp(74px, 8vw, 92px);
-  height: clamp(64px, 7vw, 80px);
+  width: clamp(68px, 7vw, 82px);
+  height: clamp(58px, 6vw, 70px);
   border: 1px solid color-mix(in srgb, var(--color-bg) 16%, transparent);
   border-radius: 20px;
   background: var(--color-text);
@@ -162,8 +162,8 @@
 .process-illustration {
   display: grid;
   place-items: center;
-  width: clamp(74px, 8vw, 94px);
-  height: clamp(70px, 7vw, 88px);
+  width: clamp(68px, 7vw, 84px);
+  height: clamp(64px, 6.5vw, 78px);
   opacity: .64;
   filter: saturate(.88);
   transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease;
@@ -185,18 +185,23 @@
   position: relative;
   z-index: 1;
   max-width: 590px;
-  padding-top: clamp(20px, 2.6vw, 30px);
+  padding-top: clamp(14px, 1.8vw, 20px);
   border-top: 1px solid color-mix(in srgb, var(--color-border) 18%, transparent);
 }
 
 .process-card h3 {
-  margin: 0 0 14px;
+  margin: 0 0 10px;
 }
 
 
 @media (max-width: 800px) {
+  .process-section .section-intro {
+    margin-bottom: 34px;
+  }
+
   .process-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .process-flow {
@@ -205,21 +210,22 @@
 
   .process-card {
     min-height: 0;
-    padding: 24px;
+    gap: 16px;
+    padding: 18px;
   }
 
   .process-card-head {
-    gap: 18px;
+    gap: 14px;
   }
 
   .process-number {
-    width: 68px;
-    height: 60px;
-    border-radius: 18px;
+    width: 62px;
+    height: 54px;
+    border-radius: 16px;
   }
 
   .process-illustration {
-    width: 72px;
-    height: 68px;
+    width: 64px;
+    height: 60px;
   }
 }

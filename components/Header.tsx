@@ -37,6 +37,88 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    let animationFrame: number | null = null;
+    let previousScrollBehavior = "";
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const onAnchorClick = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (!(event.target instanceof Element)) return;
+
+      const link = event.target.closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!link?.hash) return;
+
+      let targetId: string;
+      try {
+        targetId = decodeURIComponent(link.hash.slice(1));
+      } catch {
+        return;
+      }
+
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+        document.documentElement.style.scrollBehavior = previousScrollBehavior;
+      }
+
+      const start = window.scrollY;
+      const scrollMargin = targetId === "top" ? 0 : Number.parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0;
+      const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      const destination = Math.min(maxScroll, Math.max(0, target.getBoundingClientRect().top + start - scrollMargin));
+      const distance = destination - start;
+      const duration = reducedMotion.matches ? 0 : 550;
+
+      previousScrollBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = "auto";
+
+      if (window.location.hash === link.hash) {
+        window.history.replaceState(null, "", link.hash);
+      } else {
+        window.history.pushState(null, "", link.hash);
+      }
+
+      const finish = () => {
+        animationFrame = null;
+        document.documentElement.style.scrollBehavior = previousScrollBehavior;
+        if (link.classList.contains("skip-link")) target.focus({ preventScroll: true });
+      };
+
+      if (duration === 0 || Math.abs(distance) < 1) {
+        window.scrollTo({ top: destination, behavior: "auto" });
+        finish();
+        return;
+      }
+
+      const startedAt = performance.now();
+      const animate = (now: number) => {
+        const progress = Math.min(1, (now - startedAt) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        window.scrollTo(0, start + distance * eased);
+
+        if (progress < 1) {
+          animationFrame = window.requestAnimationFrame(animate);
+        } else {
+          finish();
+        }
+      };
+
+      animationFrame = window.requestAnimationFrame(animate);
+    };
+
+    document.addEventListener("click", onAnchorClick);
+    return () => {
+      document.removeEventListener("click", onAnchorClick);
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+        document.documentElement.style.scrollBehavior = previousScrollBehavior;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     if (open) {
       setRenderMenu(true);
       const frame = window.requestAnimationFrame(() => setMenuVisible(true));

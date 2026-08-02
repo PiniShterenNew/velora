@@ -6,6 +6,7 @@ import ValuePropositionBackground from "./ValuePropositionBackground";
 
 const whatsappUrl = copy.brand.whatsappUrl;
 const services = copy.hero.services;
+const heroTitle = `${copy.hero.title.first} ${copy.hero.title.second} ${copy.hero.title.thirdPrefix} ${copy.hero.title.thirdEmphasis}${copy.hero.title.thirdSuffix}`;
 
 export function Hero() {
   return (
@@ -13,7 +14,7 @@ export function Hero() {
       <ValuePropositionBackground />
       <div className="hero-container site-container">
         <div className="hero-content">
-          <h1 className="hero-title">
+          <h1 className="hero-title" aria-label={heroTitle}>
             <span className="hero-line"><span className="hero-title-first">{copy.hero.title.first}</span></span>
             <span className="hero-line"><span className="hero-title-second">{copy.hero.title.second}</span></span>
             <span className="hero-line"><span className="hero-title-third">{copy.hero.title.thirdPrefix} <em>{copy.hero.title.thirdEmphasis}</em>{copy.hero.title.thirdSuffix}</span></span>

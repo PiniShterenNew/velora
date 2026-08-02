@@ -3,8 +3,8 @@
 .decision-bridge {
   position: relative;
   z-index: 2;
-  min-height: 760px;
-  padding-block: 92px 100px;
+  min-height: 0;
+  padding-block: 72px 80px;
   overflow: hidden;
   background: transparent;
   scroll-margin-top: 100px;
@@ -71,9 +71,9 @@
 
 .decision-steps {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   direction: rtl;
-  margin: 68px 0 0;
+  margin: 52px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -84,20 +84,12 @@
   flex-direction: column;
   align-items: center;
   min-width: 0;
-  padding: 40px clamp(24px, 3.2vw, 50px) 44px;
+  padding: 0 clamp(20px, 2.4vw, 34px) 30px;
   text-align: center;
 }
 
-.strategy-stage:not(:nth-child(even)) {
+.strategy-stage:not(:last-child) {
   border-inline-end: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
-}
-
-.strategy-stage:not(:nth-last-child(-n + 2)) {
-  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
-}
-
-.strategy-stage:nth-child(-n + 2) {
-  padding-top: 0;
 }
 
 .step-number {
@@ -176,10 +168,9 @@
   animation: stage-shape-float 5.5s ease-in-out infinite;
 }
 
-/* Offset phases so the four shapes never bob in unison. */
+/* Offset phases so the three shapes never bob in unison. */
 .strategy-stage:nth-child(2) .stage-shape { animation-delay: -1.4s; }
 .strategy-stage:nth-child(3) .stage-shape { animation-delay: -2.8s; }
-.strategy-stage:nth-child(4) .stage-shape { animation-delay: -4.2s; }
 
 @keyframes stage-shape-float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -282,14 +273,14 @@
 
 @media (max-width: 1000px) {
   .decision-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-top: 36px;
   }
 
   .strategy-stage {
     align-items: center;
     min-height: 0;
-    padding: 28px 10px 30px;
+    padding: 0 10px 24px;
     text-align: center;
   }
 
@@ -299,16 +290,8 @@
     text-align: center;
   }
 
-  .strategy-stage:first-child {
-    padding-top: 0;
-  }
-
-  .strategy-stage:not(:nth-child(even)) {
+  .strategy-stage:not(:last-child) {
     border-inline-end: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
-  }
-
-  .strategy-stage:not(:nth-last-child(-n + 2)) {
-    border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
   }
 
   .strategy-stage p {
@@ -525,6 +508,61 @@
   .strategy-stage p {
     margin-top: 8px;
     max-width: 320px;
+  }
+
+  /* On phones the problem states remain a compact vertical sequence. */
+  .decision-bridge {
+    padding-block: var(--section-padding-dense);
+  }
+
+  .decision-bridge-inner {
+    gap: 24px;
+  }
+
+  .decision-bridge .rail-viewport {
+    width: 100%;
+    margin-inline: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .decision-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .strategy-stage,
+  .strategy-stage:first-child {
+    width: 100%;
+    padding: 20px clamp(14px, 4vw, 20px) 22px;
+    border-inline-end: 0;
+    scroll-snap-align: none;
+  }
+
+  .strategy-stage:not(:last-child) {
+    border-inline-end: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+  }
+
+  .strategy-stage::before {
+    width: 104px;
+    height: 104px;
+  }
+
+  .step-number {
+    font-size: clamp(2.65rem, 12vw, 3.3rem);
+  }
+
+  .strategy-stage h3 {
+    margin-top: 10px;
+    font-size: clamp(1.55rem, 7vw, 2rem);
+  }
+
+  .strategy-stage p {
+    max-width: 520px;
+    margin-top: 8px;
+    line-height: 1.55;
   }
 }
 @media (min-width: 1001px) {
