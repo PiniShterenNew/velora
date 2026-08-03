@@ -1,30 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { copy } from "@/lib/data";
+import { getCopy, getNicheByProjectName, type Locale } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { WhatsAppIcon } from "../WhatsAppIcon";
-import { SectionIntro, whatsappUrl } from "./shared";
+import { SectionIntro } from "./shared";
 
-const projectEntries = copy.work.projects
-  .map((project, originalIndex) => ({ project, originalIndex }));
-const featuredEntry = projectEntries.find(({ project }) => project.featured);
-const orderedProjectEntries = featuredEntry
-  ? [featuredEntry, ...projectEntries.filter((entry) => entry !== featuredEntry)]
-  : projectEntries;
-
-const projectStatusLabels = {
-  launched: "הושק",
-  demo: "פרויקט הדגמה",
-  building: "בבנייה",
-} as const;
-
-type ProjectStatus = keyof typeof projectStatusLabels;
+type ProjectStatus = "launched" | "demo" | "building";
 
 const desktopScreenshotDimensions: Record<string, { width: number; height: number }> = {
   "/projects/as-plumbing-desktop.webp": { width: 1448, height: 909 },
@@ -32,12 +19,12 @@ const desktopScreenshotDimensions: Record<string, { width: number; height: numbe
   "/projects/notnim-beahava-desktop.webp": { width: 1900, height: 912 },
 };
 
-function ProjectPreview({ name, index, screenshots, status }: { name: string; index: number; screenshots?: { desktop: string; mobile: string }; status: ProjectStatus }) {
+function ProjectPreview({ name, index, screenshots, status, statusLabel }: { name: string; index: number; screenshots?: { desktop: string; mobile: string }; status: ProjectStatus; statusLabel: string }) {
   if (screenshots) {
     const desktopDimensions = desktopScreenshotDimensions[screenshots.desktop] ?? { width: 1600, height: 900 };
 
     return <div className={`project-preview project-screenshot preview-${index}`}>
-      <span className={`project-status project-status-${status}`}><span aria-hidden="true" />{projectStatusLabels[status]}</span>
+      <span className={`project-status project-status-${status}`}><span aria-hidden="true" />{statusLabel}</span>
       <div className="desktop-shot">
         <div className="shot-chrome" aria-hidden="true"><i /><i /><i /></div>
         <Image src={screenshots.desktop} alt={`${name} desktop website screenshot`} width={desktopDimensions.width} height={desktopDimensions.height} sizes="(min-width: 1180px) 56vw, (min-width: 900px) 54vw, 92vw" />
@@ -60,7 +47,15 @@ function ProjectPreview({ name, index, screenshots, status }: { name: string; in
   </div>;
 }
 
-export function Work() {
+export function Work({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
+  const whatsappUrl = copy.brand.whatsappUrl;
+  const projectEntries = copy.work.projects.map((project, originalIndex) => ({ project, originalIndex }));
+  const featuredEntry = projectEntries.find(({ project }) => project.featured);
+  const orderedProjectEntries = featuredEntry
+    ? [featuredEntry, ...projectEntries.filter((entry) => entry !== featuredEntry)]
+    : projectEntries;
+
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -116,7 +111,10 @@ export function Work() {
 
   return <section id="work" className="page-section work-section" ref={sectionRef}><AmbientBackground variant="work" /><div className="container">
     <SectionIntro label={copy.work.label} title={copy.work.title} text={copy.work.text} />
-    <div className="work-grid has-scroll-focus">{orderedProjectEntries.map(({ project, originalIndex }, i) => <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} status={project.status as ProjectStatus} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`לצפייה בפרויקט ${project.name}`}>{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a></div></article></Reveal>)}</div>
+    <div className="work-grid has-scroll-focus">{orderedProjectEntries.map(({ project, originalIndex }, i) => {
+      const niche = getNicheByProjectName(copy, project.name);
+      return <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} status={project.status as ProjectStatus} statusLabel={copy.work.statusLabels[project.status as ProjectStatus]} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${copy.common.viewProjectAriaPrefix} ${project.name}`}>{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a>{niche && <a className="text-link work-niche-link" href={`/${locale}/${niche.slug}`}>{niche.relatedLinkLabel} <ArrowLeft aria-hidden="true" /></a>}</div></article></Reveal>;
+    })}</div>
     <Reveal className="section-action action-with-note"><p>{copy.work.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">{copy.work.ctaLabel} <WhatsAppIcon /></a></Reveal>
   </div></section>;
 }

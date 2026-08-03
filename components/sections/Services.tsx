@@ -1,12 +1,9 @@
 import Image from "next/image";
-import { copy } from "@/lib/data";
+import { getCopy, type Locale } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { CtaLabel } from "../CtaLabel";
 import { WhatsAppIcon } from "../WhatsAppIcon";
-import { whatsappUrl } from "./shared";
-
-const services = copy.servicesSection.items;
 
 const serviceIllustrations = [
   "/illustrations/cursor.svg",
@@ -22,7 +19,11 @@ function ServiceIllustration({ kind, index }: { kind: string; index: number }) {
   </div>;
 }
 
-export function Services() {
+export function Services({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
+  const services = copy.servicesSection.items;
+  const whatsappUrl = copy.brand.whatsappUrl;
+
   return <section id="services" className="page-section services-section">
     <AmbientBackground variant="services" />
     <div className="container services-inner">
@@ -33,8 +34,7 @@ export function Services() {
           <p>{copy.servicesSection.intro}</p>
         </Reveal>
       </div>
-      <p className="services-rail-hint"><span aria-hidden="true">↔</span>{copy.servicesSection.mobileScrollHint}</p>
-      <div className="rail-viewport" role="region" aria-label={copy.servicesSection.mobileScrollHint} tabIndex={0}><div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
+      <div className="rail-viewport"><div className="services-grid">{services.map((service, i) => <Reveal key={service.title} delay={i * 90}><article className="service-card">
         {service.badge && <span className="service-badge">{service.badge}</span>}
         <span className="service-number">{service.number}</span>
         <ServiceIllustration kind={service.kind} index={i} />

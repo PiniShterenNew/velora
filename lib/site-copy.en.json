@@ -1,0 +1,432 @@
+{
+  "brand": {
+    "name": "NorthSpark Studio",
+    "whatsappUrl": "https://wa.me/972548345192?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business",
+    "phone": "054-834-5192",
+    "phoneHref": "tel:+972548345192",
+    "email": "pini5192@gmail.com",
+    "emailHref": "mailto:pini5192@gmail.com"
+  },
+  "metadata": {
+    "title": "Websites for Small Businesses and Local Pros | NorthSpark Studio",
+    "description": "Websites that help small businesses get found and turn visitors into enquiries. Copy, design and development, all handled by one person.",
+    "opengraphAlt": "NorthSpark Studio — websites for small businesses and local professionals",
+    "opengraphTitleLine1": "Your next customer is searching on Google.",
+    "opengraphTitleLine2": "The question is whether they find you.",
+    "opengraphFooter": "Copy · Design · Development"
+  },
+  "navigation": {
+    "items": [
+      { "label": "Services", "href": "#services" },
+      { "label": "Work", "href": "#work" },
+      { "label": "How it works", "href": "#process" },
+      { "label": "FAQ", "href": "#faq" }
+    ],
+    "contactLabel": "Let's talk"
+  },
+  "aria": {
+    "backToTop": "NorthSpark Studio, back to top",
+    "primaryNavigation": "Primary navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mobileNavigation": "Mobile navigation",
+    "footerNavigation": "Footer navigation",
+    "studioServices": "NorthSpark Studio services"
+  },
+  "common": {
+    "whatsappShort": "Let's talk",
+    "whatsappFull": "Message me on WhatsApp",
+    "mobileWhatsapp": "Message me on WhatsApp",
+    "watchProcess": "See how it works",
+    "watchProject": "View project",
+    "suggestedPlanLabel": "Best place to start:",
+    "suggestedPlanFooter": "The final scope depends on what your business actually needs.",
+    "skipLink": "Skip to main content",
+    "viewProjectAriaPrefix": "View project:",
+    "noCommitmentBadge": "No commitment",
+    "languageSwitchLabel": "Language",
+    "languageName": "English",
+    "otherLanguageName": "עברית"
+  },
+  "hero": {
+    "eyebrow": "Websites for small businesses and local pros",
+    "title": {
+      "first": "Your website should",
+      "second": "make it clear why",
+      "thirdPrefix": "people should choose",
+      "thirdEmphasis": "you",
+      "thirdSuffix": "."
+    },
+    "text": "NorthSpark writes, designs and builds websites that quickly show people what you do, why they should choose you and how to get in touch.",
+    "microTrust": "Send me one sentence about your business and I'll give you a straight answer: whether a website would help, what it would cost and how long it would take. No commitment.",
+    "services": [
+      "Website copy",
+      "Custom design",
+      "Development",
+      "Works on mobile",
+      "Built for Google",
+      "Ready in days"
+    ],
+    "secondaryCta": {
+      "desktop": "How it works",
+      "mobile": "How it works"
+    }
+  },
+  "decisionBoard": {
+    "kicker": "Sound familiar?",
+    "title": "Most business owners who come to me are in one of these situations.",
+    "summary": "Either you don't have a website and nothing solid to send an interested customer, or you have one that no longer reflects the business you run today. Either way, the first step is the same: work out what your customer needs to hear before they get in touch.",
+    "label": "Is this you?",
+    "stages": [
+      {
+        "number": "01",
+        "title": "You don't have a website",
+        "description": "Someone asks to see your work and you've got nothing ready to send. So you explain it all on the phone or dig through your camera roll for photos.",
+        "emphasis": "nothing ready to send",
+        "emphasisTone": "strong",
+        "tone": "peach",
+        "shape": "circle"
+      },
+      {
+        "number": "02",
+        "title": "Everything is on Instagram",
+        "description": "A new customer has to scroll for five minutes just to work out what you offer. Most people won't bother. They'll simply move on to someone else.",
+        "emphasis": "move on to someone else",
+        "emphasisTone": "accent",
+        "tone": "olive",
+        "shape": "triangle"
+      },
+      {
+        "number": "03",
+        "title": "Your website feels out of date",
+        "description": "Your services, prices and customers have changed since the site was built. The website stayed behind, and it no longer feels like your business.",
+        "emphasis": "no longer feels like your business",
+        "emphasisTone": "strong",
+        "tone": "mustard",
+        "shape": "square"
+      }
+    ]
+  },
+  "servicesSection": {
+    "label": "What I build",
+    "title": "One page or a full website? It depends on the business.",
+    "intro": "You don't need a huge website. You need one that does its job: helps people understand what you offer and makes it easy to get in touch. I'll help you choose the right size, then handle the copy, design and build from start to finish.",
+    "scopeNote": "These are starting prices. The final price depends on the scope and is set out clearly before we begin. Payment is split into three parts: 50% upfront, 30% when the design is approved and 20% before launch.",
+    "aftercareNote": "Once the site is live, you can still come to me for small updates and ongoing maintenance.",
+    "helperQuestion": "Not sure which one you need?",
+    "mobileScrollHint": "Choose from 3 options",
+    "items": [
+      {
+        "number": "01",
+        "kind": "brand",
+        "title": "Landing page | From ₪2,900",
+        "text": "One focused page for one service, offer or campaign. One message, one clear action.",
+        "tags": [
+          "One focused page",
+          "One service or offer",
+          "Copy + design + build",
+          "Ready in about a week"
+        ]
+      },
+      {
+        "number": "02",
+        "kind": "brand",
+        "badge": "Most popular",
+        "title": "One-page website | From ₪3,900",
+        "text": "Everything a customer needs to know about your business on one page: what you do, who it's for, why choose you, your work and how to get in touch.",
+        "tags": [
+          "Your whole business on one page",
+          "All copy included",
+          "Custom design + build",
+          "Ready in about 10 days"
+        ]
+      },
+      {
+        "number": "03",
+        "kind": "brand",
+        "title": "Full website | From ₪6,900",
+        "text": "Best when you offer several different services and each one needs room to explain. Separate pages also give Google more useful content to work with.",
+        "tags": [
+          "A page for each service",
+          "More room to explain",
+          "Better foundation for SEO",
+          "Ready in up to 3 weeks"
+        ]
+      }
+    ],
+    "primaryCta": "Message me on WhatsApp",
+    "primaryCtaMobile": "Message me on WhatsApp"
+  },
+  "work": {
+    "label": "Selected work",
+    "title": "Websites I've built",
+    "text": "Three very different organisations. Each site was shaped around what that business needed to say and who it needed to reach.",
+    "ctaText": "Want a website that does the same for your business?",
+    "ctaLabel": "Send me a message",
+    "statusLabels": {
+      "launched": "Launched",
+      "demo": "Concept project",
+      "building": "In progress"
+    },
+    "projects": [
+      {
+        "name": "A.S. Plumbing",
+        "text": "A website for a plumbing and water-damage restoration business.",
+        "outcome": "Customers can quickly find the problem they're dealing with and call straight from their phone. No hunting for a number and no forms.",
+        "tags": ["Local business", "Trades", "Quick contact", "Trust"],
+        "href": "https://www.as-plumbing-services.com/",
+        "status": "launched",
+        "featured": true,
+        "screenshots": {
+          "desktop": "/projects/as-plumbing-desktop.webp",
+          "mobile": "/projects/as-plumbing-mobile.webp"
+        }
+      },
+      {
+        "name": "KIM Beauty",
+        "text": "A concept website for a beauty and skincare clinic.",
+        "outcome": "Each treatment gets its own clear explanation, and the site naturally guides visitors from discovering the clinic to booking an appointment.",
+        "tags": ["Beauty and skincare", "Concept project", "Clinic", "Business website"],
+        "href": "https://kim-beauty.vercel.app/",
+        "status": "demo",
+        "screenshots": {
+          "desktop": "/projects/kim-beauty-desktop.webp",
+          "mobile": "/projects/kim-beauty-mobile.webp"
+        }
+      },
+      {
+        "name": "Notnim Be'Ahava",
+        "text": "A donation page for a nonprofit.",
+        "outcome": "The page clearly explains where the money goes and why it matters, then lets people donate without being sent somewhere else.",
+        "tags": ["Nonprofit", "Donation page", "Trust", "Action"],
+        "href": "https://donate.notnim.info/",
+        "status": "launched",
+        "screenshots": {
+          "desktop": "/projects/notnim-beahava-desktop.webp",
+          "mobile": "/projects/notnim-beahava-mobile.webp"
+        }
+      }
+    ]
+  },
+  "testimonials": {
+    "_comment": "This is a faithful English translation of an approved Hebrew testimonial. Confirm the English wording with the client before publishing it as a direct quote.",
+    "label": "What clients say",
+    "title": "From businesses I've worked with",
+    "items": [
+      {
+        "quote": "Pini built the website for my plumbing business. I dealt with him directly from start to finish. I just told him about the business on a call, and he wrote everything himself. Within two weeks the site was live, and customers could call me straight from their phones. I recommend him.",
+        "name": "Uriel",
+        "role": "A.S. Plumbing"
+      }
+    ]
+  },
+  "process": {
+    "label": "How it works",
+    "title": ["From your first message", "to a live website."],
+    "text": "Four simple steps. You always know what's happening, and we don't move forward until you've approved each stage.",
+    "ctaText": "Want to know what this could look like for your business?",
+    "ctaLabel": "Message me on WhatsApp",
+    "items": [
+      {
+        "number": "01",
+        "title": "A quick chat",
+        "text": "You tell me, in plain language, what the business does, who your customers are and what you want people to do when they visit the site. From that, I work out what the site needs to say and in what order.",
+        "illustration": "/illustrations/strategy.svg"
+      },
+      {
+        "number": "02",
+        "title": "I write the copy",
+        "text": "I take what you've told me, organise it and write all the copy for the site. You read it, make any corrections and approve it.",
+        "illustration": "/illustrations/document.svg"
+      },
+      {
+        "number": "03",
+        "title": "Custom design",
+        "text": "Once the copy is approved, I design the site around it. No off-the-shelf template — a design that actually feels like your business.",
+        "illustration": "/illustrations/trust.svg"
+      },
+      {
+        "number": "04",
+        "title": "Build and launch",
+        "text": "I build the site, test it on phones and computers, and put it live. You get a finished website that works properly.",
+        "illustration": "/illustrations/browser.svg"
+      }
+    ],
+    "ctaLabelMobile": "Message me on WhatsApp"
+  },
+  "about": {
+    "expertise": "Copy · Design · Development",
+    "label": "Who's behind it",
+    "title": "I'm Pini. I handle everything myself.",
+    "titleEmphasis": "myself",
+    "founderPhotoAlt": "Pini, founder of NorthSpark Studio",
+    "paragraphs": [
+      "I work on every site myself, from the first conversation and the copy and design all the way through to launch.",
+      "When the same person listens, writes and designs, nothing gets lost along the way. You don't have to explain the same thing three times to three different people.",
+      "I take on no more than two projects at a time, so each one gets the attention it deserves."
+    ],
+    "ctaLabel": "Message me on WhatsApp",
+    "strengths": [
+      {
+        "title": "One person from start to finish",
+        "text": "You deal with me directly — no team and no project manager in the middle."
+      },
+      {
+        "title": "Plain, human language",
+        "text": "I write so your customers understand. No jargon and no fluff."
+      },
+      {
+        "title": "Design that fits your business",
+        "text": "Not a ready-made template with different colours. A design built for you."
+      },
+      {
+        "title": "A clear price upfront",
+        "text": "You know what it costs before we start. No surprises halfway through."
+      }
+    ],
+    "ctaLabelMobile": "Message me on WhatsApp"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Questions people usually ask",
+    "text": "The things business owners tend to ask before making a decision.",
+    "contactText": "Got a question that isn't here?",
+    "contactLabel": "Message me on WhatsApp",
+    "items": [
+      {
+        "question": "What kind of website does my business need?",
+        "answer": "A landing page is best when you're promoting one service or offer. A one-page website works when everything a customer needs to know can fit comfortably on one page. A full website makes sense when you offer several different services and each one needs its own explanation. I'll help you choose the right option for your business."
+      },
+      {
+        "question": "How much does a small-business website cost?",
+        "answer": "Landing pages start at ₪2,900, one-page websites at ₪3,900 and full websites at ₪6,900. The final price depends on the size and complexity, and includes learning about your business, writing the copy, design, development and mobile optimisation. You'll get the full scope and final price before we begin."
+      },
+      {
+        "question": "How long does it take?",
+        "answer": "Around one week for a landing page, about 10 days for a one-page website and up to three weeks for a full website. The clock starts after the first payment and doesn't include time spent waiting for your feedback."
+      },
+      {
+        "question": "Will my website show up on Google?",
+        "answer": "Yes. Every site I build launches with the basics Google needs: a clear structure, copy based on what your customers actually search for, fast loading, mobile optimisation and Google indexing. To be clear, appearing on Google isn't the same as ranking first. Reaching the top in a competitive field usually takes ongoing SEO, which is a separate service. What I do promise is a website built on the right foundation from day one."
+      },
+      {
+        "question": "Do I need to bring finished copy or content?",
+        "answer": "No. I write all the copy. If you already have useful material, we'll use it as a starting point. You just need to tell me about the business and approve what I write."
+      },
+      {
+        "question": "How many rounds of changes are included?",
+        "answer": "We review the copy and design, make the agreed changes and only move forward once you've approved each stage. The exact number of revision rounds depends on the project and is written clearly in the proposal before we begin."
+      },
+      {
+        "question": "What if I don't like the result?",
+        "answer": "That rarely happens because nothing moves forward without your approval. You review the copy before the design begins, and approve the design before I build the site. If something doesn't feel right, we talk about it, fix it and only then move on. There shouldn't be any surprise at the end."
+      },
+      {
+        "question": "What happens after the website goes live?",
+        "answer": "You can still come to me for small updates and ongoing maintenance after launch."
+      }
+    ],
+    "contactLabelMobile": "Message me on WhatsApp"
+  },
+  "finalCta": {
+    "title": "Want to talk about your website?",
+    "text": "Send me a quick message with what your business does and what's missing. I'll come back with a straight answer: what I recommend, what it costs and how long it takes. And if a website isn't what your business needs right now, I'll tell you that too.",
+    "altContactLabel": "Prefer a phone call or email?"
+  },
+  "footer": {
+    "tagline": "Websites for small businesses and local professionals.",
+    "copyright": "© 2026 NorthSpark Studio. All rights reserved.",
+    "credit": "Copy, design and development by NorthSpark Studio.",
+    "links": [
+      { "label": "Services", "href": "#services" },
+      { "label": "Work", "href": "#work" },
+      { "label": "How it works", "href": "#process" },
+      { "label": "FAQ", "href": "#faq" },
+      { "label": "Let's talk", "href": "#contact" }
+    ],
+    "legalLinks": [
+      { "label": "Accessibility statement", "href": "/accessibility" },
+      { "label": "Privacy policy", "href": "/privacy" }
+    ]
+  },
+  "nichePages": [
+    {
+      "slug": "website-for-beauty-clinics",
+      "metaTitle": "Websites for Beauty and Skincare Clinics | NorthSpark Studio",
+      "metaDescription": "A website for your beauty clinic or skincare business, with clear treatment pages, easy booking and a design that builds trust. Copy, design and development by one person.",
+      "eyebrow": "Websites for beauty and skincare businesses",
+      "title": "Your clinic's website should start selling before a customer even calls",
+      "intro": "Most beauty clients decide where to book before they ever pick up the phone. They check Instagram, Google the business and look for a reason to trust it. A good website gives them one: it explains each treatment, shows the real clinic and makes booking simple.",
+      "painPoints": [
+        {
+          "title": "Every treatment needs its own explanation",
+          "text": "Someone choosing between treatments wants to know what's involved, how long it takes and whether it's right for them. An Instagram photo can't answer all that."
+        },
+        {
+          "title": "Booking should be easy",
+          "text": "No hunting for a phone number between posts. A clear WhatsApp or call button is always within reach."
+        },
+        {
+          "title": "Build trust before they arrive",
+          "text": "Real photos and a clear introduction to the clinic and the person behind it turn a curious visitor into someone ready to book."
+        }
+      ],
+      "projectName": "KIM Beauty",
+      "suggestedPlanNumber": "02",
+      "whatsappMessage": "Hi, I'm interested in a website for a beauty clinic",
+      "relatedLinkLabel": "I also build websites for beauty clinics"
+    },
+    {
+      "slug": "website-for-tradespeople",
+      "metaTitle": "Websites for Plumbers, Electricians and Tradespeople | NorthSpark Studio",
+      "metaDescription": "Websites for plumbers, electricians and tradespeople, with real work, quick contact and trust before the first call. Copy, design and development by one person.",
+      "eyebrow": "Websites for tradespeople",
+      "title": "When customers need a tradesperson, they're usually checking a few at once",
+      "intro": "Someone looking for a plumber, electrician or contractor will often contact several people at the same time. The first one to respond with something professional and trustworthy has a real advantage. A website that shows your work and makes it easy to call can be what wins the job.",
+      "painPoints": [
+        {
+          "title": "You're not the only person they're checking",
+          "text": "A website with real work and solid proof can help you win the job before a competitor even answers the phone."
+        },
+        {
+          "title": "People need to see your work",
+          "text": "Show them jobs you've actually completed, not just word-of-mouth recommendations. People want to see before they trust."
+        },
+        {
+          "title": "Make it easy to call from a phone",
+          "text": "A clear call or WhatsApp button, with no forms and no searching for your number."
+        }
+      ],
+      "projectName": "A.S. Plumbing",
+      "suggestedPlanNumber": "02",
+      "whatsappMessage": "Hi, I'm interested in a website for my trade business",
+      "relatedLinkLabel": "I also build websites for tradespeople"
+    },
+    {
+      "slug": "website-for-nonprofits",
+      "metaTitle": "Donation Pages for Nonprofits | NorthSpark Studio",
+      "metaDescription": "A nonprofit donation page that explains why the work matters and lets people donate without leaving the page. Copy, design and development by one person.",
+      "eyebrow": "Websites for nonprofits",
+      "title": "Once someone decides to donate, every extra step makes them less likely to finish",
+      "intro": "A good donation page doesn't send people somewhere else or leave them with unanswered questions. It quickly explains where the money goes and why it matters, then lets them donate right there on the page.",
+      "painPoints": [
+        {
+          "title": "Donating should be simple",
+          "text": "Let people donate on the same page, without jumping between screens or filling out a long, awkward form."
+        },
+        {
+          "title": "People give when they understand why",
+          "text": "Explain clearly where the money goes and why it matters. A donation button on its own isn't enough."
+        },
+        {
+          "title": "Trust is everything",
+          "text": "Real photos and honest information matter. A generic-looking page can make a potential donor hesitate."
+        }
+      ],
+      "projectName": "Notnim Be'Ahava",
+      "suggestedPlanNumber": "01",
+      "whatsappMessage": "Hi, I'm interested in a donation page for a nonprofit",
+      "relatedLinkLabel": "I also build donation pages for nonprofits"
+    }
+  ]
+}

@@ -178,6 +178,14 @@
   transform: translateX(-3px);
 }
 
+.work-niche-link {
+  margin-top: 10px !important;
+  padding-top: 0 !important;
+  color: var(--color-muted) !important;
+  font-size: .84rem !important;
+  font-weight: 650 !important;
+}
+
 .work-content a:focus-visible {
   border-radius: var(--radius-xs);
   outline: 2px solid var(--color-primary);

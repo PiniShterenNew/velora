@@ -35,6 +35,12 @@
   list-style: none;
 }
 
+/* A lone testimonial sits centered instead of stranded in the first column. */
+.testimonials-grid:has(li:only-child) {
+  grid-template-columns: minmax(0, 620px);
+  justify-content: center;
+}
+
 .testimonial-card {
   display: grid;
   gap: 24px;

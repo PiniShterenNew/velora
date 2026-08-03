@@ -4,14 +4,14 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { copy } from "@/lib/data";
+import { getCopy, type Locale } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { LineBreakTitle, SectionIntro } from "./shared";
 
-const process = copy.process.items;
-
-export function Process() {
+export function Process({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
+  const process = copy.process.items;
   const sectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<HTMLElement[]>([]);
   const lineRefs = useRef<HTMLSpanElement[]>([]);

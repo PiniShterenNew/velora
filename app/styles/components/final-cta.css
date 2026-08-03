@@ -125,6 +125,26 @@
   margin-top: 0;
 }
 
+.final-cta-alt {
+  margin: 0;
+  color: color-mix(in srgb, var(--color-bg) 62%, transparent);
+  font-size: .92rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.final-cta-alt a {
+  color: color-mix(in srgb, var(--color-bg) 84%, transparent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 160ms ease;
+}
+
+.final-cta-alt a:hover {
+  color: var(--color-bg);
+}
+
 .final-cta-qmark {
   color: var(--color-peach);
 }

@@ -1,10 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { copy } from "@/lib/data";
+import { getCopy, type Locale, type SiteCopy } from "@/lib/data";
 import { AmbientBackground } from "./AmbientBackground";
-
-const stages = copy.decisionBoard.stages;
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 16 },
@@ -25,7 +23,7 @@ const stageReveal: Variants = {
   }),
 };
 
-type Stage = (typeof stages)[number];
+type Stage = SiteCopy["decisionBoard"]["stages"][number];
 
 function StageDescription({ stage }: { stage: Stage }) {
   const { description, emphasis, emphasisTone } = stage;
@@ -41,7 +39,9 @@ function StageDescription({ stage }: { stage: Stage }) {
   );
 }
 
-export function DecisionBoard() {
+export function DecisionBoard({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
+  const stages = copy.decisionBoard.stages;
   const reduceMotion = useReducedMotion();
   const initial = reduceMotion ? false : "hidden";
 
@@ -52,7 +52,7 @@ export function DecisionBoard() {
       aria-labelledby="decision-board-title"
       initial={initial}
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       <AmbientBackground variant="decision" />
 

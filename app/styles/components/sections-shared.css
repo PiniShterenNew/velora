@@ -295,6 +295,7 @@
   margin-bottom: 54px;
 }
 
+.section-intro h1,
 .section-intro h2,
 .services-heading h2,
 .about-copy h2 {
@@ -919,12 +920,14 @@
     align-items: center;
   }
 
+  .section-intro h1,
   .section-intro h2,
   .services-heading h2,
   .about-copy h2 {
     font-size: var(--type-section-title-size-mobile);
   }
 
+  .section-intro h1,
   .section-intro h2{
     text-align: center;
   }

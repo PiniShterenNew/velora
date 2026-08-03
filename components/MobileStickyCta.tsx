@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { copy } from "@/lib/data";
+import { getCopy, type Locale } from "@/lib/data";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const SCROLL_THRESHOLD = 500;
 
-export function MobileStickyCta() {
+export function MobileStickyCta({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

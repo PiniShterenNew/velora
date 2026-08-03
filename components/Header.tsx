@@ -1,16 +1,24 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-import { copy } from "@/lib/data";
+import { Globe, Menu, X } from "lucide-react";
+import { getCopy, type Locale } from "@/lib/data";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
-const whatsappUrl = copy.brand.whatsappUrl;
-const navItems = [...copy.navigation.items, { label: copy.navigation.contactLabel, href: "#contact" }];
 const menuAnimationMs = 280;
 
-export function Header() {
+export function Header({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
+  const localePath = (href: string) => `/${locale}${href}`;
+  const whatsappUrl = copy.brand.whatsappUrl;
+  const navItems = [...copy.navigation.items, { label: copy.navigation.contactLabel, href: "#contact" }];
+
+  const pathname = usePathname();
+  const otherLocale: Locale = locale === "he" ? "en" : "he";
+  const otherLocalePath = (pathname?.replace(/^\/(he|en)/, `/${otherLocale}`)) || `/${otherLocale}`;
+
   const [open, setOpen] = useState(false);
   const [renderMenu, setRenderMenu] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
@@ -45,8 +53,10 @@ export function Header() {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       if (!(event.target instanceof Element)) return;
 
-      const link = event.target.closest<HTMLAnchorElement>('a[href^="#"]');
+      const link = event.target.closest<HTMLAnchorElement>("a[href]");
       if (!link?.hash) return;
+      /* Locale-qualified hash links from inner pages navigate home; smooth-scroll only in place. */
+      if (link.pathname !== window.location.pathname) return;
 
       let targetId: string;
       try {
@@ -154,17 +164,23 @@ export function Header() {
   return (
     <header className={`site-header ${hidden && !open ? "is-hidden" : ""}`}>
       <div className={`header-inner site-container ${open ? "menu-open" : ""}`}>
-        <a className="brand" href="#top" aria-label={copy.aria.backToTop}>
+        <a className="brand" href={localePath("#top")} aria-label={copy.aria.backToTop}>
           <Image className="brand-logo" src="/full-logo.svg" alt={copy.brand.name} width={148} height={62} priority />
         </a>
 
         <nav className="nav-pill" aria-label={copy.aria.primaryNavigation}>
-          {navItems.map(({ label, href }) => <a key={label} href={href}>{label}</a>)}
+          {navItems.map(({ label, href }) => <a key={label} href={localePath(href)}>{label}</a>)}
         </nav>
 
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          {copy.common.whatsappShort}
-        </a>
+        <div className="header-end">
+          <a className="lang-switch" href={otherLocalePath} lang={otherLocale} hrefLang={otherLocale} aria-label={`${copy.common.languageSwitchLabel}: ${copy.common.otherLanguageName}`}>
+            <Globe aria-hidden="true" />
+            <span>{copy.common.otherLanguageName}</span>
+          </a>
+          <a className="header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            {copy.common.whatsappShort}
+          </a>
+        </div>
 
         <button
           className="menu-button"
@@ -193,9 +209,20 @@ export function Header() {
         >
           <div className="mobile-menu-links">
             {navItems.map(({ label, href }) => (
-              <a key={label} href={href} tabIndex={open ? 0 : -1} onClick={closeMenu}>{label}</a>
+              <a key={label} href={localePath(href)} tabIndex={open ? 0 : -1} onClick={closeMenu}>{label}</a>
             ))}
           </div>
+          <a
+            className="mobile-menu-lang"
+            href={otherLocalePath}
+            lang={otherLocale}
+            hrefLang={otherLocale}
+            tabIndex={open ? 0 : -1}
+            onClick={closeMenu}
+            aria-label={`${copy.common.languageSwitchLabel}: ${copy.common.otherLanguageName}`}
+          >
+            <Globe aria-hidden="true" /> {copy.common.otherLanguageName}
+          </a>
           <a className="mobile-menu-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer" tabIndex={open ? 0 : -1} onClick={closeMenu}>
             {copy.common.mobileWhatsapp} <WhatsAppIcon />
           </a>

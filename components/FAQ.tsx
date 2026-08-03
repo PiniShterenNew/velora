@@ -2,10 +2,8 @@
 
 import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
-import { copy } from "@/lib/data";
+import { getCopy, type Locale } from "@/lib/data";
 import { AmbientBackground } from "./AmbientBackground";
-
-const items = copy.faq.items;
 
 function FAQItem({
   index,
@@ -52,7 +50,9 @@ function FAQItem({
   );
 }
 
-export function FAQ() {
+export function FAQ({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
+  const items = copy.faq.items;
   const [openIndex, setOpenIndex] = useState(0);
   const selectItem = (index: number) => {
     setOpenIndex((currentIndex) => {

@@ -1,4 +1,4 @@
-import { copy } from "@/lib/data";
+import { getCopy, type Locale } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 
@@ -12,7 +12,8 @@ function isValidTestimonial(item: { quote?: string; name?: string; role?: string
   return hasPublishableValue(item.quote) && hasPublishableValue(item.name) && hasPublishableValue(item.role);
 }
 
-export function Testimonials() {
+export function Testimonials({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
   if (copy.testimonials.items.length === 0) return null;
 
   const items = copy.testimonials.items.filter(isValidTestimonial);

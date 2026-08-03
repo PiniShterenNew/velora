@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { copy } from "@/lib/data";
+import { getCopy, type Locale, type SiteCopy } from "@/lib/data";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { WhatsAppIcon } from "../WhatsAppIcon";
-import { whatsappUrl } from "./shared";
 
-type FinalCtaCopy = typeof copy.finalCta & {
+type FinalCtaCopy = SiteCopy["finalCta"] & {
   reassurance?: string;
 };
 
@@ -14,7 +13,9 @@ function CtaTitle({ title }: { title: string }) {
   return <>{title.slice(0, -1)}<span className="final-cta-qmark">?</span></>;
 }
 
-export function FinalCTA() {
+export function FinalCTA({ locale }: { locale: Locale }) {
+  const copy = getCopy(locale);
+  const whatsappUrl = copy.brand.whatsappUrl;
   const finalCta = copy.finalCta as FinalCtaCopy;
 
   return (
@@ -34,6 +35,12 @@ export function FinalCTA() {
                 <a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   {copy.common.whatsappFull} <WhatsAppIcon />
                 </a>
+                <p className="final-cta-alt">
+                  {finalCta.altContactLabel}{" "}
+                  <a href={copy.brand.phoneHref} dir="ltr">{copy.brand.phone}</a>
+                  <span aria-hidden="true"> · </span>
+                  <a href={copy.brand.emailHref}>{copy.brand.email}</a>
+                </p>
               </div>
             </div>
           </div>
