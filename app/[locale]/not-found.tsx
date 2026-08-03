@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SectionPageLayout } from "@/components/SectionPageLayout";
 
 export const metadata: Metadata = {
@@ -18,9 +19,9 @@ export default function NotFound() {
             יכול להיות שהקישור השתנה, או שהייתה טעות הקלדה בכתובת. בכל מקרה, כל מה שחשוב נמצא בעמוד
             הראשי.
           </p>
-          <a className="btn btn-primary" href="/he">
+          <Link className="btn btn-primary" href="/he">
             חזרה לעמוד הראשי
-          </a>
+          </Link>
         </div>
       </section>
     </SectionPageLayout>

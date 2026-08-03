@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Frank_Ruhl_Libre, Rubik } from "next/font/google";
 import Script from "next/script";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
+import { CookieConsent } from "@/components/CookieConsent";
 import { GoogleAnalyticsPageView } from "@/components/GoogleAnalyticsPageView";
 import { getCopy, isLocale, locales, type Locale } from "@/lib/data";
 import { getSiteUrl } from "@/lib/site-url";
@@ -23,6 +24,7 @@ import "../styles/components/faq.css";
 import "../styles/components/final-cta.css";
 import "../styles/components/footer.css";
 import "../styles/components/legal.css";
+import "../styles/components/cookie-consent.css";
 import "../styles/components/niche.css";
 import "../styles/hero.css";
 
@@ -134,6 +136,7 @@ export default async function RootLayout({
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', { analytics_storage: 'denied' });
             gtag('js', new Date());
             gtag('config', '${googleAnalyticsId}', { send_page_view: false });
           `}
@@ -141,6 +144,7 @@ export default async function RootLayout({
         <GoogleAnalyticsPageView measurementId={googleAnalyticsId} />
         <AnalyticsEvents />
         {children}
+        <CookieConsent locale={locale} />
       </body>
     </html>
   );

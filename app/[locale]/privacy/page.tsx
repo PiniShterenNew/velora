@@ -56,7 +56,8 @@ function PrivacyHe({ phone, phoneHref, email, emailHref }: { phone: string; phon
       <ul>
         <li>
           <strong>Google Analytics 4</strong> - שירות של Google למדידת תנועה באתר. הכלי משתמש
-          בעוגיות (Cookies) ואוסף נתוני שימוש אנונימיים. מידע נוסף זמין ב
+          בעוגיות (Cookies) ואוסף נתוני שימוש אנונימיים, אך ורק לאחר שמאשרים זאת בהודעת העוגיות
+          שמופיעה בכניסה הראשונה לאתר. מידע נוסף זמין ב
           <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
             מדיניות הפרטיות של Google
           </a>
@@ -68,7 +69,8 @@ function PrivacyHe({ phone, phoneHref, email, emailHref }: { phone: string; phon
         </li>
       </ul>
       <p>
-        אפשר לחסום או למחוק עוגיות בכל רגע דרך הגדרות הדפדפן. חסימת עוגיות לא תפגע בגלישה באתר.
+        אפשר לשנות את הבחירה בכל רגע על ידי ניקוי האחסון המקומי (local storage) של הדפדפן עבור
+        האתר, או לחסום ולמחוק עוגיות דרך הגדרות הדפדפן. דחיית עוגיות או חסימתן לא תפגע בגלישה באתר.
       </p>
 
       <h2>מה לא נעשה עם המידע</h2>
@@ -136,7 +138,8 @@ function PrivacyEn({ phone, phoneHref, email, emailHref }: { phone: string; phon
       <ul>
         <li>
           <strong>Google Analytics 4</strong> - Google&apos;s service for measuring site traffic. It
-          uses cookies and collects anonymous usage data. More information is available in
+          uses cookies and collects anonymous usage data, but only after you accept the cookie
+          notice shown on your first visit. More information is available in
           <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
             Google&apos;s Privacy Policy
           </a>
@@ -148,7 +151,8 @@ function PrivacyEn({ phone, phoneHref, email, emailHref }: { phone: string; phon
         </li>
       </ul>
       <p>
-        You can block or delete cookies at any time via your browser settings. Blocking cookies will
+        You can change your choice at any time by clearing your browser&apos;s local storage for this
+        site, or block/delete cookies via your browser settings. Declining or blocking cookies will
         not affect your ability to browse the site.
       </p>
 

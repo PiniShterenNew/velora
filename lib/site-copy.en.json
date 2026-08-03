@@ -349,6 +349,13 @@
       { "label": "Privacy policy", "href": "/privacy" }
     ]
   },
+  "cookieConsent": {
+    "ariaLabel": "Cookie notice",
+    "message": "This site uses analytics cookies to improve the service.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "privacyLinkLabel": "Privacy policy"
+  },
   "nichePages": [
     {
       "slug": "website-for-beauty-clinics",

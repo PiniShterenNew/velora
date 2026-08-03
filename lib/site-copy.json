@@ -400,6 +400,13 @@
             }
         ]
     },
+    "cookieConsent": {
+        "ariaLabel": "הודעת עוגיות",
+        "message": "האתר משתמש בעוגיות אנליטיות לשיפור השירות.",
+        "accept": "מאשר",
+        "decline": "לא תודה",
+        "privacyLinkLabel": "מדיניות פרטיות"
+    },
     "nichePages": [
         {
             "slug": "website-for-beauty-clinics",

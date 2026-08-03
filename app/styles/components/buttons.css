@@ -136,6 +136,11 @@
   transform: translateY(0);
 }
 
+/* Never let the WhatsApp sticky bar stack on top of the cookie banner. */
+body.cookie-consent-open .mobile-sticky-cta {
+  transform: translateY(100%);
+}
+
 .mobile-sticky-cta .btn {
   width: 100%;
   min-height: 52px;
