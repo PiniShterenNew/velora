@@ -715,6 +715,10 @@
   box-shadow: 0 14px 28px color-mix(in srgb, var(--color-border) 10%, transparent);
   isolation: isolate;
   transition: transform 280ms ease, box-shadow 280ms ease;
+  /* Safari/iOS fails to clip absolutely-positioned children to a rounded overflow:hidden
+     box (webkit.org/b/72619); forcing a compositing layer via mask + transform fixes it. */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  transform: translateZ(0);
 }
 
 .desktop-shot {

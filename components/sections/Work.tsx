@@ -25,7 +25,7 @@ function ProjectPreview({ name, index, screenshots, status, statusLabel }: { nam
 
     return <div className={`project-preview project-screenshot preview-${index}`}>
       <span className={`project-status project-status-${status}`}><span aria-hidden="true" />{statusLabel}</span>
-      <div className="desktop-shot">
+      <div className="desktop-shot" style={{ aspectRatio: `${desktopDimensions.width} / ${desktopDimensions.height}` }}>
         <div className="shot-chrome" aria-hidden="true"><i /><i /><i /></div>
         <Image src={screenshots.desktop} alt={`${name} desktop website screenshot`} width={desktopDimensions.width} height={desktopDimensions.height} sizes="(min-width: 1180px) 56vw, (min-width: 900px) 54vw, 92vw" />
       </div>
