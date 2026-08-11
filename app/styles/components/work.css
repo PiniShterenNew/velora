@@ -108,11 +108,11 @@
 }
 
 .work-card:focus-within .desktop-shot {
-  transform: translateY(-3px);
+  transform: translate3d(0, -3px, 0);
 }
 
 .work-card:focus-within .mobile-shot {
-  transform: translate(-4px, -5px);
+  transform: translate3d(-4px, -5px, 0);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -121,11 +121,11 @@
   }
 
   .work-card:hover .desktop-shot {
-    transform: translateY(-3px);
+    transform: translate3d(0, -3px, 0);
   }
 
   .work-card:hover .mobile-shot {
-    transform: translate(-4px, -5px);
+    transform: translate3d(-4px, -5px, 0);
   }
 }
 
