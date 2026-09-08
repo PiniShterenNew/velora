@@ -173,15 +173,32 @@
   gap: 16px;
 }
 
-.footer-legal a {
+.footer-legal a,
+.footer-legal-button {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 160ms ease;
 }
 
-.footer-legal a:hover {
+.footer-legal-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.footer-legal a:hover,
+.footer-legal-button:hover {
   color: var(--color-text);
+}
+
+.footer-legal a:focus-visible,
+.footer-legal-button:focus-visible {
+  border-radius: 3px;
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 3px;
 }
 
 .footer-bottom {
@@ -254,5 +271,10 @@
   .footer-bottom {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

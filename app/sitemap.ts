@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  for (const path of ["accessibility", "privacy"]) {
+  for (const path of ["accessibility", "privacy", "terms"]) {
     for (const locale of locales) {
       entries.push({
         url: `${baseUrl}/${locale}/${path}`,

@@ -316,7 +316,8 @@
   background: var(--color-mustard);
 }
 
-.project-status-launched {
+.project-status-launched,
+.project-status-completed {
   border-color: var(--color-slate);
   background: var(--color-slate);
   color: var(--color-bg);

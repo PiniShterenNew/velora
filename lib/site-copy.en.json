@@ -31,6 +31,7 @@
     "closeMenu": "Close menu",
     "mobileNavigation": "Mobile navigation",
     "footerNavigation": "Footer navigation",
+    "footerLegalNavigation": "Legal information and privacy settings",
     "studioServices": "NorthSpark Studio services"
   },
   "common": {
@@ -160,15 +161,28 @@
   "work": {
     "label": "Selected work",
     "title": "Websites I've built",
-    "text": "Three very different organisations. Each site was shaped around what that business needed to say and who it needed to reach.",
+    "text": "Three websites for real clients, alongside one concept project. Each was shaped around what the organisation needed to say and who it needed to reach.",
     "ctaText": "Want a website that does the same for your business?",
     "ctaLabel": "Send me a message",
     "statusLabels": {
       "launched": "Launched",
+      "completed": "Completed",
       "demo": "Concept project",
       "building": "In progress"
     },
     "projects": [
+      {
+        "name": "GMS | Global Multi Services",
+        "text": "A bilingual website for a company supporting businesses through overseas recruitment and workforce onboarding.",
+        "outcome": "The site turns a complex service into a clear journey, explains each stage, and guides businesses towards a fit call.",
+        "tags": ["Workforce", "Hebrew and English", "Business website", "Clear process"],
+        "status": "completed",
+        "featured": true,
+        "screenshots": {
+          "desktop": "/projects/gms-desktop.webp",
+          "mobile": "/projects/gms-mobile.webp"
+        }
+      },
       {
         "name": "A.S. Plumbing",
         "text": "A website for a plumbing and water-damage restoration business.",
@@ -176,22 +190,9 @@
         "tags": ["Local business", "Trades", "Quick contact", "Trust"],
         "href": "https://www.as-plumbing-services.com/",
         "status": "launched",
-        "featured": true,
         "screenshots": {
           "desktop": "/projects/as-plumbing-desktop.webp",
           "mobile": "/projects/as-plumbing-mobile.webp"
-        }
-      },
-      {
-        "name": "KIM Beauty",
-        "text": "A concept website for a beauty and skincare clinic.",
-        "outcome": "Each treatment gets its own clear explanation, and the site naturally guides visitors from discovering the clinic to booking an appointment.",
-        "tags": ["Beauty and skincare", "Concept project", "Clinic", "Business website"],
-        "href": "https://kim-beauty.vercel.app/",
-        "status": "demo",
-        "screenshots": {
-          "desktop": "/projects/kim-beauty-desktop.webp",
-          "mobile": "/projects/kim-beauty-mobile.webp"
         }
       },
       {
@@ -204,6 +205,18 @@
         "screenshots": {
           "desktop": "/projects/notnim-beahava-desktop.webp",
           "mobile": "/projects/notnim-beahava-mobile.webp"
+        }
+      },
+      {
+        "name": "KIM Beauty",
+        "text": "A concept website for a beauty and skincare clinic.",
+        "outcome": "Each treatment gets its own clear explanation, and the site naturally guides visitors from discovering the clinic to booking an appointment.",
+        "tags": ["Beauty and skincare", "Concept project", "Clinic", "Business website"],
+        "href": "https://kim-beauty.vercel.app/",
+        "status": "demo",
+        "screenshots": {
+          "desktop": "/projects/kim-beauty-desktop.webp",
+          "mobile": "/projects/kim-beauty-mobile.webp"
         }
       }
     ]
@@ -345,16 +358,18 @@
       { "label": "Let's talk", "href": "#contact" }
     ],
     "legalLinks": [
+      { "label": "Terms of use", "href": "/terms" },
       { "label": "Accessibility statement", "href": "/accessibility" },
       { "label": "Privacy policy", "href": "/privacy" }
     ]
   },
   "cookieConsent": {
     "ariaLabel": "Cookie notice",
-    "message": "This site uses analytics cookies to improve the service.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "privacyLinkLabel": "Privacy policy"
+    "message": "Only with your permission, Google Analytics will use cookies to measure site usage. You can decline without affecting the site.",
+    "accept": "Allow analytics",
+    "decline": "No analytics cookies",
+    "privacyLinkLabel": "Privacy policy",
+    "settingsLabel": "Cookie settings"
   },
   "nichePages": [
     {

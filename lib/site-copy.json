@@ -43,6 +43,7 @@
         "closeMenu": "סגירת תפריט",
         "mobileNavigation": "ניווט למובייל",
         "footerNavigation": "ניווט תחתון",
+        "footerLegalNavigation": "מידע משפטי והגדרות פרטיות",
         "studioServices": "שירותי NorthSpark Studio"
     },
     "common": {
@@ -172,15 +173,33 @@
     "work": {
         "label": "עבודות",
         "title": "אתרים שבניתי",
-        "text": "שלושה עסקים שונים. בכל אחד הגודל והמבנה נקבעו לפי מה שהעסק צריך להסביר, ולמי.",
+        "text": "שלושה אתרים ללקוחות אמיתיים, ולצדם פרויקט הדגמה. בכל אחד המבנה נקבע לפי מה שהעסק צריך להסביר ולמי.",
         "ctaText": "רוצה אתר שעובד ככה בשבילך?",
         "ctaLabel": "שלח לי הודעה",
         "statusLabels": {
             "launched": "הושק",
+            "completed": "הושלם",
             "demo": "פרויקט הדגמה",
             "building": "בבנייה"
         },
         "projects": [
+            {
+                "name": "GMS | Global Multi Services",
+                "text": "אתר תדמית דו־לשוני לחברה המלווה עסקים בתהליכי גיוס וקליטת עובדים זרים.",
+                "outcome": "האתר הופך שירות מורכב למסלול ברור, מציג את השירותים ואת שלבי העבודה, ומוביל עסקים לשיחת התאמה.",
+                "tags": [
+                    "כוח אדם",
+                    "עברית ואנגלית",
+                    "אתר תדמית",
+                    "תהליך מורכב"
+                ],
+                "status": "completed",
+                "featured": true,
+                "screenshots": {
+                    "desktop": "/projects/gms-desktop.webp",
+                    "mobile": "/projects/gms-mobile.webp"
+                }
+            },
             {
                 "name": "א.ש אינסטלציה",
                 "text": "אתר לעסק אינסטלציה ושיקום נזקי מים.",
@@ -193,27 +212,9 @@
                 ],
                 "href": "https://www.as-plumbing-services.com/",
                 "status": "launched",
-                "featured": true,
                 "screenshots": {
                     "desktop": "/projects/as-plumbing-desktop.webp",
                     "mobile": "/projects/as-plumbing-mobile.webp"
-                }
-            },
-            {
-                "name": "KIM Beauty",
-                "text": "אתר הדגמה לקליניקת יופי וטיפוח.",
-                "outcome": "כל טיפול מוסבר בנפרד, והמסלול באתר מוביל מהיכרות עם הקליניקה לקביעת תור.",
-                "tags": [
-                    "יופי וטיפוח",
-                    "אתר הדגמה",
-                    "קליניקה",
-                    "אתר תדמית"
-                ],
-                "href": "https://kim-beauty.vercel.app/",
-                "status": "demo",
-                "screenshots": {
-                    "desktop": "/projects/kim-beauty-desktop.webp",
-                    "mobile": "/projects/kim-beauty-mobile.webp"
                 }
             },
             {
@@ -231,6 +232,23 @@
                 "screenshots": {
                     "desktop": "/projects/notnim-beahava-desktop.webp",
                     "mobile": "/projects/notnim-beahava-mobile.webp"
+                }
+            },
+            {
+                "name": "KIM Beauty",
+                "text": "אתר הדגמה לקליניקת יופי וטיפוח.",
+                "outcome": "כל טיפול מוסבר בנפרד, והמסלול באתר מוביל מהיכרות עם הקליניקה לקביעת תור.",
+                "tags": [
+                    "יופי וטיפוח",
+                    "אתר הדגמה",
+                    "קליניקה",
+                    "אתר תדמית"
+                ],
+                "href": "https://kim-beauty.vercel.app/",
+                "status": "demo",
+                "screenshots": {
+                    "desktop": "/projects/kim-beauty-desktop.webp",
+                    "mobile": "/projects/kim-beauty-mobile.webp"
                 }
             }
         ]
@@ -391,6 +409,10 @@
         ],
         "legalLinks": [
             {
+                "label": "תנאי שימוש",
+                "href": "/terms"
+            },
+            {
                 "label": "הצהרת נגישות",
                 "href": "/accessibility"
             },
@@ -402,10 +424,11 @@
     },
     "cookieConsent": {
         "ariaLabel": "הודעת עוגיות",
-        "message": "האתר משתמש בעוגיות אנליטיות לשיפור השירות.",
-        "accept": "מאשר",
-        "decline": "לא תודה",
-        "privacyLinkLabel": "מדיניות פרטיות"
+        "message": "באישורך בלבד, Google Analytics ישתמש בעוגיות כדי למדוד שימוש באתר. אפשר לסרב בלי לפגוע בגלישה.",
+        "accept": "אפשר ניתוח",
+        "decline": "ללא עוגיות ניתוח",
+        "privacyLinkLabel": "למדיניות הפרטיות",
+        "settingsLabel": "הגדרות עוגיות"
     },
     "nichePages": [
         {

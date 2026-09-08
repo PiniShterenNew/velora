@@ -30,7 +30,7 @@ function AccessibilityHe({ phone, phoneHref, email, emailHref }: { phone: string
   return (
     <>
       <h1>הצהרת נגישות</h1>
-      <p className="legal-updated">עודכן לאחרונה: אוגוסט 2026</p>
+      <p className="legal-updated">עודכן לאחרונה: ספטמבר 2026</p>
 
       <p>
         אתר NorthSpark Studio שם דגש על נגישות, מתוך אמונה שלכל אדם מגיעה גישה שווה למידע ולשירותים.
@@ -39,16 +39,16 @@ function AccessibilityHe({ phone, phoneHref, email, emailHref }: { phone: string
 
       <h2>רמת הנגישות באתר</h2>
       <p>
-        האתר נבנה בשאיפה לעמוד בהנחיות הנגישות WCAG 2.1 ברמה AA, בהתאם לעקרונות התקן הישראלי
-        (ת&quot;י 5568) לנגישות תכנים באינטרנט.
+        האתר תוכנן ונבדק מול עקרונות הנחיות WCAG 2.1 ברמה AA והתקן הישראלי ת&quot;י 5568.
+        הנגישות היא תהליך מתמשך, ולכן איני מצהיר שאין באתר מגבלות כלל.
       </p>
 
       <h2>התאמות הנגישות שבוצעו</h2>
       <ul>
         <li>מבנה עמוד סמנטי עם כותרות מדורגות, המאפשר ניווט נוח עם קורא מסך.</li>
-        <li>קישור &quot;דלג לתוכן המרכזי&quot; בראש העמוד.</li>
-        <li>תמיכה מלאה בניווט באמצעות מקלדת, כולל סימון מיקוד ברור.</li>
-        <li>ניגודיות צבעים העומדת בדרישות התקן.</li>
+        <li>קישור &quot;דלג לתוכן המרכזי&quot; בכל עמוד.</li>
+        <li>אפשרות ניווט באמצעות מקלדת וסימון מיקוד ברור ברכיבים פעילים.</li>
+        <li>צבעי טקסט וקישורים שנבחרו ונבדקו לניגודיות מתאימה.</li>
         <li>טקסט חלופי לתמונות ותיאורי ARIA לרכיבי ניווט.</li>
         <li>כיבוד העדפת &quot;הפחתת תנועה&quot; של מערכת ההפעלה - אנימציות מצומצמות למי שביקש זאת.</li>
         <li>האתר מותאם לצפייה במחשב ובטלפון, וניתן להגדיל את הטקסט דרך הדפדפן בלי פגיעה בתוכן.</li>
@@ -56,8 +56,9 @@ function AccessibilityHe({ phone, phoneHref, email, emailHref }: { phone: string
 
       <h2>מגבלות ידועות</h2>
       <p>
-        למרות המאמצים, ייתכן שחלקים מסוימים באתר עדיין אינם נגישים במלואם. אם נתקלתם ברכיב שאינו
-        נגיש - נשמח לדעת, ונטפל בזה בהקדם.
+        ייתכנו מגבלות שלא אותרו עדיין. אתרים ושירותים חיצוניים שאליהם האתר מפנה, ובהם אתרי לקוחות
+        ו-WhatsApp, נמצאים באחריות מפעיליהם. אם נתקלתם במחסום באתר NorthSpark Studio, אנא ציינו
+        מה ניסיתם לעשות, באיזה עמוד ובאיזה מכשיר או דפדפן, ואבדוק פתרון נגיש בזמן סביר.
       </p>
 
       <h2>פנייה בנושאי נגישות</h2>
@@ -71,7 +72,7 @@ function AccessibilityHe({ phone, phoneHref, email, emailHref }: { phone: string
           דוא&quot;ל: <a href={emailHref}>{email}</a>
         </li>
       </ul>
-      <p>אשתדל לחזור לכל פנייה בתוך מספר ימי עסקים.</p>
+      <p>אשתדל לחזור לכל פנייה ולטפל בה בזמן סביר.</p>
     </>
   );
 }
@@ -80,7 +81,7 @@ function AccessibilityEn({ phone, phoneHref, email, emailHref }: { phone: string
   return (
     <>
       <h1>Accessibility Statement</h1>
-      <p className="legal-updated">Last updated: August 2026</p>
+      <p className="legal-updated">Last updated: September 2026</p>
 
       <p>
         NorthSpark Studio is committed to accessibility, in the belief that everyone deserves equal
@@ -90,16 +91,16 @@ function AccessibilityEn({ phone, phoneHref, email, emailHref }: { phone: string
 
       <h2>Conformance level</h2>
       <p>
-        This site is built to aim for WCAG 2.1 level AA, in line with the principles of Israeli
-        Standard 5568 for web content accessibility.
+        This site was designed and reviewed against WCAG 2.1 level AA principles and Israeli
+        Standard 5568. Accessibility is ongoing, so this statement does not claim that no limitation exists.
       </p>
 
       <h2>Accommodations in place</h2>
       <ul>
         <li>Semantic page structure with proper heading order, for smooth screen reader navigation.</li>
-        <li>A &quot;skip to main content&quot; link at the top of the page.</li>
-        <li>Full keyboard navigation support, with clear focus indication.</li>
-        <li>Color contrast that meets the standard&apos;s requirements.</li>
+        <li>A &quot;skip to main content&quot; link on every page.</li>
+        <li>Keyboard navigation and clear focus indication for interactive controls.</li>
+        <li>Text and link colours selected and checked for suitable contrast.</li>
         <li>Alt text for images and ARIA labels for navigation elements.</li>
         <li>Respect for the operating system&apos;s &quot;reduce motion&quot; preference - animations are minimized for anyone who has requested it.</li>
         <li>The site adapts to desktop and mobile, and text can be enlarged via the browser without breaking the layout.</li>
@@ -107,8 +108,10 @@ function AccessibilityEn({ phone, phoneHref, email, emailHref }: { phone: string
 
       <h2>Known limitations</h2>
       <p>
-        Despite these efforts, some parts of the site may not yet be fully accessible. If you run
-        into a component that isn&apos;t accessible, we&apos;d like to know, and we&apos;ll address it promptly.
+        Limitations that have not yet been identified may remain. External sites and services linked
+        from this site, including client sites and WhatsApp, are controlled by their operators. If you
+        encounter a barrier on NorthSpark Studio, please include the page, task, device and browser,
+        and I will investigate an accessible solution within a reasonable time.
       </p>
 
       <h2>Accessibility contact</h2>
@@ -122,7 +125,7 @@ function AccessibilityEn({ phone, phoneHref, email, emailHref }: { phone: string
           Email: <a href={emailHref}>{email}</a>
         </li>
       </ul>
-      <p>I aim to respond to every inquiry within a few business days.</p>
+      <p>I aim to respond and address accessibility inquiries within a reasonable time.</p>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getCopy, type Locale } from "@/lib/data";
 import { AmbientBackground } from "./AmbientBackground";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function Footer({ locale }: { locale: Locale }) {
@@ -44,12 +45,13 @@ export function Footer({ locale }: { locale: Locale }) {
 
           <div className="footer-bottom">
             <span>{copy.footer.copyright}</span>
-            <nav className="footer-legal" aria-label={copy.aria.footerNavigation}>
+            <nav className="footer-legal" aria-label={copy.aria.footerLegalNavigation}>
               {copy.footer.legalLinks.map(({ label, href }) => (
                 <a href={localePath(href)} key={label}>
                   {label}
                 </a>
               ))}
+              <CookieSettingsButton className="footer-legal-button" label={copy.cookieConsent.settingsLabel} />
             </nav>
             <span>{copy.footer.credit}</span>
           </div>

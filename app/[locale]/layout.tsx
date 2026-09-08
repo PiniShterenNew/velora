@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Frank_Ruhl_Libre, Rubik } from "next/font/google";
-import Script from "next/script";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
+import { ConsentAnalytics } from "@/components/ConsentAnalytics";
 import { CookieConsent } from "@/components/CookieConsent";
-import { GoogleAnalyticsPageView } from "@/components/GoogleAnalyticsPageView";
 import { getCopy, isLocale, locales, type Locale } from "@/lib/data";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -131,17 +130,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={localeMeta[locale].dir} className={`${rubik.variable} ${frankRuhlLibre.variable}`}>
       <body>
-        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} />
-        <Script id="google-analytics">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', { analytics_storage: 'denied' });
-            gtag('js', new Date());
-            gtag('config', '${googleAnalyticsId}', { send_page_view: false });
-          `}
-        </Script>
-        <GoogleAnalyticsPageView measurementId={googleAnalyticsId} />
+        <ConsentAnalytics measurementId={googleAnalyticsId} />
         <AnalyticsEvents />
         {children}
         <CookieConsent locale={locale} />

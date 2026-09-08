@@ -11,15 +11,16 @@ import { Reveal } from "../Reveal";
 import { WhatsAppIcon } from "../WhatsAppIcon";
 import { SectionIntro } from "./shared";
 
-type ProjectStatus = "launched" | "demo" | "building";
+type ProjectStatus = "launched" | "completed" | "demo" | "building";
 
 const desktopScreenshotDimensions: Record<string, { width: number; height: number }> = {
+  "/projects/gms-desktop.webp": { width: 1435, height: 900 },
   "/projects/as-plumbing-desktop.webp": { width: 1448, height: 909 },
   "/projects/kim-beauty-desktop.webp": { width: 1541, height: 913 },
   "/projects/notnim-beahava-desktop.webp": { width: 1900, height: 912 },
 };
 
-function ProjectPreview({ name, index, screenshots, status, statusLabel }: { name: string; index: number; screenshots?: { desktop: string; mobile: string }; status: ProjectStatus; statusLabel: string }) {
+function ProjectPreview({ name, index, screenshots, status, statusLabel, locale }: { name: string; index: number; screenshots?: { desktop: string; mobile: string }; status: ProjectStatus; statusLabel: string; locale: Locale }) {
   if (screenshots) {
     const desktopDimensions = desktopScreenshotDimensions[screenshots.desktop] ?? { width: 1600, height: 900 };
 
@@ -27,10 +28,10 @@ function ProjectPreview({ name, index, screenshots, status, statusLabel }: { nam
       <span className={`project-status project-status-${status}`}><span aria-hidden="true" />{statusLabel}</span>
       <div className="desktop-shot" style={{ aspectRatio: `${desktopDimensions.width} / ${desktopDimensions.height}` }}>
         <div className="shot-chrome" aria-hidden="true"><i /><i /><i /></div>
-        <Image src={screenshots.desktop} alt={`${name} desktop website screenshot`} width={desktopDimensions.width} height={desktopDimensions.height} sizes="(min-width: 1180px) 56vw, (min-width: 900px) 54vw, 92vw" />
+        <Image src={screenshots.desktop} alt={locale === "he" ? `צילום מסך של אתר ${name} במחשב` : `${name} website on desktop`} width={desktopDimensions.width} height={desktopDimensions.height} sizes="(min-width: 1180px) 56vw, (min-width: 900px) 54vw, 92vw" />
       </div>
       <div className="mobile-shot">
-        <Image src={screenshots.mobile} alt={`${name} mobile website screenshot`} fill sizes="160px" />
+        <Image src={screenshots.mobile} alt={locale === "he" ? `צילום מסך של אתר ${name} בטלפון` : `${name} website on mobile`} fill sizes="160px" />
       </div>
     </div>;
   }
@@ -113,7 +114,7 @@ export function Work({ locale }: { locale: Locale }) {
     <SectionIntro label={copy.work.label} title={copy.work.title} text={copy.work.text} />
     <div className="work-grid has-scroll-focus">{orderedProjectEntries.map(({ project, originalIndex }, i) => {
       const niche = getNicheByProjectName(copy, project.name);
-      return <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} status={project.status as ProjectStatus} statusLabel={copy.work.statusLabels[project.status as ProjectStatus]} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${copy.common.viewProjectAriaPrefix} ${project.name}`}>{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a>{niche && <a className="text-link work-niche-link" href={`/${locale}/${niche.slug}`}>{niche.relatedLinkLabel} <ArrowLeft aria-hidden="true" /></a>}</div></article></Reveal>;
+      return <Reveal className={`work-grid-item ${project.featured ? "is-featured" : ""}`} key={project.name} delay={(i % 2) * 100}><article className={`work-card ${project.featured ? "featured" : ""} ${activeIndex === i ? "is-active" : ""}`}><ProjectPreview name={project.name} index={originalIndex + 1} screenshots={project.screenshots} status={project.status as ProjectStatus} statusLabel={copy.work.statusLabels[project.status as ProjectStatus]} locale={locale} /><div className="work-content"><h3>{project.name}</h3><p>{project.text}</p>{"outcome" in project && project.outcome && <p className="work-outcome">{project.outcome}</p>}<ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>{"href" in project && project.href && <a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${copy.common.viewProjectAriaPrefix} ${project.name}`}>{copy.common.watchProject} <ArrowUpLeft aria-hidden="true" /></a>}{niche && <a className="text-link work-niche-link" href={`/${locale}/${niche.slug}`}>{niche.relatedLinkLabel} <ArrowLeft aria-hidden="true" /></a>}</div></article></Reveal>;
     })}</div>
     <Reveal className="section-action action-with-note"><p>{copy.work.ctaText}</p><a className="btn btn-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">{copy.work.ctaLabel} <WhatsAppIcon /></a></Reveal>
   </div></section>;

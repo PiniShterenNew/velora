@@ -1,212 +1,87 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { SectionPageLayout } from "@/components/SectionPageLayout";
 import { getCopy, isLocale, locales, type Locale } from "@/lib/data";
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
+export function generateStaticParams() { return locales.map((locale) => ({ locale })); }
 
 const metaByLocale: Record<Locale, Metadata> = {
-  he: {
-    title: "מדיניות פרטיות | NorthSpark Studio",
-    description: "מדיניות הפרטיות של אתר NorthSpark Studio: איזה מידע נאסף באתר, לאיזו מטרה, ואילו זכויות יש לך לגביו.",
-    alternates: { canonical: "/he/privacy" },
-  },
-  en: {
-    title: "Privacy Policy | NorthSpark Studio",
-    description: "The privacy policy for the NorthSpark Studio website: what data is collected, why, and what rights you have over it.",
-    alternates: { canonical: "/en/privacy" },
-  },
+  he: { title: "מדיניות פרטיות | NorthSpark Studio", description: "איזה מידע נאסף באתר NorthSpark Studio, לאילו מטרות ואילו זכויות עומדות למשתמשים.", alternates: { canonical: "/he/privacy" } },
+  en: { title: "Privacy Policy | NorthSpark Studio", description: "What information NorthSpark Studio collects, why it is used and the choices available to visitors.", alternates: { canonical: "/en/privacy" } },
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  return metaByLocale[locale];
+  return isLocale(locale) ? metaByLocale[locale] : {};
 }
 
-function PrivacyHe({ phone, phoneHref, email, emailHref }: { phone: string; phoneHref: string; email: string; emailHref: string }) {
-  return (
-    <>
-      <h1>מדיניות פרטיות</h1>
-      <p className="legal-updated">עודכן לאחרונה: אוגוסט 2026</p>
+type ContactProps = { phone: string; phoneHref: string; email: string; emailHref: string };
 
-      <p>
-        האתר northsparkstudio.com מופעל על ידי NorthSpark Studio (להלן: &quot;אני&quot; או
-        &quot;האתר&quot;). המדיניות הזו מסבירה בשפה פשוטה איזה מידע נאסף כשגולשים באתר, מה נעשה
-        איתו, ומה הזכויות שלך לגביו - בהתאם לחוק הגנת הפרטיות, התשמ&quot;א-1981.
-      </p>
-
-      <h2>איזה מידע נאסף באתר</h2>
-      <p>באתר אין טפסי הרשמה ואין צורך למסור פרטים אישיים כדי לגלוש בו. המידע היחיד שנאסף הוא:</p>
-      <ul>
-        <li>
-          <strong>נתוני שימוש אנונימיים</strong> - סטטיסטיקות גלישה כלליות (אילו עמודים נצפו, משך
-          הביקור, סוג המכשיר והדפדפן, אזור גיאוגרפי כללי). המידע הזה אינו מזהה אותך אישית.
-        </li>
-        <li>
-          <strong>מידע שאתה בוחר למסור</strong> - אם פנית אליי בוואטסאפ, בטלפון או במייל, הפרטים
-          שמסרת (שם, מספר טלפון, תוכן הפנייה) ישמשו אך ורק כדי לחזור אליך ולטפל בפנייה.
-        </li>
-      </ul>
-
-      <h2>כלי מדידה באתר</h2>
-      <p>האתר משתמש בכלים הבאים לצורך הבנת השימוש בו ושיפורו:</p>
-      <ul>
-        <li>
-          <strong>Google Analytics 4</strong> - שירות של Google למדידת תנועה באתר. הכלי משתמש
-          בעוגיות (Cookies) ואוסף נתוני שימוש אנונימיים, אך ורק לאחר שמאשרים זאת בהודעת העוגיות
-          שמופיעה בכניסה הראשונה לאתר. מידע נוסף זמין ב
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
-            מדיניות הפרטיות של Google
-          </a>
-          .
-        </li>
-        <li>
-          <strong>Vercel Analytics</strong> - כלי מדידה של פלטפורמת האחסון, שאוסף נתוני ביצועים
-          ושימוש ללא עוגיות וללא זיהוי אישי.
-        </li>
-      </ul>
-      <p>
-        אפשר לשנות את הבחירה בכל רגע על ידי ניקוי האחסון המקומי (local storage) של הדפדפן עבור
-        האתר, או לחסום ולמחוק עוגיות דרך הגדרות הדפדפן. דחיית עוגיות או חסימתן לא תפגע בגלישה באתר.
-      </p>
-
-      <h2>מה לא נעשה עם המידע</h2>
-      <ul>
-        <li>המידע לא נמכר ולא מועבר לגורמים שלישיים למטרות שיווק.</li>
-        <li>אין באתר פרסומות ואין מעקב פרסומי (רימרקטינג).</li>
-        <li>פרטים שנמסרו בפנייה אישית משמשים רק למענה לפנייה.</li>
-      </ul>
-
-      <h2>הזכויות שלך</h2>
-      <p>
-        לפי חוק הגנת הפרטיות, יש לך זכות לעיין במידע שנשמר עליך, לבקש לתקן אותו או לבקש שיימחק.
-        לכל בקשה כזו אפשר לפנות אליי בפרטים שבהמשך, ואטפל בה בהקדם.
-      </p>
-
-      <h2>שינויים במדיניות</h2>
-      <p>
-        אם המדיניות תתעדכן (למשל אם יתווסף לאתר כלי חדש), העמוד הזה יעודכן בהתאם, כולל תאריך
-        העדכון בראש העמוד.
-      </p>
-
-      <h2>יצירת קשר</h2>
-      <ul>
-        <li>שם: פיני, NorthSpark Studio</li>
-        <li>
-          טלפון: <a href={phoneHref} dir="ltr">{phone}</a>
-        </li>
-        <li>
-          דוא&quot;ל: <a href={emailHref}>{email}</a>
-        </li>
-      </ul>
-    </>
-  );
+function ContactHe({ phone, phoneHref, email, emailHref }: ContactProps) {
+  return <ul><li>פיני, NorthSpark Studio</li><li>טלפון: <a href={phoneHref} dir="ltr">{phone}</a></li><li>דוא&quot;ל: <a href={emailHref}>{email}</a></li></ul>;
 }
 
-function PrivacyEn({ phone, phoneHref, email, emailHref }: { phone: string; phoneHref: string; email: string; emailHref: string }) {
-  return (
-    <>
-      <h1>Privacy Policy</h1>
-      <p className="legal-updated">Last updated: August 2026</p>
+function ContactEn({ phone, phoneHref, email, emailHref }: ContactProps) {
+  return <ul><li>Pini, NorthSpark Studio</li><li>Phone: <a href={phoneHref} dir="ltr">{phone}</a></li><li>Email: <a href={emailHref}>{email}</a></li></ul>;
+}
 
-      <p>
-        The website northsparkstudio.com is operated by NorthSpark Studio (&quot;I&quot; or
-        &quot;the site&quot;). This policy explains, in plain language, what data is collected when
-        you browse the site, what it&apos;s used for, and what rights you have over it.
-      </p>
+function PrivacyHe(props: ContactProps) {
+  return <>
+    <h1>מדיניות פרטיות</h1>
+    <p className="legal-updated">עודכן לאחרונה: ספטמבר 2026</p>
+    <p>האתר northsparkstudio.com מופעל על ידי NorthSpark Studio. המדיניות מסבירה כיצד מידע מטופל בעת גלישה באתר או פנייה אליי, בהתאם לדין החל ובכלל זה חוק הגנת הפרטיות, התשמ&quot;א–1981.</p>
+    <h2>המידע שנאסף</h2>
+    <p>אפשר לגלוש באתר בלי להירשם ובלי למסור פרטים. עם זאת, עשוי להיאסף מידע טכני ומידע שימוש, כגון עמודים שנצפו, זמני שימוש, סוג מכשיר ודפדפן, כתובת IP או מזהים מקוונים, ואזור גיאוגרפי משוער. נתונים אלה אינם נועדו לזהות אותך ישירות, אך עשויים להיחשב מידע אישי לפי הדין.</p>
+    <p>אם פנית מיוזמתך באמצעות WhatsApp, טלפון או דוא&quot;ל, יטופלו פרטי הקשר, תוכן הפנייה וכל מידע נוסף שבחרת למסור. אינך חייב למסור מידע, אך בלעדיו ייתכן שלא אוכל להשיב או לספק הצעה ושירות.</p>
+    <h2>מטרות השימוש</h2>
+    <ul><li>תפעול האתר, אבטחתו ושיפור הביצועים וחוויית השימוש.</li><li>מדידת שימוש באתר, בכפוף לבחירת העוגיות שלך.</li><li>מענה לפניות, הכנת הצעות ומתן שירות.</li><li>עמידה בחובות חוקיות, ניהול רשומות והגנה על זכויות משפטיות.</li></ul>
+    <h2>עוגיות וכלי מדידה</h2>
+    <p><strong>Google Analytics 4</strong> נטען רק לאחר אישור מפורש לעוגיות ניתוח. הוא עשוי להציב עוגיות ולעבד נתוני שימוש ומזהים מקוונים עבור Google. דחייה לא תפגע בגלישה. מידע נוסף נמצא ב<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות של Google</a>.</p>
+    <p><strong>Vercel Analytics</strong> משמש למדידת ביצועים ושימוש בסיסי ללא עוגיות. Vercel היא גם ספקית האחסון והתשתית של האתר. מידע נוסף נמצא ב<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות של Vercel</a>.</p>
+    <p><CookieSettingsButton className="legal-cookie-settings" label="פתיחת הגדרות העוגיות" />. אפשר גם למחוק עוגיות דרך הגדרות הדפדפן.</p>
+    <h2>מסירת מידע והעברה מחוץ לישראל</h2>
+    <p>המידע אינו נמכר ואינו משמש לפרסום מותאם או לרימרקטינג באתר. הוא עשוי להיות מעובד בידי ספקי תשתית, מדידה ותקשורת הנדרשים להפעלת האתר ולטיפול בפנייה, ובהם Vercel, Google וספקי WhatsApp או דוא&quot;ל. חלק מהעיבוד עשוי להתבצע מחוץ לישראל בהתאם להסדרים ולאמצעי ההגנה של אותם ספקים. מידע עשוי להימסר גם אם הדבר נדרש לפי דין או לצורך הגנה על זכויות.</p>
+    <h2>שמירה ואבטחה</h2>
+    <p>מידע נשמר רק למשך הזמן הדרוש למטרות שלשמן נאסף, לטיפול בפנייה או בשירות, ולתקופות הנדרשות לפי דין, צורכי הנהלת חשבונות או הגנה משפטית. לאחר מכן הוא יימחק או יצומצם ככל שניתן. ננקטים אמצעי אבטחה סבירים, אך אין אפשרות להבטיח אבטחה מוחלטת.</p>
+    <h2>הזכויות שלך</h2>
+    <p>בכפוף לדין, אפשר לבקש לעיין במידע עליך, לתקן מידע שאינו נכון או לבקש את מחיקתו. אפשר גם לבטל הסכמה לעוגיות ניתוח בכל עת. ייתכן שאבקש פרטים סבירים כדי לאתר את המידע ולאמת את זהות המבקש.</p>
+    <h2>שינויים ויצירת קשר</h2>
+    <p>המדיניות עשויה להתעדכן בעקבות שינוי באתר, בספקים או בדין. תאריך העדכון יוצג בראש העמוד. לבקשות ולשאלות בנושא פרטיות:</p>
+    <ContactHe {...props} />
+  </>;
+}
 
-      <h2>What data is collected</h2>
-      <p>There are no sign-up forms on this site, and no personal details are required to browse it. The only data collected is:</p>
-      <ul>
-        <li>
-          <strong>Anonymous usage data</strong> - general browsing statistics (which pages were viewed,
-          visit duration, device and browser type, general geographic region). This data does not
-          identify you personally.
-        </li>
-        <li>
-          <strong>Information you choose to share</strong> - if you reach out via WhatsApp, phone, or
-          email, the details you provide (name, phone number, message content) are used solely to get
-          back to you and handle your inquiry.
-        </li>
-      </ul>
-
-      <h2>Measurement tools on this site</h2>
-      <p>This site uses the following tools to understand and improve how it&apos;s used:</p>
-      <ul>
-        <li>
-          <strong>Google Analytics 4</strong> - Google&apos;s service for measuring site traffic. It
-          uses cookies and collects anonymous usage data, but only after you accept the cookie
-          notice shown on your first visit. More information is available in
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
-            Google&apos;s Privacy Policy
-          </a>
-          .
-        </li>
-        <li>
-          <strong>Vercel Analytics</strong> - a measurement tool from the hosting platform, collecting
-          performance and usage data without cookies or personal identification.
-        </li>
-      </ul>
-      <p>
-        You can change your choice at any time by clearing your browser&apos;s local storage for this
-        site, or block/delete cookies via your browser settings. Declining or blocking cookies will
-        not affect your ability to browse the site.
-      </p>
-
-      <h2>What is not done with your data</h2>
-      <ul>
-        <li>Data is not sold or shared with third parties for marketing purposes.</li>
-        <li>There is no advertising on this site and no ad-retargeting tracking.</li>
-        <li>Details shared through a personal inquiry are used only to respond to that inquiry.</li>
-      </ul>
-
-      <h2>Your rights</h2>
-      <p>
-        Under applicable privacy law, you have the right to review data held about you, request a
-        correction, or request its deletion. For any such request, reach out using the details below,
-        and it will be handled promptly.
-      </p>
-
-      <h2>Changes to this policy</h2>
-      <p>
-        If this policy is updated (for example, if a new tool is added to the site), this page will
-        be updated accordingly, including the date at the top.
-      </p>
-
-      <h2>Contact</h2>
-      <ul>
-        <li>Name: Pini, NorthSpark Studio</li>
-        <li>
-          Phone: <a href={phoneHref} dir="ltr">{phone}</a>
-        </li>
-        <li>
-          Email: <a href={emailHref}>{email}</a>
-        </li>
-      </ul>
-    </>
-  );
+function PrivacyEn(props: ContactProps) {
+  return <>
+    <h1>Privacy Policy</h1>
+    <p className="legal-updated">Last updated: September 2026</p>
+    <p>northsparkstudio.com is operated by NorthSpark Studio. This policy explains how information is handled when you browse the site or contact me, in accordance with applicable privacy law.</p>
+    <h2>Information collected</h2>
+    <p>You can browse without registering or submitting details. Technical and usage information may still be processed, including pages viewed, usage times, device and browser type, IP address or online identifiers, and an approximate location. This data is not intended to identify you directly, but may be personal data under applicable law.</p>
+    <p>If you contact me voluntarily through WhatsApp, phone or email, I process the contact details, message and any other information you choose to provide. You are not required to provide information, but without it I may be unable to respond, prepare a proposal or provide services.</p>
+    <h2>Purposes</h2>
+    <ul><li>Operating, securing and improving the site and its performance.</li><li>Measuring site usage, subject to your cookie choice.</li><li>Responding to inquiries, preparing proposals and providing services.</li><li>Meeting legal obligations, maintaining records and protecting legal rights.</li></ul>
+    <h2>Cookies and analytics</h2>
+    <p><strong>Google Analytics 4</strong> loads only after you explicitly allow analytics cookies. It may set cookies and process usage data and online identifiers for Google. Declining does not affect access to the site. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google&apos;s Privacy Policy</a>.</p>
+    <p><strong>Vercel Analytics</strong> provides basic cookie-free usage and performance measurement. Vercel also hosts and provides infrastructure for the site. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel&apos;s Privacy Policy</a>.</p>
+    <p><CookieSettingsButton className="legal-cookie-settings" label="Open cookie settings" />. You can also delete cookies in your browser settings.</p>
+    <h2>Recipients and international processing</h2>
+    <p>Information is not sold and the site does not use personalised advertising or remarketing. It may be processed by infrastructure, analytics and communications providers needed to operate the site and handle inquiries, including Vercel, Google, and WhatsApp or email providers. Some processing may take place outside Israel under those providers&apos; safeguards. Information may also be disclosed when legally required or necessary to protect rights.</p>
+    <h2>Retention and security</h2>
+    <p>Information is kept only as long as needed for its purpose, to handle an inquiry or service, and for periods required by law, accounting or legal defence. It is then deleted or minimised where reasonably possible. Reasonable safeguards are used, but absolute security cannot be guaranteed.</p>
+    <h2>Your rights</h2>
+    <p>Subject to applicable law, you may request access to information about you, correction of inaccurate information, or deletion. You may withdraw analytics consent at any time. Reasonable identifying details may be requested to locate the information and verify your request.</p>
+    <h2>Changes and contact</h2>
+    <p>This policy may change when the site, providers or law change. The latest date will appear above. For privacy questions or requests:</p>
+    <ContactEn {...props} />
+  </>;
 }
 
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) notFound();
-  const locale = rawLocale;
-  const copy = getCopy(locale);
-
-  return (
-    <SectionPageLayout locale={locale}>
-      <section className="legal-page">
-        <div className="container legal-content">
-          {locale === "he" ? (
-            <PrivacyHe phone={copy.brand.phone} phoneHref={copy.brand.phoneHref} email={copy.brand.email} emailHref={copy.brand.emailHref} />
-          ) : (
-            <PrivacyEn phone={copy.brand.phone} phoneHref={copy.brand.phoneHref} email={copy.brand.email} emailHref={copy.brand.emailHref} />
-          )}
-        </div>
-      </section>
-    </SectionPageLayout>
-  );
+  const copy = getCopy(rawLocale);
+  const contact = { phone: copy.brand.phone, phoneHref: copy.brand.phoneHref, email: copy.brand.email, emailHref: copy.brand.emailHref };
+  return <SectionPageLayout locale={rawLocale}><section className="legal-page"><div className="container legal-content">{rawLocale === "he" ? <PrivacyHe {...contact} /> : <PrivacyEn {...contact} />}</div></section></SectionPageLayout>;
 }

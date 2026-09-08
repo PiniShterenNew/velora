@@ -55,6 +55,25 @@
   color: var(--color-text);
 }
 
+.legal-content a:focus-visible,
+.legal-cookie-settings:focus-visible {
+  border-radius: 3px;
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 3px;
+}
+
+.legal-cookie-settings {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
 .not-found-content {
   text-align: center;
 }
