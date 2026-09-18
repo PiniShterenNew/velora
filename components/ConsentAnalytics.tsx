@@ -27,7 +27,16 @@ export function ConsentAnalytics({ measurementId }: { measurementId: string }) {
 
   useEffect(() => {
     if (!enabled || !ready) return;
-    window.gtag?.("config", measurementId, { page_path: pathname });
+    window.gtag?.("config", measurementId, { send_page_view: false });
+  }, [enabled, measurementId, ready]);
+
+  useEffect(() => {
+    if (!enabled || !ready) return;
+    window.gtag?.("event", "page_view", {
+      page_path: pathname,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
   }, [enabled, measurementId, pathname, ready]);
 
   if (!enabled) return null;
