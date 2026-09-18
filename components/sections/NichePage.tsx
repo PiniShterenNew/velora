@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { buildWhatsappUrl, getCopy, getProjectByName, getServiceByNumber, type Locale, type NichePageCopy } from "@/lib/data";
+import { getSiteUrl } from "@/lib/site-url";
 import { AmbientBackground } from "../AmbientBackground";
 import { Reveal } from "../Reveal";
 import { WhatsAppIcon } from "../WhatsAppIcon";
@@ -11,6 +12,28 @@ export function NichePage({ niche, locale }: { niche: NichePageCopy; locale: Loc
   const whatsappUrl = buildWhatsappUrl(copy, niche.whatsappMessage);
   const project = getProjectByName(copy, niche.projectName);
   const plan = getServiceByNumber(copy, niche.suggestedPlanNumber);
+  const siteUrl = getSiteUrl();
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/${locale}/${niche.slug}#service`,
+    name: niche.title,
+    description: niche.metaDescription,
+    url: `${siteUrl}/${locale}/${niche.slug}`,
+    serviceType: niche.eyebrow,
+    areaServed: {
+      "@type": "Country",
+      name: "Israel",
+    },
+    provider: {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/${locale}#northspark`,
+      name: copy.brand.name,
+      url: `${siteUrl}/${locale}`,
+      telephone: copy.brand.phone,
+      email: copy.brand.email,
+    },
+  };
 
   return (
     <>
@@ -62,6 +85,10 @@ export function NichePage({ niche, locale }: { niche: NichePageCopy; locale: Loc
         </div>
       </section>
       <FinalCTA locale={locale} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
     </>
   );
 }
