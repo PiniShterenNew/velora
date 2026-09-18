@@ -18,7 +18,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: niche.metaTitle,
     description: niche.metaDescription,
-    alternates: { canonical: `/${locale}/${slug}` },
+    alternates: {
+      canonical: `/${locale}/${slug}`,
+      languages: {
+        he: `/he/${slug}`,
+        en: `/en/${slug}`,
+      },
+    },
   };
 }
 
