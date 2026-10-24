@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localeAlternates } from "@/lib/site-url";
 import { notFound } from "next/navigation";
 import { SectionPageLayout } from "@/components/SectionPageLayout";
 import { getCopy, isLocale, locales, type Locale } from "@/lib/data";
@@ -11,12 +12,12 @@ const metaByLocale: Record<Locale, Metadata> = {
   he: {
     title: "הצהרת נגישות | NorthSpark Studio",
     description: "הצהרת הנגישות של אתר NorthSpark Studio: רמת הנגישות, ההתאמות שבוצעו ודרכי פנייה בנושאי נגישות.",
-    alternates: { canonical: "/he/accessibility" },
+    alternates: localeAlternates("he", "/accessibility"),
   },
   en: {
     title: "Accessibility Statement | NorthSpark Studio",
     description: "The accessibility statement for the NorthSpark Studio website: conformance level, accommodations in place, and how to reach us about accessibility.",
-    alternates: { canonical: "/en/accessibility" },
+    alternates: localeAlternates("en", "/accessibility"),
   },
 };
 

@@ -14,3 +14,14 @@ export function getSiteUrl() {
   // Canonical form is the apex domain — never www.
   return withProtocol(rawUrl).replace(/\/+$/, "").replace(/^https:\/\/www\./i, "https://");
 }
+
+export function localeAlternates(locale: string, path = "") {
+  return {
+    canonical: `/${locale}${path}`,
+    languages: {
+      he: `/he${path}`,
+      en: `/en${path}`,
+      "x-default": `/he${path}`,
+    },
+  };
+}

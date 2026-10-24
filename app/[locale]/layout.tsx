@@ -5,7 +5,7 @@ import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { ConsentAnalytics } from "@/components/ConsentAnalytics";
 import { CookieConsent } from "@/components/CookieConsent";
 import { getCopy, isLocale, locales, type Locale } from "@/lib/data";
-import { getSiteUrl } from "@/lib/site-url";
+import { getSiteUrl, localeAlternates } from "@/lib/site-url";
 
 import "../styles/tokens.css";
 import "../globals.css";
@@ -67,13 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
     metadataBase: new URL(baseUrl),
 
-    alternates: {
-      canonical: pagePath,
-      languages: {
-        he: "/he",
-        en: "/en",
-      },
-    },
+    alternates: localeAlternates(rawLocale),
 
     verification: {
       google: "jrq-mj9t6iTGB0dhkcR9900W8waismDq31eIh15w74I",

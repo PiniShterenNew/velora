@@ -56,3 +56,45 @@
     min-height: 56px;
   }
 }
+
+/* Long-form service content below the niche hero */
+.niche-details {
+  padding-block: clamp(20px, 4vw, 40px) clamp(40px, 6vw, 72px);
+}
+
+.niche-article-section + .niche-article-section {
+  margin-top: clamp(36px, 5vw, 54px);
+}
+
+.niche-article h2 {
+  margin-bottom: var(--space-5);
+}
+
+.niche-article h3 {
+  margin-bottom: var(--space-2);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.niche-article p,
+.niche-article li {
+  color: var(--color-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.niche-article p + p,
+.niche-article p + ul {
+  margin-top: var(--space-4);
+}
+
+.niche-article ul {
+  display: grid;
+  gap: var(--space-3);
+  padding-inline-start: 1.2em;
+  list-style: disc;
+}
+
+.niche-faq-item + .niche-faq-item {
+  margin-top: var(--space-6);
+}

@@ -687,3 +687,13 @@
     display: none;
   }
 }
+
+/* Keyword eyebrow lives inside the H1 for SEO but keeps the label styling. */
+.hero-title .hero-eyebrow {
+  align-self: center;
+  font-family: var(--font-sans);
+  animation-name: fade-up;
+  animation-duration: var(--duration-normal);
+  animation-fill-mode: both;
+  animation-timing-function: var(--ease-standard);
+}
