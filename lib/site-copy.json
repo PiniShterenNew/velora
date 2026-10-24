@@ -424,10 +424,10 @@
     },
     "cookieConsent": {
         "ariaLabel": "הודעת עוגיות",
-        "message": "באישורך בלבד, Google Analytics ישתמש בעוגיות כדי למדוד שימוש באתר. אפשר לסרב בלי לפגוע בגלישה.",
-        "accept": "אפשר ניתוח",
-        "decline": "ללא עוגיות ניתוח",
-        "privacyLinkLabel": "למדיניות הפרטיות",
+        "message": "אנחנו משתמשים בעוגיות של Google Analytics כדי להבין איך משתמשים באתר ולשפר אותו. אפשר לסרב, והגלישה לא תיפגע.",
+        "accept": "אישור",
+        "decline": "דחייה",
+        "privacyLinkLabel": "מדיניות הפרטיות",
         "settingsLabel": "הגדרות עוגיות"
     },
     "nichePages": [

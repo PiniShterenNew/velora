@@ -37,7 +37,7 @@
   "common": {
     "whatsappShort": "Let's talk",
     "whatsappFull": "Message me on WhatsApp",
-    "mobileWhatsapp": "Message me on WhatsApp",
+    "mobileWhatsapp": "Chat on WhatsApp",
     "watchProcess": "See how it works",
     "watchProject": "View project",
     "suggestedPlanLabel": "Best place to start:",
@@ -365,9 +365,9 @@
   },
   "cookieConsent": {
     "ariaLabel": "Cookie notice",
-    "message": "Only with your permission, Google Analytics will use cookies to measure site usage. You can decline without affecting the site.",
-    "accept": "Allow analytics",
-    "decline": "No analytics cookies",
+    "message": "We use Google Analytics cookies to understand how the site is used and improve it. You can decline without affecting your browsing.",
+    "accept": "Accept",
+    "decline": "Decline",
     "privacyLinkLabel": "Privacy policy",
     "settingsLabel": "Cookie settings"
   },

@@ -475,7 +475,7 @@ main {
     box-shadow: var(--shadow-offset-sm);
     font-size: clamp(.92rem, 4.3vw, 1.05rem);
     font-weight: 800;
-    text-wrap: balance;
+    white-space: nowrap;
   }
 
   .mobile-menu-cta:hover {
