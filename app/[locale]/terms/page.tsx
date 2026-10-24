@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localeAlternates } from "@/lib/site-url";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SectionPageLayout } from "@/components/SectionPageLayout";
@@ -7,8 +8,8 @@ import { getCopy, isLocale, locales, type Locale } from "@/lib/data";
 export function generateStaticParams() { return locales.map((locale) => ({ locale })); }
 
 const metaByLocale: Record<Locale, Metadata> = {
-  he: { title: "תנאי שימוש | NorthSpark Studio", description: "תנאי השימוש באתר NorthSpark Studio ומידע על תוכן, קניין רוחני, קישורים והתקשרות לקבלת שירותים.", alternates: { canonical: "/he/terms" } },
-  en: { title: "Terms of Use | NorthSpark Studio", description: "Terms governing use of the NorthSpark Studio website, its content, intellectual property, links and service inquiries.", alternates: { canonical: "/en/terms" } },
+  he: { title: "תנאי שימוש | NorthSpark Studio", description: "תנאי השימוש באתר NorthSpark Studio ומידע על תוכן, קניין רוחני, קישורים והתקשרות לקבלת שירותים.", alternates: localeAlternates("he", "/terms") },
+  en: { title: "Terms of Use | NorthSpark Studio", description: "Terms governing use of the NorthSpark Studio website, its content, intellectual property, links and service inquiries.", alternates: localeAlternates("en", "/terms") },
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

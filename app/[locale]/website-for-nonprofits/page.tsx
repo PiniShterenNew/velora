@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { localeAlternates } from "@/lib/site-url";
 import { notFound } from "next/navigation";
 import { SectionPageLayout } from "@/components/SectionPageLayout";
 import { NichePage } from "@/components/sections/NichePage";
@@ -18,13 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: niche.metaTitle,
     description: niche.metaDescription,
-    alternates: {
-      canonical: `/${locale}/${slug}`,
-      languages: {
-        he: `/he/${slug}`,
-        en: `/en/${slug}`,
-      },
-    },
+    alternates: localeAlternates(locale, `/${slug}`),
   };
 }
 

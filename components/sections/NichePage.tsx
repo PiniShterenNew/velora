@@ -35,6 +35,26 @@ export function NichePage({ niche, locale }: { niche: NichePageCopy; locale: Loc
     },
   };
 
+  const pageUrl = `${siteUrl}/${locale}/${niche.slug}`;
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: niche.faq.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: copy.brand.name, item: `${siteUrl}/${locale}` },
+      { "@type": "ListItem", position: 2, name: niche.eyebrow, item: pageUrl },
+    ],
+  };
+
   return (
     <>
       <section className="page-section niche-hero">
@@ -84,10 +104,47 @@ export function NichePage({ niche, locale }: { niche: NichePageCopy; locale: Loc
           </Reveal>
         </div>
       </section>
+      <section className="page-section niche-details">
+        <div className="container niche-inner niche-article">
+          {niche.sections.map((section) => (
+            <Reveal key={section.title} className="niche-article-section">
+              <h2>{section.title}</h2>
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              {section.bullets && (
+                <ul>
+                  {section.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+            </Reveal>
+          ))}
+
+          <Reveal className="niche-article-section niche-faq">
+            <h2>{niche.faqTitle}</h2>
+            {niche.faq.map(({ question, answer }) => (
+              <div key={question} className="niche-faq-item">
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </section>
       <FinalCTA locale={locale} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
     </>
   );

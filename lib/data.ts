@@ -48,6 +48,9 @@ export interface NichePageCopy {
   suggestedPlanNumber: string;
   whatsappMessage: string;
   relatedLinkLabel: string;
+  sections: { title: string; paragraphs: string[]; bullets?: string[] }[];
+  faqTitle: string;
+  faq: { question: string; answer: string }[];
 }
 
 type SiteCopyContract = Omit<typeof heCopySource, "servicesSection" | "testimonials" | "nichePages"> & {

@@ -396,7 +396,72 @@
       "projectName": "KIM Beauty",
       "suggestedPlanNumber": "02",
       "whatsappMessage": "Hi, I'm interested in a website for a beauty clinic",
-      "relatedLinkLabel": "I also build websites for beauty clinics"
+      "relatedLinkLabel": "I also build websites for beauty clinics",
+      "sections": [
+        {
+          "title": "What's included in a beauty clinic website",
+          "paragraphs": [
+            "A website for a beauty clinic, skincare studio or beautician should do what Instagram can't: explain each treatment clearly, introduce the clinic and the person behind it, and make booking easy.",
+            "I write, design and build the site myself. There's no need to coordinate between a copywriter, a designer and a developer, and every decision stays in one place."
+          ],
+          "bullets": [
+            "A clear explanation of each treatment: what's involved, how long it takes and who it's right for.",
+            "A section introducing the clinic and the practitioner, with real photos.",
+            "A prominent WhatsApp or call button for booking, within reach on every screen.",
+            "A custom design that reflects the feel of your clinic, not a template that looks like everyone else's.",
+            "A clear structure that works well on phones and that Google understands, so people searching for your name find organised information."
+          ]
+        },
+        {
+          "title": "Why it matters for beauty clinics",
+          "paragraphs": [
+            "Most clients decide where to book before they ever get in touch. They check Instagram, Google the business and look for a reason to trust it. When the information is scattered across posts and stories, it's hard to tell exactly what you're getting.",
+            "A good website answers the questions you hear again and again, so the people who contact you already know what they want. That saves you time in messages and gives clients the confidence to book."
+          ]
+        },
+        {
+          "title": "How it works",
+          "paragraphs": [
+            "Four simple steps, and you always know what's happening. We don't move forward until you approve."
+          ],
+          "bullets": [
+            "A quick chat: you tell me about the clinic, your treatments and the clients you want more of.",
+            "Copy: I write everything on the site, including an explanation of each treatment. You read it, correct it and approve it.",
+            "Design: once the copy is approved, I design the site around it in a style that fits your clinic.",
+            "Build and launch: I build it, test it on phones and computers, and put it live. You get a finished website that works."
+          ]
+        },
+        {
+          "title": "How pricing works",
+          "paragraphs": [
+            "The price depends on the scope. For most clinics, a one-page website that brings together your treatments, the clinic and how to get in touch is the right fit. If you offer many treatments that each need their own page, a full website may suit you better.",
+            "The prices on the site are starting points. After a short chat you get a clear proposal with the final price before we begin, and payment is split into three parts: 50% upfront, 30% when the design is approved and 20% before launch. Once the site is live, you can still come to me for small updates and maintenance."
+          ]
+        }
+      ],
+      "faqTitle": "FAQ: websites for beauty clinics",
+      "faq": [
+        {
+          "question": "I already have an active Instagram. Why do I need a website?",
+          "answer": "Instagram is great for showing your work, but it's hard to explain each treatment properly there. A website brings everything together in one place and leads straight to booking, and you can link to it from your bio."
+        },
+        {
+          "question": "Who writes the treatment descriptions?",
+          "answer": "I do. Based on a conversation with you, I write all the copy, and you read, correct and approve it before we move on to design."
+        },
+        {
+          "question": "Can clients book through the website?",
+          "answer": "The site leads to booking through a prominent WhatsApp or call button on every screen. If you already use a booking system, the site can link to it."
+        },
+        {
+          "question": "How long does it take?",
+          "answer": "It depends on the scope. A one-page website is usually ready in about 10 days, and a full website in up to three weeks, once the materials are in place."
+        },
+        {
+          "question": "What if I add new treatments later?",
+          "answer": "You can come to me after launch for small updates and maintenance, such as adding a new treatment."
+        }
+      ]
     },
     {
       "slug": "website-for-tradespeople",
@@ -422,7 +487,72 @@
       "projectName": "A.S. Plumbing",
       "suggestedPlanNumber": "02",
       "whatsappMessage": "Hi, I'm interested in a website for my trade business",
-      "relatedLinkLabel": "I also build websites for tradespeople"
+      "relatedLinkLabel": "I also build websites for tradespeople",
+      "sections": [
+        {
+          "title": "What's included in a website for tradespeople",
+          "paragraphs": [
+            "A website for an electrician, plumber, contractor or any other tradesperson has one main job: help someone who needs help right now see that you're the right person, and get them to call. That's why every site I build for tradespeople starts with the questions your customers are already asking, not with a template.",
+            "I write, design and build the whole site myself, from start to finish. You don't need to write copy, find a designer or coordinate between several people."
+          ],
+          "bullets": [
+            "All the copy written for you: what you do, where you work, which jobs you take on and why people should choose you.",
+            "A gallery of jobs you've completed, with a short note on each one, so people can see your work rather than just hear about it.",
+            "Clear call and WhatsApp buttons, available from every screen, with no awkward forms.",
+            "A custom design that looks like your business and works properly on phones, where most customers search.",
+            "A structure Google understands: clear headings, service descriptions and the basic information that helps you show up in search."
+          ]
+        },
+        {
+          "title": "Why it matters for tradespeople",
+          "paragraphs": [
+            "When something breaks at home, people don't wait. They search, contact a few tradespeople at once and go with whoever looks most professional and trustworthy. Word of mouth still works, but even someone who got your number from a friend will usually look you up before calling.",
+            "A clear website with real work and an easy way to get in touch helps you be the one they call first. It answers common questions in advance, so the first conversation already starts with trust."
+          ]
+        },
+        {
+          "title": "How it works",
+          "paragraphs": [
+            "The process is simple, and you always know what's happening. We don't move to the next step until you approve."
+          ],
+          "bullets": [
+            "A quick chat: you tell me in plain language what you do, who your customers are and which jobs you want more of.",
+            "Copy: I organise what you told me and write everything that goes on the site. You read it, correct it and approve it.",
+            "Design: once the copy is approved, I design the site around it, including a proper place for photos of your work.",
+            "Build and launch: I build it, test it on phones and computers, and put it live. You get a finished website that works."
+          ]
+        },
+        {
+          "title": "How pricing works",
+          "paragraphs": [
+            "The price depends on the scope. For most tradespeople, a one-page website that brings everything a customer needs into one place is the right fit. If you offer several different kinds of work that each need their own explanation, a full website with a page for each service may suit you better.",
+            "The prices on the site are starting points. After a short chat you get a clear proposal with the final price before we begin, and payment is split into three parts: 50% upfront, 30% when the design is approved and 20% before launch. Once the site is live, you can still come to me for small updates and maintenance."
+          ]
+        }
+      ],
+      "faqTitle": "FAQ: websites for tradespeople",
+      "faq": [
+        {
+          "question": "I don't have time to write copy. Is that a problem?",
+          "answer": "No. I write all the copy myself based on a short conversation with you. You just read it, make any corrections and approve it."
+        },
+        {
+          "question": "I don't have many photos of my work. Can we still do this?",
+          "answer": "Yes. We can start with the photos you have and add more over time. A few real photos with a short explanation are better than a generic gallery."
+        },
+        {
+          "question": "Will the site work well on phones?",
+          "answer": "Yes. Most people looking for a tradesperson search on their phone, so I test every site on phones and computers before launch, with call and WhatsApp buttons available from every screen."
+        },
+        {
+          "question": "How long does it take?",
+          "answer": "It depends on the scope. A one-page website is usually ready in about 10 days, and a full website in up to three weeks, once the materials are in place."
+        },
+        {
+          "question": "What happens after the site goes live?",
+          "answer": "The site is yours, and you can still come to me for small updates and maintenance, for example when you want to add new jobs to the gallery."
+        }
+      ]
     },
     {
       "slug": "website-for-nonprofits",
@@ -448,7 +578,72 @@
       "projectName": "Notnim Be'Ahava",
       "suggestedPlanNumber": "01",
       "whatsappMessage": "Hi, I'm interested in a donation page for a nonprofit",
-      "relatedLinkLabel": "I also build donation pages for nonprofits"
+      "relatedLinkLabel": "I also build donation pages for nonprofits",
+      "sections": [
+        {
+          "title": "What's included in a nonprofit donation page",
+          "paragraphs": [
+            "A good donation page needs to do two things: briefly explain where the money goes and why it matters, and let people donate right away on the same screen. Every extra step, every jump to another page and every awkward form makes it less likely that a donor will finish.",
+            "I write, design and build the page myself, so the message, the design and the technical experience are created together and serve one goal."
+          ],
+          "bullets": [
+            "Short, clear copy: what the organisation does, who the donation helps and why now.",
+            "A way to donate on the same page, without sending donors somewhere else.",
+            "Real photos and transparent information that build trust.",
+            "A custom design that feels trustworthy rather than generic, and works well on phones.",
+            "A clear structure Google understands, so people searching for the organisation find organised information."
+          ]
+        },
+        {
+          "title": "Why it matters for nonprofits",
+          "paragraphs": [
+            "People give when they understand why. A donation button on its own isn't enough, and a generic-looking page can make a potential donor hesitate. Someone arriving from a WhatsApp link or a social post needs to understand within seconds what you're asking and why it matters.",
+            "A focused page that explains, shows and lets people donate straight away removes friction at the moment someone has already decided to help."
+          ]
+        },
+        {
+          "title": "How it works",
+          "paragraphs": [
+            "Four simple steps. You always know what's happening, and we don't move forward without your approval."
+          ],
+          "bullets": [
+            "A quick chat: you tell me about the organisation, its work and what you want donors to do.",
+            "Copy: I write everything on the page. You read it, correct it and approve it.",
+            "Design: once the copy is approved, I design the page around it.",
+            "Build and launch: I build it, test it on phones and computers, and put it live. You get a finished page that works."
+          ]
+        },
+        {
+          "title": "How pricing works",
+          "paragraphs": [
+            "The price depends on the scope. For most nonprofits, a focused landing page with one message and one action, to donate, is the right fit. If you also want to present your wider activity, a one-page website or a full website may suit you better.",
+            "The prices on the site are starting points. After a short chat you get a clear proposal with the final price before we begin, and payment is split into three parts: 50% upfront, 30% when the design is approved and 20% before launch. Once the page is live, you can still come to me for small updates and maintenance."
+          ]
+        }
+      ],
+      "faqTitle": "FAQ: donation pages for nonprofits",
+      "faq": [
+        {
+          "question": "Can people donate directly from the page?",
+          "answer": "Yes, that's the point. The page is built so donors can give on the same screen without moving between pages. The payment setup is matched to what your organisation already uses."
+        },
+        {
+          "question": "Who writes the copy?",
+          "answer": "I do. Based on a short conversation, I write all the copy, and you read, correct and approve it."
+        },
+        {
+          "question": "We already have a website. Do we need a new one?",
+          "answer": "Not necessarily. A focused donation page can stand on its own and be linked from your existing site, campaigns and social channels."
+        },
+        {
+          "question": "How long does it take?",
+          "answer": "A focused landing page is usually ready in about a week, once the materials are in place."
+        },
+        {
+          "question": "Can the page be updated for the next campaign?",
+          "answer": "Yes. Once the page is live, you can still come to me for small updates and maintenance."
+        }
+      ]
     }
   ]
 }
