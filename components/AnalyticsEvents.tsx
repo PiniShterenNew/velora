@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 function trackEvent(name: string, params: Record<string, string>) {
   window.gtag?.("event", name, params);
@@ -17,10 +18,11 @@ function clickLocation(element: Element): string {
   return "page";
 }
 
-const viewedSections = new Set<string>();
-
 export function AnalyticsEvents() {
+  const pathname = usePathname();
+
   useEffect(() => {
+    const viewedSections = new Set<string>();
     const onClick = (event: MouseEvent) => {
       if (!(event.target instanceof Element)) return;
 
@@ -75,7 +77,7 @@ export function AnalyticsEvents() {
       document.removeEventListener("click", onClick);
       observer.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
