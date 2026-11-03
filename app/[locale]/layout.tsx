@@ -44,6 +44,8 @@ const siteUrl = getSiteUrl();
 const baseUrl = siteUrl.replace(/\/$/, "");
 const ogImageUrl = `${baseUrl}/og-image.jpg`;
 const googleAnalyticsId = "G-YBED7XP2EX";
+// Keep development and Preview traffic out of the production GA4 property.
+const analyticsEnabled = process.env.VERCEL_ENV === "production";
 
 const localeMeta: Record<Locale, { dir: "rtl" | "ltr"; ogLocale: string }> = {
   he: { dir: "rtl", ogLocale: "he_IL" },
@@ -124,8 +126,12 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={localeMeta[locale].dir} className={`${rubik.variable} ${frankRuhlLibre.variable}`}>
       <body>
-        <ConsentAnalytics measurementId={googleAnalyticsId} />
-        <AnalyticsEvents />
+        {analyticsEnabled && (
+          <>
+            <ConsentAnalytics measurementId={googleAnalyticsId} />
+            <AnalyticsEvents />
+          </>
+        )}
         {children}
         <CookieConsent locale={locale} />
       </body>
