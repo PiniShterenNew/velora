@@ -61,7 +61,7 @@ gtag('event', 'page_view', {
 
   return (
     <>
-      <Script id="ga-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: bootstrap }} />
+      <Script id="ga-init" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: bootstrap }} />
       <Script
         id="google-analytics"
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
