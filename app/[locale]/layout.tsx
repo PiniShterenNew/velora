@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
+import { COOKIE_CONSENT_STORAGE_KEY } from "@/lib/consent";
 import { notFound } from "next/navigation";
 import { Frank_Ruhl_Libre, Rubik } from "next/font/google";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
@@ -46,6 +48,30 @@ const ogImageUrl = `${baseUrl}/og-image.jpg`;
 const googleAnalyticsId = "G-YBED7XP2EX";
 // Keep development and Preview traffic out of the production GA4 property.
 const analyticsEnabled = process.env.VERCEL_ENV === "production";
+
+const analyticsBootstrap = `
+window.dataLayer = window.dataLayer || [];
+window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  wait_for_update: 500
+});
+try {
+  if (window.localStorage.getItem(${JSON.stringify(COOKIE_CONSENT_STORAGE_KEY)}) === 'granted') {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', ${JSON.stringify(googleAnalyticsId)}, { send_page_view: false });
+gtag('event', 'page_view', {
+  page_path: window.location.pathname,
+  page_location: window.location.href,
+  page_title: document.title
+});
+`;
 
 const localeMeta: Record<Locale, { dir: "rtl" | "ltr"; ogLocale: string }> = {
   he: { dir: "rtl", ogLocale: "he_IL" },
@@ -128,6 +154,7 @@ export default async function RootLayout({
       <body>
         {analyticsEnabled && (
           <>
+            <Script id="ga-init" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: analyticsBootstrap }} />
             <ConsentAnalytics measurementId={googleAnalyticsId} />
             <AnalyticsEvents />
           </>
